@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prep: Cloud Boundary Definition</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-page: #020617; 
+            --bg-node: rgba(10, 15, 29, 0.95);
+            --border-base: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --color-blue: #3b82f6;
+            --color-cyan: #0ea5e9;
+            --color-purple: #a855f7;
+            --color-green: #10b981;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg-page); 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            padding: 4rem 20px;
+        }
+
+        .study-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header-tag {
+            font-family: monospace;
+            color: var(--color-cyan);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-base);
+            padding-bottom: 1.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .study-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-base);
+            border-left: 4px solid;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+        }
+
+        .card-mechanic { border-left-color: var(--color-blue); }
+        .card-executive { border-left-color: var(--color-green); }
+
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title::before {
+            content: '>';
+            color: inherit;
+            font-weight: 900;
+        }
+
+        .card-text {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .card-text strong {
+            color: var(--text-main);
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .highlight-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .highlight-list li::before {
+            content: '■';
+            color: var(--color-cyan);
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+            top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="study-container">
+        <span class="header-tag">[GATE 1 : STRUCTURAL ABSTRACTION]</span>
+        <h1 class="page-title">Cloud Boundary Definition</h1>
+
+        <div class="card-grid">
+            
+            <!-- THE MECHANICS CARD -->
+            <div class="study-card card-mechanic">
+                <h2 class="card-title" style="color: var(--color-blue);">The Engineering Mechanic</h2>
+                <p class="card-text">
+                    This is the strict establishment of the deployment perimeter. Before a single line of code is generated or any execution occurs, the system mandates a hard lock on the exact operating coordinates.
+                </p>
+                <ul class="highlight-list">
+                    <li><strong>Target Tenant ID:</strong> Establishes the global identity boundary.</li>
+                    <li><strong>Subscription ID:</strong> Isolates the billing and core asset perimeter.</li>
+                    <li><strong>Resource Group:</strong> Fences the specific operational theater.</li>
+                    <li><strong>Target Asset:</strong> Identifies the exact data-plane resource (e.g., Key Vault) being accessed.</li>
+                </ul>
+            </div>
+
+            <!-- THE EXECUTIVE DEFENSE CARD -->
+            <div class="study-card card-executive">
+                <h2 class="card-title" style="color: var(--color-green);">The Executive Defense</h2>
+                <p class="card-text">
+                    If an AI does not know its exact boundaries, it will hallucinate them. By mathematically fencing in the operational theater first, we guarantee that we never operate blindly or rely on default broad tenant settings. 
+                    <br><br>
+                    <strong>The Business Value:</strong> Even if an execution agent is compromised, the threat is structurally isolated by this defined boundary and physically cannot bleed into other enterprise environments.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
