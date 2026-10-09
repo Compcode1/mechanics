@@ -111,11 +111,19 @@
         .highlight-list { list-style: none; margin-top: 1.5rem; }
         .highlight-list li {
             margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;
-            font-size: 1.1rem; color: var(--text-muted);
+            font-size: 1.1rem; color: var(--text-muted); line-height: 1.6;
         }
         .highlight-list li::before {
             content: '■'; color: var(--color-cyan); position: absolute; left: 0; font-size: 0.8rem; top: 4px;
         }
+
+        /* Responsive styling for the Sequence component in Gate 3 */
+        .sequence-container { margin-top: 1.5rem; border-left: 2px solid var(--border-base); padding-left: 1.5rem; }
+        .sequence-step { position: relative; margin-bottom: 1.5rem; }
+        .sequence-step:last-child { margin-bottom: 0; }
+        .sequence-step::before { content: ''; position: absolute; left: -1.8rem; top: 0.5rem; width: 10px; height: 10px; border-radius: 50%; background: var(--color-cyan); }
+        .sequence-step-title { font-weight: 700; color: var(--text-main); font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .sequence-step-text { font-size: 1rem; color: var(--text-muted); }
 
         @media (max-width: 768px) {
             .page-title { font-size: 2.2rem; }
@@ -197,6 +205,48 @@
                         <br><br>
                         <strong>The Business Value:</strong> We completely decouple deployment infrastructure from human user accounts. If a developer's laptop is compromised, the blast radius is contained because the execution pipeline operates under its own isolated, mathematically verified identity that an attacker cannot steal.
                     </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GATE 3: FEDERATION -->
+        <div class="gate-section">
+            <span class="header-tag">[GATE 3 : CRYPTOGRAPHIC OIDC]</span>
+            <h1 class="page-title">Passwordless Federation</h1>
+
+            <div class="card-grid">
+                <div class="study-card card-mechanic">
+                    <h2 class="card-title" style="color: var(--color-blue);">The Engineering Mechanic</h2>
+                    <p class="card-text">
+                        The core enforcement mechanism of this gate is the <strong>Subject Claim</strong>—a strict, case-sensitive binary guard. We explicitly bypass native portal wizards (which often strip critical database identifiers and trigger <code>AADSTS700213</code> failures) in favor of exposing raw configuration fields. This allows us to perfectly map immutable database IDs and establish an active, runtime-validated cryptographic bridge via a strict three-phase sequence:
+                    </p>
+                    
+                    <div class="sequence-container">
+                        <div class="sequence-step">
+                            <div class="sequence-step-title">1. Assertion Ingestion</div>
+                            <div class="sequence-step-text">The external execution environment broadcasts a short-lived OpenID Connect JWT, signed by its native authority, directly to the Entra ID token endpoint.</div>
+                        </div>
+                        <div class="sequence-step">
+                            <div class="sequence-step-title">2. Deterministic Validation</div>
+                            <div class="sequence-step-text">The identity interceptor mathematically compares the inbound claim payload character-for-character against the immutable constraints written to the application blueprint.</div>
+                        </div>
+                        <div class="sequence-step">
+                            <div class="sequence-step-title">3. State Transition</div>
+                            <div class="sequence-step-text">Upon an absolute binary match, Entra ID issues a scoped Access Token (AT) capped at a hard 60-minute execution boundary.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="study-card card-executive">
+                    <h2 class="card-title" style="color: var(--color-green);">The Executive Defense</h2>
+                    <p class="card-text">
+                        Federation is the critical transition from simply configuring access to building a resilient, self-defending perimeter. This architecture defends the enterprise on three explicit fronts:
+                    </p>
+                    <ul class="highlight-list">
+                        <li><strong>Eradication of Stolen Secrets:</strong> You cannot breach a password that does not exist. This eliminates the primary attack vector for supply chain breaches.</li>
+                        <li><strong>Zero-Wildcard Blast Radius:</strong> By mathematically banning production wildcards (<code>*</code>) in the Subject Claim, we neutralize any possibility of multi-branch or unauthorized cross-repository impersonation.</li>
+                        <li><strong>Absolute Volatility:</strong> The token state transition generates an Access Token with a strict 60-minute ceiling. Crucially, <strong>zero Refresh Tokens (RT)</strong> are permitted, ensuring the authorization boundary remains entirely volatile and impossible for an attacker to infinitely extend.</li>
+                    </ul>
                 </div>
             </div>
         </div>
