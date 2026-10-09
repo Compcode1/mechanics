@@ -117,14 +117,6 @@
             content: '■'; color: var(--color-cyan); position: absolute; left: 0; font-size: 0.8rem; top: 4px;
         }
 
-        /* Responsive styling for the Sequence component in Gate 3 */
-        .sequence-container { margin-top: 1.5rem; border-left: 2px solid var(--border-base); padding-left: 1.5rem; }
-        .sequence-step { position: relative; margin-bottom: 1.5rem; }
-        .sequence-step:last-child { margin-bottom: 0; }
-        .sequence-step::before { content: ''; position: absolute; left: -1.8rem; top: 0.5rem; width: 10px; height: 10px; border-radius: 50%; background: var(--color-cyan); }
-        .sequence-step-title { font-weight: 700; color: var(--text-main); font-size: 1.1rem; margin-bottom: 0.3rem; }
-        .sequence-step-text { font-size: 1rem; color: var(--text-muted); }
-
         @media (max-width: 768px) {
             .page-title { font-size: 2.2rem; }
             .gate-flow { flex-direction: column; }
@@ -157,24 +149,24 @@
 
             <div class="card-grid">
                 <div class="study-card card-mechanic">
-                    <h2 class="card-title" style="color: var(--color-blue);">The Engineering Mechanic</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">The Engineering Mechanic (Plain Talk)</h2>
                     <p class="card-text">
-                        This is the strict establishment of the deployment perimeter. Before a single line of code is generated or any execution occurs, the system mandates a hard lock on the exact operating coordinates.
+                        Think of this like building a house. Before you start swinging hammers or writing code, you have to buy the plot of land and draw the property lines. 
                     </p>
                     <ul class="highlight-list">
-                        <li><strong>Target Tenant ID:</strong> Establishes the global identity boundary.</li>
-                        <li><strong>Subscription ID:</strong> Isolates the billing and core asset perimeter.</li>
-                        <li><strong>Resource Group:</strong> Fences the specific operational theater.</li>
-                        <li><strong>Target Asset:</strong> Identifies the exact data-plane resource being accessed.</li>
+                        <li><strong>The Tenant ID</strong> is the zip code.</li>
+                        <li><strong>The Subscription</strong> is the specific lot you bought.</li>
+                        <li><strong>The Resource Group</strong> is the fence you build around the yard.</li>
                     </ul>
+                    <p class="card-text" style="margin-top: 1rem;">
+                        We lock these exact coordinates in <strong>first</strong>. This tells the AI automation exactly where it is allowed to work, and more importantly, where it is strictly forbidden to touch.
+                    </p>
                 </div>
 
                 <div class="study-card card-executive">
-                    <h2 class="card-title" style="color: var(--color-green);">The Executive Defense</h2>
+                    <h2 class="card-title" style="color: var(--color-green);">The Executive Defense (The "Why")</h2>
                     <p class="card-text">
-                        If an AI does not know its exact boundaries, it will hallucinate them. By mathematically fencing in the operational theater first, we guarantee that we never operate blindly or rely on default broad tenant settings. 
-                        <br><br>
-                        <strong>The Business Value:</strong> Even if an execution agent is compromised, the threat is structurally isolated by this defined boundary and physically cannot bleed into other enterprise environments.
+                        If you don't give an AI strict borders, it will guess—and in a cloud environment, guessing causes massive production outages. By mathematically fencing in the operational theater before we even begin, we ensure that even if the automation goes rogue or gets hijacked, it is physically trapped inside that specific sandbox. It cannot bleed over and nuke a different department's production servers.
                     </p>
                 </div>
             </div>
@@ -187,23 +179,23 @@
 
             <div class="card-grid">
                 <div class="study-card card-mechanic">
-                    <h2 class="card-title" style="color: var(--color-blue);">The Engineering Mechanic</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">The Engineering Mechanic (Plain Talk)</h2>
                     <p class="card-text">
-                        This phase provisions the dedicated, non-human execution entity within Microsoft Entra ID. It completely bypasses human-centric authentication models by generating a programmatic service principal tailored explicitly for machine-to-machine automation.
+                        This is where we "hire" a robotic contractor to do our cloud deployments. We never want a human engineer doing this work manually, because humans make mistakes.
                     </p>
                     <ul class="highlight-list">
-                        <li><strong>App Registration:</strong> Instantiates the logical representation and global configuration of the identity across the tenant.</li>
-                        <li><strong>Service Principal:</strong> Deploys the localized enterprise identity object authorized to execute commands within the specific directory.</li>
-                        <li><strong>Secret-less Posture:</strong> Mathematically prevents the creation or storage of static client secrets or passwords, forcing reliance on dynamic cryptography.</li>
+                        <li><strong>The App Registration</strong> is the robot's global corporate ID badge.</li>
+                        <li><strong>The Service Principal</strong> is the local site pass that actually lets it onto our specific construction site.</li>
                     </ul>
+                    <p class="card-text" style="margin-top: 1rem;">
+                        But here is the trick: <strong>we never give this robot a password.</strong> Passwords get written on sticky notes, leaked in code, or stolen. Instead, we set up a system where the robot has to dynamically prove who it is every single time it shows up for work.
+                    </p>
                 </div>
 
                 <div class="study-card card-executive">
-                    <h2 class="card-title" style="color: var(--color-green);">The Executive Defense</h2>
+                    <h2 class="card-title" style="color: var(--color-green);">The Executive Defense (The "Why")</h2>
                     <p class="card-text">
-                        Human identities and static passwords are the weakest link in any cloud architecture. By provisioning a dedicated, secret-less machine identity, we eliminate the risk of credential theft, token harvesting, and password rotation failures.
-                        <br><br>
-                        <strong>The Business Value:</strong> We completely decouple deployment infrastructure from human user accounts. If a developer's laptop is compromised, the blast radius is contained because the execution pipeline operates under its own isolated, mathematically verified identity that an attacker cannot steal.
+                        Humans are the weakest link in cybersecurity. Phishing, weak passwords, and token theft are how massive breaches happen. By creating a dedicated, passwordless machine identity for our pipelines, we take the human completely out of the blast radius. If a developer's laptop gets compromised at a coffee shop, the hacker gets nothing—because the deployment pipeline runs under a completely separate, secret-less identity that the hacker cannot steal.
                     </p>
                 </div>
             </div>
@@ -216,37 +208,25 @@
 
             <div class="card-grid">
                 <div class="study-card card-mechanic">
-                    <h2 class="card-title" style="color: var(--color-blue);">The Engineering Mechanic</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">The Engineering Mechanic (Plain Talk)</h2>
                     <p class="card-text">
-                        The core enforcement mechanism of this gate is the <strong>Subject Claim</strong>—a strict, case-sensitive binary guard. We explicitly bypass native portal wizards (which often strip critical database identifiers and trigger <code>AADSTS700213</code> failures) in favor of exposing raw configuration fields. This allows us to perfectly map immutable database IDs and establish an active, runtime-validated cryptographic bridge via a strict three-phase sequence:
+                        If Gate 2 was hiring the robotic contractor, Gate 3 is setting up the world's strictest bouncer at the front door. We call this OpenID Connect (OIDC).
+                        <br><br>
+                        Here is how the handshake works: The external pipeline (like GitHub) walks up and hands over its digital ID. Entra ID looks at its guest list—which we call the <strong>Subject Claim</strong>. 
+                        <br><br>
+                        Entra ID doesn't just look at the name; it checks the exact spelling, the capitalization, and the hidden numeric ID tags. If it isn't a 100% perfect, character-for-character match, the bouncer slams the door and throws an `AADSTS700213` error. 
+                        <br><br>
+                        If it matches perfectly, the pipeline gets a temporary 60-minute visitor badge (an Access Token). When the 60 minutes are up, the badge vaporizes.
                     </p>
-                    
-                    <div class="sequence-container">
-                        <div class="sequence-step">
-                            <div class="sequence-step-title">1. Assertion Ingestion</div>
-                            <div class="sequence-step-text">The external execution environment broadcasts a short-lived OpenID Connect JWT, signed by its native authority, directly to the Entra ID token endpoint.</div>
-                        </div>
-                        <div class="sequence-step">
-                            <div class="sequence-step-title">2. Deterministic Validation</div>
-                            <div class="sequence-step-text">The identity interceptor mathematically compares the inbound claim payload character-for-character against the immutable constraints written to the application blueprint.</div>
-                        </div>
-                        <div class="sequence-step">
-                            <div class="sequence-step-title">3. State Transition</div>
-                            <div class="sequence-step-text">Upon an absolute binary match, Entra ID issues a scoped Access Token (AT) capped at a hard 60-minute execution boundary.</div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="study-card card-executive">
-                    <h2 class="card-title" style="color: var(--color-green);">The Executive Defense</h2>
+                    <h2 class="card-title" style="color: var(--color-green);">The Executive Defense (The "Why")</h2>
                     <p class="card-text">
-                        Federation is the critical transition from simply configuring access to building a resilient, self-defending perimeter. This architecture defends the enterprise on three explicit fronts:
+                        We don't vault secrets anymore; we eradicate them. Storing long-lived passwords in a cyber-vault is just hiding the liability. By federating trust, we remove the vault entirely. 
+                        <br><br>
+                        Furthermore, we enforce two critical rules: First, we ban wildcards (no `*` on the guest list), meaning nobody can impersonate another repository. Second, because the visitor badges expire in 60 minutes and cannot be refreshed, even if a hacker miraculously intercepted a token in transit, it would be useless before they could figure out how to exploit it.
                     </p>
-                    <ul class="highlight-list">
-                        <li><strong>Eradication of Stolen Secrets:</strong> You cannot breach a password that does not exist. This eliminates the primary attack vector for supply chain breaches.</li>
-                        <li><strong>Zero-Wildcard Blast Radius:</strong> By mathematically banning production wildcards (<code>*</code>) in the Subject Claim, we neutralize any possibility of multi-branch or unauthorized cross-repository impersonation.</li>
-                        <li><strong>Absolute Volatility:</strong> The token state transition generates an Access Token with a strict 60-minute ceiling. Crucially, <strong>zero Refresh Tokens (RT)</strong> are permitted, ensuring the authorization boundary remains entirely volatile and impossible for an attacker to infinitely extend.</li>
-                    </ul>
                 </div>
             </div>
         </div>
