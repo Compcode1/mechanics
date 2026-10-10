@@ -19,6 +19,7 @@
             --color-purple: #a855f7;
             --color-green: #10b981;
             --color-red: #f43f5e;
+            --color-orange: #f97316;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -128,6 +129,18 @@
         .accent-blue { color: var(--color-blue); }
         .accent-cyan { color: var(--color-cyan); }
         .accent-purple { color: var(--color-purple); }
+        .accent-orange { color: var(--color-orange); }
+
+        /* Flow Diagram List */
+        .flow-list { list-style: none; margin-top: 1.5rem; }
+        .flow-list li {
+            margin-bottom: 1.5rem; padding-left: 1.5rem; position: relative;
+            font-size: 1.1rem; color: var(--text-muted); line-height: 1.6;
+        }
+        .flow-list li::before {
+            content: '■'; color: var(--color-orange); position: absolute; left: 0; font-size: 0.8rem; top: 4px;
+        }
+        .flow-title { font-weight: 700; color: var(--text-main); display: block; margin-bottom: 0.3rem; }
 
         @media (max-width: 768px) {
             .page-title { font-size: 2rem; }
@@ -142,7 +155,7 @@
     <nav>
         <ul class="nav-links">
             <li><a href="index.html">1. Core Mechanics</a></li>
-            <li><a href="page2.html" class="active">2. Execution Triad</a></li>
+            <li><a href="page2.html" class="active">2. Execution Triad & Flow</a></li>
         </ul>
     </nav>
 
@@ -224,6 +237,35 @@
                         <br><br>
                         Instead of a human burning hours searching through documentation to fix a broken script, the AI Engine processes those millions of variables in milliseconds. It provides the brute-force processing power to rapidly generate code, parse error logs, and find the firing solution. It is highly capable, but highly probabilistic—which is exactly why we never let it pull the trigger without the State Machine and the Architect signing off first.
                     </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW SECTION: THE EXECUTION FLOW -->
+        <div class="triad-section">
+            <span class="header-tag accent-orange">[SYSTEMS ENGINEERING & CONTROL THEORY]</span>
+            <h1 class="page-title">The Execution Flow</h1>
+
+            <div class="card-grid">
+                <div class="study-card" style="border-left-color: var(--color-orange);">
+                    <h2 class="card-title accent-orange">Plain Talk Analogy: The Factory Assembly Line</h2>
+                    <p class="card-text">
+                        From a strict engineering perspective, this software architecture is a <strong>Finite State Machine</strong> governed by <strong>Control Theory</strong>. In plain talk, rather than writing a single script that runs from top to bottom and hopes for the best, we have built a heavily guarded factory assembly line to manufacture cloud security. 
+                    </p>
+                    <ul class="flow-list">
+                        <li>
+                            <span class="flow-title">The Plant Manager (The Architect) & The Robotic Arm (The AI)</span>
+                            The manager provides the blueprint and the robotic arm turns the wrenches. The arm can build the infrastructure configuration incredibly fast, but it is blind to business risk.
+                        </li>
+                        <li>
+                            <span class="flow-title">The Conveyor Belt & Safety Interlocks (The State Machine)</span>
+                            The conveyor belt forces the process through rigid, sequential stations (IaC Generation, Core Identity, Capability Integration). At every station, there is a hard safety gate. If the robotic arm makes an error, a "circuit breaker" trips instantly. The belt stops, the error is isolated inside that specific station so it cannot destroy the whole factory, and it waits for the Plant Manager to override or fix it.
+                        </li>
+                        <li>
+                            <span class="flow-title">The Quality Assurance Scanners (The Ledgers)</span>
+                            Before the product ever leaves the factory floor, the line generates cryptographic receipts (The Identity Architecture Ledger and Audit Results Ledger). It mathematically proves the robotic arm built the asset exactly to spec, passing strict SOC 2 compliance standards every single time.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
