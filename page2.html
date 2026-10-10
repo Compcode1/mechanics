@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Guide - The Execution Triad</title>
+    <title>Study Guide - The Execution Triad & Flow</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
@@ -241,7 +241,7 @@
             </div>
         </div>
 
-        <!-- NEW SECTION: THE EXECUTION FLOW -->
+        <!-- SECTION: THE EXECUTION FLOW -->
         <div class="triad-section">
             <span class="header-tag accent-orange">[SYSTEMS ENGINEERING & CONTROL THEORY]</span>
             <h1 class="page-title">The Execution Flow</h1>
@@ -267,6 +267,49 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+        </div>
+
+        <!-- NEW SECTION: ENGINEERING TAXONOMY TRANSLATIONS -->
+        <div class="triad-section">
+            <span class="header-tag" style="color: var(--color-cyan);">[ENGINEERING TAXONOMY TRANSLATIONS]</span>
+            <h1 class="page-title">Formal Systems Engineering</h1>
+
+            <div class="card-grid">
+                
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-blue);">1. Control Theory & The Finite State Machine (FSM)</h2>
+                    <p class="card-text" style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> Constraining probabilistic AI inside a deterministic state controller.
+                    </p>
+                    <p class="card-text">
+                        <strong style="color: var(--color-green);">The Plain Talk Analogy (The Train Tracks):</strong><br>
+                        "Think of a standard AI script like an off-road vehicle—it can go anywhere and figure out its own path. In an enterprise cloud, that is incredibly dangerous. <strong>Control Theory</strong> means I put the AI on a strict set of train tracks (the <strong>Finite State Machine</strong>). The AI still provides the massive engine horsepower to pull the freight and write the code, but the tracks physically dictate exactly where it can and cannot go. It mathematically cannot hallucinate a new path."
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-blue);">2. Directed Acyclic Graph (DAG)</h2>
+                    <p class="card-text" style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> A strict, sequential execution matrix with no infinite loops or reverse states.
+                    </p>
+                    <p class="card-text">
+                        <strong style="color: var(--color-green);">The Plain Talk Analogy (The One-Way Valve):</strong><br>
+                        "A DAG is just a fancy mathematical term for a strict, one-way street. When the AI is building infrastructure, we don't want it getting confused, looping back on itself, or deploying things out of order. The DAG forces the AI's logic through a one-way plumbing valve. Box 1 must successfully lock before Box 2 can even open. It physically prevents the AI from falling into chaotic logic loops."
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-blue);">3. The Circuit Breaker (State Interrupts)</h2>
+                    <p class="card-text" style="margin-bottom: 0.8rem;">
+                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> Automated friction trapping and Human-in-the-Loop (HITL) validation.
+                    </p>
+                    <p class="card-text">
+                        <strong style="color: var(--color-green);">The Plain Talk Analogy (The Safety Interlock):</strong><br>
+                        "When a normal automation script hits an error, it either crashes the pipeline or the AI tries to blindly guess a fix. My framework acts as a safety interlock. If the AI hits an API error or attempts a maneuver that violates zero-trust, it trips the circuit breaker. It freezes the exact state of the environment, traps the error inside that specific box so it can't cascade, and waits for my explicit command to proceed. It turns an unpredictable AI hallucination into a controlled, frozen state."
+                    </p>
+                </div>
+
             </div>
         </div>
 
