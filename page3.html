@@ -35,24 +35,19 @@
         }
         .nav-links a { 
             display: inline-block;
-            color: var(--color-cyan); 
-            border: 1px solid var(--color-cyan);
-            background: rgba(14, 165, 233, 0.1); 
-            padding: 0.5rem 1.2rem; 
-            border-radius: 6px;
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            font-weight: 700; 
-            letter-spacing: 1px; 
-            text-transform: uppercase; 
+            color: var(--text-muted); 
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
             transition: all 0.3s ease; 
         }
-        .nav-links a:hover, 
-        .nav-links a.active-link { 
-            background: var(--color-cyan); 
-            color: #ffffff; 
-            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4); 
-        }
+        .nav-links a:hover { color: var(--text-main); background: rgba(255,255,255,0.05); }
+        .nav-links a.active-link { color: var(--color-cyan); border-bottom: 2px solid var(--color-cyan); border-radius: 0; background: transparent; }
 
         /* ================= PAGE HEADER ================= */
         .header { padding: 80px 20px 40px; text-align: center; }
@@ -101,7 +96,7 @@
         .card-cyan .concept-label.solution { color: var(--color-cyan); }
         
         .card-red .concept-label.problem { color: var(--color-red); }
-        .card-red .concept-label.solution { color: #f87171; } /* Lighter red for solution */
+        .card-red .concept-label.solution { color: #f87171; }
         
         .card-blue .concept-label.problem { color: var(--color-red); }
         .card-blue .concept-label.solution { color: var(--color-blue); }
@@ -126,6 +121,7 @@
             <li><a href="index.html">Page 1: Overview</a></li>
             <li><a href="page2.html">Page 2: Core Concepts</a></li>
             <li><a href="page3.html" class="active-link">Page 3: Plain Talk</a></li>
+            <li><a href="page4.html">Page 4: Master Outline</a></li>
         </ul>
     </nav>
 
