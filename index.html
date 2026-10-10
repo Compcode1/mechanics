@@ -27,10 +27,40 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             color: var(--text-main); 
             line-height: 1.6; 
-            padding: 4rem 20px 8rem;
+            padding: 0 0 8rem;
         }
 
-        .study-container { max-width: 900px; margin: 0 auto; }
+        /* ================= NAVIGATION ================= */
+        nav {
+            background: rgba(2, 6, 23, 0.95);
+            border-bottom: 1px solid var(--border-base);
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .nav-links {
+            display: flex; gap: 1.5rem; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text-main); background: rgba(255,255,255,0.05); }
+        .nav-links a.active { color: var(--color-cyan); border-bottom: 2px solid var(--color-cyan); border-radius: 0; background: transparent; }
+
+        .study-container { max-width: 900px; margin: 4rem auto 0; padding: 0 20px; }
 
         /* ================= OVERVIEW HEADER ================= */
         .overview-box {
@@ -179,6 +209,14 @@
 </head>
 <body>
 
+    <!-- NAVIGATION -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">1. Core Mechanics</a></li>
+            <li><a href="page2.html">2. Execution Triad</a></li>
+        </ul>
+    </nav>
+
     <div class="study-container">
         
         <!-- PIPELINE OVERVIEW HEADER -->
@@ -202,7 +240,7 @@
                 When modern militaries deploy autonomous drones into chaotic environments, they rely on highly probabilistic AI to navigate and identify targets at superhuman speeds. But they <strong>never let the AI pull the trigger alone</strong>. The drone operates inside a strict mathematical geofence, and before any strike occurs, a deterministic system forces a human commander to review the telemetry and authorize the execution. In high-stakes operations where mistakes cost millions or cost lives, you do not let AI run wild—you tether it. You extract its immense processing power while trapping it inside a constrained system. Enterprise cybersecurity must operate on the exact same premise.
             </p>
             <p>
-                The Four Architectural Gates below represent our strict "rules of engagement." Guided by rigorous <strong>AI Systems Engineering best practices</strong> (which we will detail in the next section), these gates ensure our automation cannot hallucinate or cause catastrophic outages. Boundary, Identity, Federation, and Access are not just configuration steps; they are a forced, sequential firing chain. They guarantee that our robotic worker hits the exact target, never deviates from its geofence, and outputs the mathematical telemetry needed to cryptographically confirm the hit.
+                The Four Architectural Gates below represent our strict "rules of engagement." Guided by rigorous <strong>AI Systems Engineering best practices</strong>, these gates ensure our automation cannot hallucinate or cause catastrophic outages. Boundary, Identity, Federation, and Access are not just configuration steps; they are a forced, sequential firing chain. They guarantee that our robotic worker hits the exact target, never deviates from its geofence, and outputs the mathematical telemetry needed to cryptographically confirm the hit.
             </p>
         </div>
 
