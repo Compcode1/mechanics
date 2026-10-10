@@ -162,7 +162,7 @@
             line-height: 1.6;
         }
 
-        /* ================= MASTER BLUEPRINT GRAPHIC ================= */
+        /* ================= EXPANDED MASTER BLUEPRINT GRAPHIC ================= */
         .blueprint-section {
             margin-top: 5rem;
             padding: 4rem 2rem;
@@ -170,11 +170,12 @@
             border: 1px solid var(--border-base);
             border-radius: 8px;
             text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .blueprint-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 900;
             color: var(--text-main);
             text-transform: uppercase;
@@ -192,24 +193,22 @@
         .bp-layer {
             border: 1px solid var(--border-base);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 2.5rem;
             width: 100%;
             background: rgba(2, 6, 23, 0.8);
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
 
-        /* Funnel Sizing */
-        .bp-layer.top { max-width: 850px; border-top: 4px solid var(--color-cyan); }
-        .bp-layer.mid { max-width: 650px; border-top: 4px solid var(--color-purple); }
-        .bp-layer.bot { max-width: 450px; border-top: 4px solid var(--color-green); }
+        .bp-layer.top { max-width: 1000px; border-top: 4px solid var(--color-cyan); box-shadow: 0 0 20px rgba(14, 165, 233, 0.15); }
+        .bp-layer.mid { max-width: 850px; border-top: 4px solid var(--color-purple); box-shadow: 0 0 20px rgba(168, 85, 247, 0.15); }
+        .bp-layer.bot { max-width: 950px; border-top: 4px solid var(--color-green); box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); }
 
         .bp-tag { 
             font-family: monospace; 
-            font-size: 0.9rem; 
+            font-size: 0.95rem; 
             font-weight: 700; 
             letter-spacing: 2px; 
             margin-bottom: 0.8rem; 
@@ -222,33 +221,117 @@
 
         .bp-heading { 
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem; 
+            font-size: 1.6rem; 
             font-weight: 800; 
             color: var(--text-main); 
             text-transform: uppercase; 
-            margin-bottom: 0.5rem; 
+            margin-bottom: 2rem; 
+            letter-spacing: 1px;
         }
+
+        /* Blueprint Nodes */
+        .bp-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; width: 100%; }
+        .bp-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; }
         
-        .bp-desc { 
-            font-size: 1rem; 
-            color: var(--text-muted); 
+        .bp-flow-horizontal { 
+            display: flex; justify-content: center; align-items: stretch; gap: 0.5rem; width: 100%; flex-wrap: wrap; 
+        }
+
+        .bp-node {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid var(--border-base);
+            padding: 1.2rem;
+            border-radius: 6px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .bp-node-cyan { border-top: 3px solid var(--color-cyan); }
+        .bp-node-purple { border-top: 3px solid var(--color-purple); }
+        .bp-node-green { border-top: 3px solid var(--color-green); flex: 1; min-width: 180px; }
+
+        .bp-node-title {
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .bp-node-cyan .bp-node-title { color: var(--color-cyan); }
+        .bp-node-purple .bp-node-title { color: var(--color-purple); }
+        .bp-node-green .bp-node-title { color: var(--color-green); }
+
+        .bp-node-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
             font-weight: 500;
         }
 
+        /* Guardrails Spanning Bar */
+        .bp-guardrails-bar {
+            background: rgba(244, 63, 94, 0.05);
+            border: 1px dashed var(--color-red);
+            border-radius: 6px;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .bp-guardrails-title {
+            font-weight: 800;
+            color: var(--color-red);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .bp-guardrails-list {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+        
+        .bp-guardrails-list span { color: var(--color-red); opacity: 0.5; margin: 0 5px; }
+
+        /* Funnel Arrows */
         .bp-arrow {
             color: var(--color-cyan);
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 900;
             line-height: 1;
             opacity: 0.7;
         }
 
+        .bp-flow-arrow {
+            display: flex;
+            align-items: center;
+            color: var(--color-green);
+            font-weight: 900;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 900px) {
+            .bp-grid-4, .bp-grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .bp-flow-horizontal { flex-direction: column; }
+            .bp-flow-arrow { transform: rotate(90deg); margin: 0.5rem 0; }
+        }
         @media (max-width: 600px) {
             .header h1 { font-size: 1.8rem; }
             .phase-card { padding: 1.5rem; }
             .phase-title { font-size: 1.4rem; }
             .blueprint-section { padding: 2rem 1rem; }
-            .bp-heading { font-size: 1.2rem; }
+            .bp-heading { font-size: 1.3rem; }
+            .bp-grid-4, .bp-grid-3 { grid-template-columns: 1fr; }
+            .bp-guardrails-list { font-size: 0.75rem; line-height: 1.8; }
         }
     </style>
 </head>
@@ -357,35 +440,94 @@
             </ul>
         </div>
 
-        <!-- THE MASTER BLUEPRINT GRAPHIC -->
+        <!-- THE EXPANDED MASTER BLUEPRINT GRAPHIC -->
         <div class="blueprint-section">
             <h2 class="blueprint-title">The Conceptual Blueprint</h2>
             
             <div class="blueprint-funnel">
                 
-                <!-- TOP LAYER -->
+                <!-- TOP LAYER: GOVERNANCE -->
                 <div class="bp-layer top">
                     <span class="bp-tag">[THE GOVERNANCE UMBRELLA]</span>
                     <div class="bp-heading">Systemic Mandates</div>
-                    <div class="bp-desc">The AI Systems Engineering laws of physics that press down on all automated execution.</div>
+                    <div class="bp-grid-4">
+                        <div class="bp-node bp-node-cyan">
+                            <span class="bp-node-title">Agentic Patterns</span>
+                            <span class="bp-node-desc">Iterative self-correction loops outperforming static generation.</span>
+                        </div>
+                        <div class="bp-node bp-node-cyan">
+                            <span class="bp-node-title">Bounded Autonomy</span>
+                            <span class="bp-node-desc">Mathematical restriction of the AI’s blast radius.</span>
+                        </div>
+                        <div class="bp-node bp-node-cyan">
+                            <span class="bp-node-title">HITL Governance</span>
+                            <span class="bp-node-desc">Mandatory human oversight over all state modifications.</span>
+                        </div>
+                        <div class="bp-node bp-node-cyan">
+                            <span class="bp-node-title">Circuit Breaking</span>
+                            <span class="bp-node-desc">Automated logic interrupts to prevent hallucination spirals.</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bp-arrow">&darr;</div>
 
-                <!-- MIDDLE LAYER -->
+                <!-- MIDDLE LAYER: THE TRIAD & GUARDRAILS -->
                 <div class="bp-layer mid">
                     <span class="bp-tag">[THE ENGINE ROOM]</span>
                     <div class="bp-heading">The Execution Triad</div>
-                    <div class="bp-desc">The State Machine and Guardrails physicalizing the constraints to safely extract AI horsepower.</div>
+                    
+                    <div class="bp-grid-3">
+                        <div class="bp-node bp-node-purple">
+                            <span class="bp-node-title">The Architect</span>
+                            <span class="bp-node-desc">Initiates execution and retains strategic risk authority.</span>
+                        </div>
+                        <div class="bp-node bp-node-purple">
+                            <span class="bp-node-title">The State Machine</span>
+                            <span class="bp-node-desc">The deterministic safety harness enforcing zero-trust.</span>
+                        </div>
+                        <div class="bp-node bp-node-purple">
+                            <span class="bp-node-title">The AI Engine</span>
+                            <span class="bp-node-desc">Provides massive probabilistic processing horsepower.</span>
+                        </div>
+                    </div>
+
+                    <div class="bp-guardrails-bar">
+                        <span class="bp-guardrails-title">Enterprise Guardrails (Decoupled Logic)</span>
+                        <div class="bp-guardrails-list">
+                            Data Loss Prevention <span>|</span> Destructive State <span>|</span> The Contributor Trap <span>|</span> Supply Chain Injection <span>|</span> Terminal Exposure
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bp-arrow">&darr;</div>
 
-                <!-- BOTTOM LAYER -->
+                <!-- BOTTOM LAYER: THE TARGET PIPELINE -->
                 <div class="bp-layer bot">
                     <span class="bp-tag">[THE CORE TARGET]</span>
                     <div class="bp-heading">The Objective Gates</div>
-                    <div class="bp-desc">The sequence of cryptographic configurations safely hit by the governed machinery.</div>
+                    
+                    <div class="bp-flow-horizontal">
+                        <div class="bp-node bp-node-green">
+                            <span class="bp-node-title">1. Boundary</span>
+                            <span class="bp-node-desc">Geofencing the operational theater.</span>
+                        </div>
+                        <div class="bp-flow-arrow">&rarr;</div>
+                        <div class="bp-node bp-node-green">
+                            <span class="bp-node-title">2. Identity</span>
+                            <span class="bp-node-desc">Passwordless machine provisioning.</span>
+                        </div>
+                        <div class="bp-flow-arrow">&rarr;</div>
+                        <div class="bp-node bp-node-green">
+                            <span class="bp-node-title">3. Federation</span>
+                            <span class="bp-node-desc">Strict OIDC trust handshakes.</span>
+                        </div>
+                        <div class="bp-flow-arrow">&rarr;</div>
+                        <div class="bp-node bp-node-green">
+                            <span class="bp-node-title">4. Access</span>
+                            <span class="bp-node-desc">Granular data-plane scoping.</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
