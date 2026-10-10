@@ -130,6 +130,7 @@
         .accent-cyan { color: var(--color-cyan); }
         .accent-purple { color: var(--color-purple); }
         .accent-orange { color: var(--color-orange); }
+        .accent-red { color: var(--color-red); }
 
         /* Flow Diagram List */
         .flow-list { list-style: none; margin-top: 1.5rem; }
@@ -270,13 +271,12 @@
             </div>
         </div>
 
-        <!-- NEW SECTION: ENGINEERING TAXONOMY TRANSLATIONS -->
+        <!-- SECTION: ENGINEERING TAXONOMY TRANSLATIONS -->
         <div class="triad-section">
             <span class="header-tag" style="color: var(--color-cyan);">[ENGINEERING TAXONOMY TRANSLATIONS]</span>
             <h1 class="page-title">Formal Systems Engineering</h1>
 
             <div class="card-grid">
-                
                 <div class="study-card card-plain-talk">
                     <h2 class="card-title" style="color: var(--color-blue);">1. Control Theory & The Finite State Machine (FSM)</h2>
                     <p class="card-text" style="margin-bottom: 0.8rem;">
@@ -307,6 +307,57 @@
                     <p class="card-text">
                         <strong style="color: var(--color-green);">The Plain Talk Analogy (The Safety Interlock):</strong><br>
                         "When a normal automation script hits an error, it either crashes the pipeline or the AI tries to blindly guess a fix. My framework acts as a safety interlock. If the AI hits an API error or attempts a maneuver that violates zero-trust, it trips the circuit breaker. It freezes the exact state of the environment, traps the error inside that specific box so it can't cascade, and waits for my explicit command to proceed. It turns an unpredictable AI hallucination into a controlled, frozen state."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW SECTION: ENTERPRISE GUARDRAILS (PLAIN TALK TRANSLATIONS) -->
+        <div class="triad-section">
+            <span class="header-tag accent-red">[THE DECOUPLED LOGIC ENGINE]</span>
+            <h1 class="page-title">Enterprise Guardrails</h1>
+
+            <div class="card-grid">
+                
+                <div class="study-card" style="border-left-color: var(--color-red); background: rgba(2, 6, 23, 0.8);">
+                    <h2 class="card-title accent-red">The Core Concept: Decoupled Logic</h2>
+                    <p class="card-text">
+                        In physiological terms, the brain can imagine doing something reckless, but the nervous system's survival reflexes will physically block the body from executing it. <strong>Decoupled logic</strong> works exactly the same way. We let the AI (the brain) use its massive processing power to brainstorm and generate complex code, but it is physically disconnected from the execution environment. The State Machine (the nervous system) intercepts the instructions and filters them through strict, un-bypassable survival rules before a single line of code touches the cloud.
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-blue);">1. Data Loss Prevention (Blind Charts)</h2>
+                    <p class="card-text">
+                        <strong>The Plain Talk:</strong> We treat the AI like a consulting specialist reviewing a blind medical chart. It gets all the technical symptoms it needs to write the prescription (the code), but we mathematically strip out the patient's real identity. The AI never sees your proprietary Tenant IDs, secret keys, or corporate repository names, so it physically cannot leak them.
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-blue);">2. Destructive State (The Hippocratic Oath)</h2>
+                    <p class="card-text">
+                        <strong>The Plain Talk:</strong> "First, do no harm." AI is notoriously lazy—if a configuration isn't working, an unconstrained AI will often try to delete the entire resource and start over. We inject a hardcoded reflex (idempotency) that physically paralyzes the AI if it attempts to overwrite, drop, or destroy existing enterprise tissue. It can only heal or add.
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-blue);">3. The Contributor Trap (Hospital Keys)</h2>
+                    <p class="card-text">
+                        <strong>The Plain Talk:</strong> When an AI gets stuck on a permissions error, its favorite trick is to ask for "Global Administrator" or "Contributor" access so it can bypass the locks. That is like giving a visiting surgeon the master keys to the hospital's pharmacy, server room, and billing department. We lock the AI out of the control plane entirely and only give it the exact key to the single operating room it needs (Data-Plane scoping).
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-blue);">4. Supply Chain Injection (Sterile Instruments)</h2>
+                    <p class="card-text">
+                        <strong>The Plain Talk:</strong> We don't let the AI reach into the internet and grab whatever random, untested software packages it wants. The machine is hardcoded to only accept specific, version-pinned "sterile instruments" straight from the verified manufacturer. If the AI hallucinates a fake tool, the state machine rejects it at the door.
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-blue);">5. Terminal Exposure (Surgical Draping)</h2>
+                    <p class="card-text">
+                        <strong>The Plain Talk:</strong> Just like a patient is draped during surgery so only the exact incision site is exposed, we drape the terminal output. The state machine actively intercepts the memory and places black boxes (`::add-mask::`) over any sensitive telemetry before it hits the monitor, ensuring no secrets bleed onto the screen where they could be logged or stolen.
                     </p>
                 </div>
 
