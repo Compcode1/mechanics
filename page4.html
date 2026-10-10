@@ -162,10 +162,93 @@
             line-height: 1.6;
         }
 
+        /* ================= MASTER BLUEPRINT GRAPHIC ================= */
+        .blueprint-section {
+            margin-top: 5rem;
+            padding: 4rem 2rem;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--border-base);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .blueprint-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3.5rem;
+        }
+
+        .blueprint-funnel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .bp-layer {
+            border: 1px solid var(--border-base);
+            border-radius: 8px;
+            padding: 2rem;
+            width: 100%;
+            background: rgba(2, 6, 23, 0.8);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Funnel Sizing */
+        .bp-layer.top { max-width: 850px; border-top: 4px solid var(--color-cyan); }
+        .bp-layer.mid { max-width: 650px; border-top: 4px solid var(--color-purple); }
+        .bp-layer.bot { max-width: 450px; border-top: 4px solid var(--color-green); }
+
+        .bp-tag { 
+            font-family: monospace; 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            margin-bottom: 0.8rem; 
+            text-transform: uppercase;
+        }
+        
+        .bp-layer.top .bp-tag { color: var(--color-cyan); }
+        .bp-layer.mid .bp-tag { color: var(--color-purple); }
+        .bp-layer.bot .bp-tag { color: var(--color-green); }
+
+        .bp-heading { 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: var(--text-main); 
+            text-transform: uppercase; 
+            margin-bottom: 0.5rem; 
+        }
+        
+        .bp-desc { 
+            font-size: 1rem; 
+            color: var(--text-muted); 
+            font-weight: 500;
+        }
+
+        .bp-arrow {
+            color: var(--color-cyan);
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1;
+            opacity: 0.7;
+        }
+
         @media (max-width: 600px) {
             .header h1 { font-size: 1.8rem; }
             .phase-card { padding: 1.5rem; }
             .phase-title { font-size: 1.4rem; }
+            .blueprint-section { padding: 2rem 1rem; }
+            .bp-heading { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -241,7 +324,7 @@
                 </li>
                 <li class="outline-item">
                     <span class="item-title">Enterprise Guardrails (The Filters)</span>
-                    <div class="item-desc">The clinical filters (Data Loss Prevention, Idempotency, Scoping) that sterilize all AI outputs before they are allowed to touch the live cloud environment.</div>
+                    <div class="item-desc">The clinical filters (Data Loss Prevention, Destructive State, The Contributor Trap, Supply Chain Injection, Terminal Exposure) that sterilize all AI outputs before they touch the live cloud.</div>
                 </li>
             </ul>
         </div>
@@ -272,6 +355,40 @@
                     <div class="item-desc">Scoping the deployed machine identity strictly to the data-plane of a single asset, neutralizing the risk of the "Contributor Trap."</div>
                 </li>
             </ul>
+        </div>
+
+        <!-- THE MASTER BLUEPRINT GRAPHIC -->
+        <div class="blueprint-section">
+            <h2 class="blueprint-title">The Conceptual Blueprint</h2>
+            
+            <div class="blueprint-funnel">
+                
+                <!-- TOP LAYER -->
+                <div class="bp-layer top">
+                    <span class="bp-tag">[THE GOVERNANCE UMBRELLA]</span>
+                    <div class="bp-heading">Systemic Mandates</div>
+                    <div class="bp-desc">The AI Systems Engineering laws of physics that press down on all automated execution.</div>
+                </div>
+
+                <div class="bp-arrow">&darr;</div>
+
+                <!-- MIDDLE LAYER -->
+                <div class="bp-layer mid">
+                    <span class="bp-tag">[THE ENGINE ROOM]</span>
+                    <div class="bp-heading">The Execution Triad</div>
+                    <div class="bp-desc">The State Machine and Guardrails physicalizing the constraints to safely extract AI horsepower.</div>
+                </div>
+
+                <div class="bp-arrow">&darr;</div>
+
+                <!-- BOTTOM LAYER -->
+                <div class="bp-layer bot">
+                    <span class="bp-tag">[THE CORE TARGET]</span>
+                    <div class="bp-heading">The Objective Gates</div>
+                    <div class="bp-desc">The sequence of cryptographic configurations safely hit by the governed machinery.</div>
+                </div>
+
+            </div>
         </div>
 
     </div>
