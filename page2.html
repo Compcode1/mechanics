@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Guide - The Execution Triad</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-page: #020617; 
+            --bg-node: rgba(10, 15, 29, 0.95);
+            --border-base: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --color-blue: #3b82f6;
+            --color-cyan: #0ea5e9;
+            --color-purple: #a855f7;
+            --color-green: #10b981;
+            --color-red: #f43f5e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg-page); 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            padding: 0 0 8rem;
+        }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            background: rgba(2, 6, 23, 0.95);
+            border-bottom: 1px solid var(--border-base);
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .nav-links {
+            display: flex; gap: 1.5rem; list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text-main); background: rgba(255,255,255,0.05); }
+        .nav-links a.active { color: var(--color-cyan); border-bottom: 2px solid var(--color-cyan); border-radius: 0; background: transparent; }
+
+        .study-container { max-width: 900px; margin: 4rem auto 0; padding: 0 20px; }
+
+        /* ================= OVERVIEW HEADER ================= */
+        .overview-box {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--border-base);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .overview-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro-text {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ================= TRIAD SECTIONS ================= */
+        .triad-section { margin-bottom: 5rem; }
+
+        .header-tag {
+            font-family: monospace; font-size: 1rem;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; display: block;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900;
+            color: var(--text-main); text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 2rem; border-bottom: 1px solid var(--border-base); padding-bottom: 1rem;
+        }
+
+        .card-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+
+        .study-card {
+            background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-base);
+            border-left: 4px solid; padding: 2.5rem; border-radius: 8px;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+        }
+
+        .card-formal { border-left-color: var(--color-grey); background: rgba(2, 6, 23, 0.8); }
+        .card-plain-talk { border-left-color: var(--color-green); }
+
+        .card-title {
+            font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800;
+            color: var(--text-main); margin-bottom: 1rem; text-transform: uppercase;
+            letter-spacing: 1px; display: flex; align-items: center; gap: 10px;
+        }
+        .card-title::before { content: '>'; font-weight: 900; }
+
+        .card-text { font-size: 1.15rem; color: var(--text-muted); line-height: 1.8; font-weight: 500; }
+        .card-text strong { color: var(--text-main); }
+
+        /* Specific Accents */
+        .accent-blue { color: var(--color-blue); }
+        .accent-cyan { color: var(--color-cyan); }
+        .accent-purple { color: var(--color-purple); }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 2rem; }
+            .overview-title { font-size: 1.8rem; }
+            .study-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">1. Core Mechanics</a></li>
+            <li><a href="triad.html" class="active">2. Execution Triad</a></li>
+        </ul>
+    </nav>
+
+    <div class="study-container">
+        
+        <!-- HEADER -->
+        <div class="overview-box">
+            <h2 class="overview-title">The Execution Triad</h2>
+            <p class="intro-text">
+                Unconstrained AI is a massive operational liability. To safely deploy automated intelligence in mission-critical cloud environments, the architecture demands a separation of powers. We utilize the exact same risk-management philosophy used in modern military aerospace: separating the commander, the safety harness, and the targeting computer.
+            </p>
+        </div>
+
+        <!-- ROLE 1: THE ARCHITECT -->
+        <div class="triad-section">
+            <span class="header-tag accent-blue">[ROLE 1 : STRATEGIC GOVERNANCE]</span>
+            <h1 class="page-title">The Architect</h1>
+
+            <div class="card-grid">
+                <div class="study-card card-formal">
+                    <h2 class="card-title accent-blue">Formal Definition</h2>
+                    <p class="card-text">
+                        The security engineer acts as the strategic commander. The architect initiates the execution, defines the precise target coordinates, establishes the zero-trust constraints, and retains absolute authorization authority at hard validation gates to prevent logic drift.
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: The Mission Commander</h2>
+                    <p class="card-text">
+                        Think of a modern fighter pilot. They do not manually calculate wind resistance or physically actuate the wing flaps during a dogfight—the computers do that. 
+                        <br><br>
+                        As the Architect, your job is not to manually write hundreds of lines of Terraform syntax or memorize Graph API JSON structures. Your job is to set the mission parameters, push the button, and own the final risk-management decision. When the system finds a target or hits an error, it pauses and waits for your explicit command to proceed. The machine does the work; the human governs the risk.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROLE 2: THE STATE MACHINE -->
+        <div class="triad-section">
+            <span class="header-tag accent-cyan">[ROLE 2 : DETERMINISTIC HARNESS]</span>
+            <h1 class="page-title">The State Machine</h1>
+
+            <div class="card-grid">
+                <div class="study-card card-formal">
+                    <h2 class="card-title accent-cyan">Formal Definition</h2>
+                    <p class="card-text">
+                        The Zero Trust Interactive State Machine acts as the immutable mediator. It systematically enforces the Entra ID zero-trust baseline, automatically records architectural friction into the Defect & Patch Ledger, and provides the rigid boundaries that constrain the AI.
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: Flight Envelope Protection</h2>
+                    <p class="card-text">
+                        This is the "fly-by-wire" safety system. In an advanced aircraft, if a pilot (or an autopilot) yanks the controls in a way that would rip the wings off the plane, the onboard computers will physically lock the stick and refuse the input.
+                        <br><br>
+                        The State Machine does exactly this for your cloud environment. It doesn't care how "smart" the AI thinks it is. If the AI suggests a maneuver that violates zero-trust (like granting broad "Contributor" access) or attempts a destructive state overwrite, the State Machine mathematically overrides it. It is the un-bypassable safety harness that ensures the automation cannot destroy the enterprise.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROLE 3: THE AI ENGINE -->
+        <div class="triad-section">
+            <span class="header-tag accent-purple">[ROLE 3 : DYNAMIC SYNTHESIS]</span>
+            <h1 class="page-title">The AI Engine</h1>
+
+            <div class="card-grid">
+                <div class="study-card card-formal">
+                    <h2 class="card-title accent-purple">Formal Definition</h2>
+                    <p class="card-text">
+                        Safely tethered strictly to the state machine's deterministic directives, the artificial intelligence provides the execution horsepower. It rapidly synthesizes environment-agnostic payloads, dynamically resolves tangential friction, and generates complex, audit-ready configurations on command.
+                    </p>
+                </div>
+
+                <div class="study-card card-plain-talk">
+                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: The Targeting Computer</h2>
+                    <p class="card-text">
+                        This is the advanced radar and targeting system. Cloud environments are incredibly messy—APIs change, undocumented schema bugs pop up, and local environments throw strange errors. 
+                        <br><br>
+                        Instead of a human burning hours searching through documentation to fix a broken script, the AI Engine processes those millions of variables in milliseconds. It provides the brute-force processing power to rapidly generate code, parse error logs, and find the firing solution. It is highly capable, but highly probabilistic—which is exactly why we never let it pull the trigger without the State Machine and the Architect signing off first.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
