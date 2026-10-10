@@ -37,8 +37,8 @@
             background: rgba(15, 23, 42, 0.4);
             border: 1px solid var(--border-base);
             border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 5rem;
+            padding: 3rem 2rem;
+            margin-bottom: 2.5rem;
             text-align: center;
         }
 
@@ -49,7 +49,7 @@
             color: var(--text-main);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .gate-flow {
@@ -66,12 +66,55 @@
             padding: 0.8rem 1.5rem;
             border-radius: 6px;
             font-family: monospace;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 1px;
         }
 
-        .gate-arrow { color: var(--color-cyan); font-weight: 900; }
+        .gate-arrow { color: var(--color-cyan); font-weight: 900; font-size: 1.2rem; }
+
+        /* ================= NARRATIVE INTRO ================= */
+        .intro-narrative {
+            background: rgba(14, 165, 233, 0.05);
+            border-left: 4px solid var(--color-cyan);
+            padding: 2.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 5rem;
+            text-align: left;
+        }
+
+        .intro-narrative-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--color-cyan);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .intro-narrative-title::before {
+            content: '>';
+            font-weight: 900;
+        }
+
+        .intro-narrative p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro-narrative p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-narrative strong {
+            color: var(--text-main);
+        }
 
         /* ================= GATE SECTIONS ================= */
         .gate-section { margin-bottom: 6rem; }
@@ -129,6 +172,8 @@
             .page-title { font-size: 2.2rem; }
             .gate-flow { flex-direction: column; }
             .gate-arrow { transform: rotate(90deg); }
+            .overview-box { padding: 2rem 1.5rem; }
+            .intro-narrative { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -148,6 +193,17 @@
                 <div class="gate-arrow">→</div>
                 <div class="gate-badge" style="border-bottom: 2px solid var(--color-green);">4. ACCESS</div>
             </div>
+        </div>
+
+        <!-- NARRATIVE INTRO -->
+        <div class="intro-narrative">
+            <div class="intro-narrative-title">Tethering the Intelligence</div>
+            <p>
+                When modern militaries deploy autonomous drones into chaotic environments, they rely on highly probabilistic AI to navigate and identify targets at superhuman speeds. But they <strong>never let the AI pull the trigger alone</strong>. The drone operates inside a strict mathematical geofence, and before any strike occurs, a deterministic system forces a human commander to review the telemetry and authorize the execution. In high-stakes operations where mistakes cost millions or cost lives, you do not let AI run wild—you tether it. You extract its immense processing power while trapping it inside a constrained system. Enterprise cybersecurity must operate on the exact same premise.
+            </p>
+            <p>
+                The Four Architectural Gates below represent our strict "rules of engagement." Guided by rigorous <strong>AI Systems Engineering best practices</strong> (which we will detail in the next section), these gates ensure our automation cannot hallucinate or cause catastrophic outages. Boundary, Identity, Federation, and Access are not just configuration steps; they are a forced, sequential firing chain. They guarantee that our robotic worker hits the exact target, never deviates from its geofence, and outputs the mathematical telemetry needed to cryptographically confirm the hit.
+            </p>
         </div>
 
         <!-- GATE 1: BOUNDARY -->
