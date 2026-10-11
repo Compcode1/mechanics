@@ -107,7 +107,7 @@
         .bp-heading { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 800; color: var(--text-main); text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 1px; }
         
         /* Intro Paragraphs */
-        .bp-intro { font-size: 1.1rem; color: var(--text-muted); max-width: 900px; margin-bottom: 3rem; line-height: 1.7; font-weight: 500; }
+        .bp-intro { font-size: 1.1rem; color: var(--text-muted); max-width: 950px; margin-bottom: 3rem; line-height: 1.7; font-weight: 500; text-align: left; }
 
         /* Grid Layouts */
         .bp-grid-split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; width: 100%; }
@@ -155,12 +155,12 @@
         .bp-feedback-loop {
             margin-top: 3rem; padding: 3rem; max-width: 1050px; width: 100%;
             border: 2px dashed var(--color-pink); border-radius: 8px; background: rgba(236, 72, 153, 0.05);
-            display: flex; flex-direction: column; align-items: center; text-align: center;
+            display: flex; flex-direction: column; align-items: center; text-align: left;
             box-shadow: 0 0 30px rgba(236, 72, 153, 0.1);
         }
-        .feedback-icon { color: var(--color-pink); font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 1rem; transform: rotate(-90deg); text-shadow: 0 0 15px var(--color-pink); }
-        .feedback-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--color-pink); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
-        .feedback-desc { font-size: 1.1rem; color: var(--text-muted); max-width: 800px; line-height: 1.7; }
+        .feedback-icon { color: var(--color-pink); font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 1rem; transform: rotate(-90deg); text-shadow: 0 0 15px var(--color-pink); align-self: center; }
+        .feedback-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--color-pink); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; align-self: center; text-align: center; }
+        .feedback-desc { font-size: 1.1rem; color: var(--text-muted); max-width: 900px; line-height: 1.7; }
 
         /* Prominent Glowing Arrows */
         .bp-arrow-container { display: flex; justify-content: center; width: 100%; margin: 1rem 0; }
@@ -176,6 +176,7 @@
         @media (max-width: 900px) {
             .bp-grid-3, .bp-grid-4 { grid-template-columns: repeat(2, 1fr); }
             .bp-arrow { font-size: 3rem; }
+            .bp-intro { text-align: center; }
         }
         @media (max-width: 600px) {
             .header h1, .blueprint-title { font-size: 1.8rem; }
@@ -204,7 +205,7 @@
         <!-- THE EXPANDED MASTER BLUEPRINT GRAPHIC -->
         <div class="blueprint-section">
             <h2 class="blueprint-title">The Operational Systems Blueprint</h2>
-            <div class="blueprint-subtitle">The fully deployed, mathematically verified execution framework of Intelligent Architecture.</div>
+            <div class="blueprint-subtitle">The definitive anatomical map and execution lifecycle of the Zero Trust Interactive State Machine.</div>
             
             <div class="blueprint-funnel">
                 
@@ -213,7 +214,7 @@
                     <span class="bp-tag">[THE GOVERNANCE UMBRELLA]</span>
                     <div class="bp-heading">Systemic Mandates</div>
                     <p class="bp-intro">
-                        Generative AI introduces unacceptable probabilistic risk if left unconstrained in enterprise environments. By anchoring our framework strictly in globally recognized academic research and federal cyber standards, we ensure every automated action is governed by defensible engineering mandates. These are the immutable laws of physics for safe AI integration.
+                        This blueprint details the complete end-to-end engineering circuit of a recursive, self-optimizing architecture. It defines how federal risk mandates and academic AI safety research are utilized as strict architectural specifications to construct the machine's hard-coded Enterprise Guardrails. More than a static deployment pipeline, this framework operates as a cybernetic harness that safely encapsulates massive probabilistic intelligence within a deterministic execution triad. It forces all automated logic through un-bypassable cryptographic gates and validates every action with mathematical proof via immutable ledgers. Ultimately, the system is engineered to permanently compound the Architect's capabilities—systematically routing real-world execution friction back into its core parameters to continuously harden, scale, and evolve its own master prompt.
                     </p>
                     <div class="bp-grid-split">
                         
@@ -275,7 +276,7 @@
                     <span class="bp-tag">[THE SHIELD]</span>
                     <div class="bp-heading" style="color: var(--color-red);">Enterprise Guardrails</div>
                     <p class="bp-intro" style="color: var(--text-main);">
-                        The theoretical mandates above are meaningless without physical enforcement. The Enterprise Guardrails are the hard-coded, decoupled logic filters that actively intercept and sterilize the AI's intent. They act as an impenetrable membrane, mathematically paralyzing any unauthorized or destructive action before it ever approaches the live cloud environment.
+                        The theoretical mandates above are utilized as explicit structural specifications to build the physical containment vessel. The Enterprise Guardrails function as a suite of decoupled, deterministic logic filters that actively intercept, validate, and sanitize the AI's syntax prior to any API execution. By enforcing rigid constraints mechanically, this layer strictly confines the intelligence within the approved zero-trust boundary.
                     </p>
                     <div class="bp-grid-5">
                         <div class="bp-node bp-node-red">
@@ -308,7 +309,7 @@
                     <span class="bp-tag">[THE ENGINE ROOM]</span>
                     <div class="bp-heading">The Execution Triad</div>
                     <p class="bp-intro">
-                        With the guardrails firmly established, the operational core can function securely. The Execution Triad represents the structural separation of powers within the framework. By isolating probabilistic intelligence from definitive execution authority, the system safely extracts massive processing horsepower without relinquishing control.
+                        With the guardrails firmly established, the operational core functions securely. The Execution Triad represents the structural separation of powers within the framework. By isolating probabilistic intelligence from definitive execution authority, the system safely extracts massive processing horsepower without relinquishing control.
                     </p>
                     <div class="bp-grid-3">
                         <div class="bp-node bp-node-purple">
@@ -333,20 +334,20 @@
                     <span class="bp-tag">[THE CORE TARGET]</span>
                     <div class="bp-heading">The Objective Gates</div>
                     <p class="bp-intro">
-                        Once the code is verified, it must be safely applied to the cloud. The Objective Gates define the sequential, un-bypassable firing chain. This sequence guarantees that zero-trust principles are mechanically enforced during the actual deployment phase.
+                        Once validated by the guardrails, execution moves into the sequential, control-plane state transitions. While the machine deterministically automates complex Microsoft Entra ID and Azure configurations, it cannot advance autonomously. Each gate represents a [STRICT HALT] condition, requiring the explicit, observable authorization of the Architect before applying configurations to the live tenant environment.
                     </p>
                     <div class="bp-grid-4">
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">1. Boundary</span>
-                            <span class="bp-node-desc"><strong>Geofencing the Operational Theater.</strong> Mathematically isolating the target environment using strict subscription and resource group boundaries, ensuring configurations cannot bleed into adjacent mission-critical infrastructure.</span>
+                            <span class="bp-node-desc"><strong>Geofencing the Operational Theater.</strong> Mathematically isolating the target environment using strict subscription and resource group boundaries, ensuring configurations cannot bleed into adjacent infrastructure.</span>
                         </div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">2. Identity</span>
-                            <span class="bp-node-desc"><strong>Passwordless Machine Provisioning.</strong> Eradicating human credential risk by establishing a secret-less, workload-based identity (e.g., App Registrations or Managed Identities) tailored specifically for the pipeline.</span>
+                            <span class="bp-node-desc"><strong>Passwordless Machine Provisioning.</strong> Eradicating human credential risk by establishing a secret-less, workload-based identity tailored specifically for the automated pipeline.</span>
                         </div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">3. Federation</span>
-                            <span class="bp-node-desc"><strong>Strict OIDC Trust Handshakes.</strong> Enforcing OpenID Connect (OIDC) federation between the deployment runner and the cloud tenant, guaranteeing that access is granted exclusively via ephemeral, cryptographically bound tokens.</span>
+                            <span class="bp-node-desc"><strong>Strict OIDC Trust Handshakes.</strong> Enforcing OpenID Connect (OIDC) federation between the deployment runner and the cloud tenant, guaranteeing access exclusively via ephemeral, cryptographically bound tokens.</span>
                         </div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">4. Access</span>
@@ -362,20 +363,20 @@
                     <span class="bp-tag">[CRYPTOGRAPHIC PROOFS]</span>
                     <div class="bp-heading">Deployment & Telemetry</div>
                     <p class="bp-intro">
-                        The ultimate objective of the deterministic state machine is not just to execute code, but to produce mathematical proof of its security and compliance. This layer represents the tangible, immutable artifacts generated by a successful execution.
+                        The ultimate objective of the deterministic state machine is not just to execute code, but to produce undeniable mathematical proof of its security and compliance. This layer represents the tangible, immutable artifacts and validations generated by a successful execution sequence.
                     </p>
                     <div class="bp-grid-3">
                         <div class="bp-node bp-node-orange">
-                            <span class="bp-node-title">[Dynamic IaC Payload]</span>
-                            <span class="bp-node-desc">The final, sterilized infrastructure-as-code script (Terraform, Azure Bicep, or MS Graph API). This payload is strictly environment-agnostic, idempotent, and ready for deployment into the target architecture.</span>
+                            <span class="bp-node-title">Dynamic IaC Payload</span>
+                            <span class="bp-node-desc">The final, sterilized infrastructure-as-code script. This payload is strictly environment-agnostic, idempotent, and explicitly authorized for deployment into the target architecture.</span>
                         </div>
                         <div class="bp-node bp-node-orange">
-                            <span class="bp-node-title">[IAL_RECORD.md]</span>
-                            <span class="bp-node-desc">The Identity Architecture Ledger. Serves as the immutable, human-readable documentation of the target state, recording the exact configurations, boundary conditions, and trust relationships established during the run.</span>
+                            <span class="bp-node-title">Identity Architecture Ledger</span>
+                            <span class="bp-node-desc">The immutable, human-readable documentation of the target state. It records the exact configurations, boundary conditions, and cryptographic trust relationships established during the execution.</span>
                         </div>
                         <div class="bp-node bp-node-orange">
-                            <span class="bp-node-title">[ARL & KQL Telemetry]</span>
-                            <span class="bp-node-desc">The Audit Results Ledger. Captures live, asynchronous diagnostic proofs using Kusto Query Language (KQL) to mathematically confirm that the deployed resources align perfectly with the zero-trust baseline.</span>
+                            <span class="bp-node-title">Audit Results Ledger & KQL Telemetry</span>
+                            <span class="bp-node-desc">The ultimate mathematical proof. Captures live, asynchronous diagnostic validations using KQL to confirm that the deployed resources align perfectly with the zero-trust baseline.</span>
                         </div>
                     </div>
                 </div>
@@ -385,7 +386,7 @@
                     <div class="feedback-icon">&#10554;</div>
                     <div class="feedback-title">Continuous Protocol Refinement</div>
                     <div class="feedback-desc">
-                        The Operational Systems Blueprint is not static; it is a learning, self-optimizing engine. Every point of execution friction, syntax error, and diagnostic failure is systematically captured in the <strong>Defect & Patch Ledger (DPL)</strong>. The State Machine presents this telemetry to the Architect. Upon human approval, these lessons are integrated directly back into the core baseline ruleset, guaranteeing that the machine permanently scales its capability and never repeats the same architectural mistake twice.
+                        The framework operates a recursive metacognitive loop. As the AI interacts with the State Machine and the Architect, it analyzes its own execution friction, communication efficiency, and logic bottlenecks, systematically capturing them in the <strong>Defect & Patch Ledger (DPL)</strong>. Upon the Architect's authorization, these structural updates are permanently integrated into the core ruleset—perpetually optimizing the master prompt to ensure the machine structurally evolves its operational parameters and scales its own capabilities with every cycle.
                     </div>
                 </div>
 
