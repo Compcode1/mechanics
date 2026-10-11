@@ -44,20 +44,11 @@
             z-index: 100;
             backdrop-filter: blur(10px);
         }
-        .nav-links {
-            display: flex; gap: 1rem; list-style: none; flex-wrap: wrap; justify-content: center;
-        }
+        .nav-links { display: flex; gap: 1rem; list-style: none; flex-wrap: wrap; justify-content: center; }
         .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            color: var(--text-muted); text-decoration: none; font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+            padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.3s ease;
         }
         .nav-links a:hover { color: var(--text-main); background: rgba(255,255,255,0.05); }
         .nav-links a.active { color: var(--color-cyan); border-bottom: 2px solid var(--color-cyan); border-radius: 0; background: transparent; }
@@ -68,76 +59,12 @@
         .header p { font-size: 1.2rem; color: var(--color-cyan); max-width: 800px; margin: 0 auto; font-weight: 500; }
 
         /* ================= CONTENT CONTAINER ================= */
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-
-        /* ================= OUTLINE CARDS ================= */
-        .phase-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-base);
-            border-top: 5px solid;
-            border-radius: 8px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
-
-        .phase-1 { border-top-color: var(--color-cyan); }
-        .phase-2 { border-top-color: var(--color-purple); }
-        .phase-3 { border-top-color: var(--color-green); }
-
-        .phase-header {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-base);
-        }
-
-        .phase-tag {
-            font-family: monospace;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .phase-1 .phase-tag { color: var(--color-cyan); }
-        .phase-2 .phase-tag { color: var(--color-purple); }
-        .phase-3 .phase-tag { color: var(--color-green); }
-
-        .phase-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .phase-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        /* ================= OUTLINE LIST ================= */
-        .outline-list { list-style: none; }
-        .outline-item { margin-bottom: 2rem; padding-left: 1.5rem; position: relative; }
-        .outline-item:last-child { margin-bottom: 0; }
-        .outline-item::before { content: '>'; position: absolute; left: 0; top: 2px; font-weight: 900; font-size: 1.2rem; }
-
-        .phase-1 .outline-item::before { color: var(--color-cyan); }
-        .phase-2 .outline-item::before { color: var(--color-purple); }
-        .phase-3 .outline-item::before { color: var(--color-green); }
-
-        .item-title { font-size: 1.25rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; display: block; }
-        .item-desc { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
         /* ================= EXPANDED MASTER BLUEPRINT GRAPHIC ================= */
         .blueprint-section {
-            margin-top: 5rem;
-            padding: 4rem 2rem;
+            margin-top: 2rem;
+            padding: 5rem 3rem;
             background: rgba(15, 23, 42, 0.4);
             border: 1px solid var(--border-base);
             border-radius: 8px;
@@ -146,118 +73,116 @@
         }
 
         .blueprint-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 3.5rem;
+            font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900;
+            color: var(--text-main); text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        .blueprint-subtitle {
+            font-size: 1.2rem; color: var(--color-cyan); font-style: italic; margin-bottom: 4rem;
         }
 
-        .blueprint-funnel { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .blueprint-funnel { display: flex; flex-direction: column; align-items: center; gap: 0; }
 
         /* Layer Base Styles */
         .bp-layer {
-            border: 1px solid var(--border-base); border-radius: 8px; padding: 2.5rem;
+            border: 1px solid var(--border-base); border-radius: 8px; padding: 3rem;
             width: 100%; background: rgba(2, 6, 23, 0.8); box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             display: flex; flex-direction: column; align-items: center;
         }
 
-        .bp-layer.top { max-width: 100%; border-top: 4px solid var(--color-cyan); box-shadow: 0 0 20px rgba(14, 165, 233, 0.15); }
-        .bp-layer.guard { max-width: 900px; border-top: 4px solid var(--color-red); box-shadow: 0 0 20px rgba(244, 63, 94, 0.15); background: rgba(244, 63, 94, 0.03); }
-        .bp-layer.mid { max-width: 900px; border-top: 4px solid var(--color-purple); box-shadow: 0 0 20px rgba(168, 85, 247, 0.15); }
-        .bp-layer.bot { max-width: 900px; border-top: 4px solid var(--color-green); box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); }
-        .bp-layer.outputs { max-width: 900px; border-top: 4px solid var(--color-orange); box-shadow: 0 0 20px rgba(249, 115, 22, 0.15); }
+        .bp-layer.top { max-width: 100%; border-top: 4px solid var(--color-cyan); box-shadow: 0 0 30px rgba(14, 165, 233, 0.1); }
+        .bp-layer.guard { max-width: 1050px; border-top: 4px solid var(--color-red); box-shadow: 0 0 30px rgba(244, 63, 94, 0.1); background: rgba(244, 63, 94, 0.03); }
+        .bp-layer.mid { max-width: 1050px; border-top: 4px solid var(--color-purple); box-shadow: 0 0 30px rgba(168, 85, 247, 0.1); }
+        .bp-layer.bot { max-width: 1050px; border-top: 4px solid var(--color-green); box-shadow: 0 0 30px rgba(16, 185, 129, 0.1); }
+        .bp-layer.outputs { max-width: 1050px; border-top: 4px solid var(--color-orange); box-shadow: 0 0 30px rgba(249, 115, 22, 0.1); }
 
-        .bp-tag { font-family: monospace; font-size: 0.95rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 0.8rem; text-transform: uppercase; }
+        .bp-tag { font-family: monospace; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 1rem; text-transform: uppercase; }
         .bp-layer.top .bp-tag { color: var(--color-cyan); }
         .bp-layer.guard .bp-tag { color: var(--color-red); }
         .bp-layer.mid .bp-tag { color: var(--color-purple); }
         .bp-layer.bot .bp-tag { color: var(--color-green); }
         .bp-layer.outputs .bp-tag { color: var(--color-orange); }
 
-        .bp-heading { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--text-main); text-transform: uppercase; margin-bottom: 2rem; letter-spacing: 1px; }
-
-        /* Split Definitions (Top Layer) */
-        .bp-grid-split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; width: 100%; }
+        .bp-heading { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 800; color: var(--text-main); text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 1px; }
         
+        /* Intro Paragraphs */
+        .bp-intro { font-size: 1.1rem; color: var(--text-muted); max-width: 900px; margin-bottom: 3rem; line-height: 1.7; font-weight: 500; }
+
+        /* Grid Layouts */
+        .bp-grid-split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; width: 100%; }
+        .bp-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; width: 100%; }
+        .bp-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; width: 100%; }
+        .bp-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; width: 100%; }
+
+        /* Nodes */
+        .bp-node {
+            background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-base); padding: 1.8rem; border-radius: 6px; text-align: left; display: flex; flex-direction: column; justify-content: flex-start;
+        }
+
+        /* Split Definitions */
         .bp-node-split {
             background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-base);
-            border-top: 3px solid var(--color-cyan); padding: 1.5rem; border-radius: 6px;
-            text-align: left; display: flex; flex-direction: column; gap: 1rem;
+            border-top: 4px solid var(--color-cyan); padding: 2rem; border-radius: 6px;
+            text-align: left; display: flex; flex-direction: column; gap: 1.2rem;
         }
 
-        .bp-node-split-title { font-weight: 800; font-size: 1.2rem; color: var(--color-cyan); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border-base); padding-bottom: 0.8rem; }
-
-        .def-block { font-size: 0.95rem; line-height: 1.6; }
-        .def-label { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem; display: block; }
-        
+        .bp-node-split-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem; color: var(--color-cyan); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border-base); padding-bottom: 1rem; }
+        .def-block { font-size: 1rem; line-height: 1.6; }
+        .def-label { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; display: block; }
         .def-standard .def-label { color: var(--text-muted); }
         .def-standard .def-text { color: var(--text-main); }
-        
-        .def-translation .def-label { color: var(--color-cyan); }
+        .def-translation .def-label { color: var(--color-cyan); margin-top: 1rem; }
         .def-translation .def-text { color: var(--text-muted); font-style: italic; }
 
+        /* Guardrail Nodes */
+        .bp-node-red { border-top: 4px solid var(--color-red); background: rgba(244, 63, 94, 0.05); padding: 1.5rem; }
+        .bp-node-red .bp-node-title { color: var(--color-red); font-size: 1.1rem; }
+
         /* Standard Blueprint Nodes */
-        .bp-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; }
-        .bp-flow-horizontal { display: flex; justify-content: center; align-items: stretch; gap: 0.5rem; width: 100%; flex-wrap: wrap; }
+        .bp-node-purple { border-top: 4px solid var(--color-purple); }
+        .bp-node-green { border-top: 4px solid var(--color-green); }
+        .bp-node-orange { border-top: 4px solid var(--color-orange); background: rgba(249, 115, 22, 0.05); }
 
-        .bp-node {
-            background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border-base); padding: 1.2rem; border-radius: 6px; text-align: left; display: flex; flex-direction: column; justify-content: flex-start;
-        }
-
-        .bp-node-purple { border-top: 3px solid var(--color-purple); }
-        .bp-node-green { border-top: 3px solid var(--color-green); flex: 1; min-width: 180px; }
-        .bp-node-orange { border-top: 3px solid var(--color-orange); background: rgba(249, 115, 22, 0.05); }
-
-        .bp-node-title { font-weight: 800; font-size: 1rem; color: var(--text-main); margin-bottom: 0.5rem; text-transform: uppercase; }
+        .bp-node-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.8rem; text-transform: uppercase; }
         .bp-node-purple .bp-node-title { color: var(--color-purple); }
         .bp-node-green .bp-node-title { color: var(--color-green); }
-        .bp-node-orange .bp-node-title { color: var(--color-orange); font-family: monospace; font-size: 1.1rem; }
+        .bp-node-orange .bp-node-title { color: var(--color-orange); font-family: monospace; font-size: 1.2rem; }
 
-        .bp-node-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; font-weight: 500; }
-
-        /* Guardrails List */
-        .bp-guardrails-list { font-family: monospace; font-size: 1rem; font-weight: 700; color: var(--color-red); letter-spacing: 0.5px; text-align: center; }
-        .bp-guardrails-list span { color: var(--border-base); opacity: 0.8; margin: 0 10px; }
-        .guard-subtitle { font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-top: 1rem; }
+        .bp-node-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
 
         /* Feedback Loop */
         .bp-feedback-loop {
-            margin-top: 1rem;
-            max-width: 900px; width: 100%;
-            padding: 2rem;
-            border: 2px dashed var(--color-pink);
-            border-radius: 8px;
-            background: rgba(236, 72, 153, 0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(236, 72, 153, 0.1);
+            margin-top: 3rem; padding: 3rem; max-width: 1050px; width: 100%;
+            border: 2px dashed var(--color-pink); border-radius: 8px; background: rgba(236, 72, 153, 0.05);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.1);
         }
-        .feedback-icon { color: var(--color-pink); font-size: 2.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; transform: rotate(-90deg); }
-        .feedback-title { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--color-pink); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
-        .feedback-desc { font-size: 1rem; color: var(--text-muted); max-width: 600px; }
+        .feedback-icon { color: var(--color-pink); font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 1rem; transform: rotate(-90deg); text-shadow: 0 0 15px var(--color-pink); }
+        .feedback-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--color-pink); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+        .feedback-desc { font-size: 1.1rem; color: var(--text-muted); max-width: 800px; line-height: 1.7; }
 
-        /* Arrows */
-        .bp-arrow { color: var(--border-base); font-size: 2.5rem; font-weight: 900; line-height: 1; margin: -0.5rem 0; }
-        .bp-flow-arrow { display: flex; align-items: center; color: var(--border-base); font-weight: 900; font-size: 1.5rem; }
+        /* Prominent Glowing Arrows */
+        .bp-arrow-container { display: flex; justify-content: center; width: 100%; margin: 1rem 0; }
+        .bp-arrow {
+            color: var(--color-cyan); font-size: 4rem; font-weight: 900; line-height: 1;
+            text-shadow: 0 0 20px var(--color-cyan); opacity: 0.9;
+        }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
+            .bp-grid-5 { grid-template-columns: repeat(3, 1fr); }
             .bp-grid-split { grid-template-columns: 1fr; }
-            .bp-grid-3 { grid-template-columns: 1fr; }
-            .bp-flow-horizontal { flex-direction: column; }
-            .bp-flow-arrow { transform: rotate(90deg); margin: 0.5rem 0; }
-            .bp-guardrails-list { font-size: 0.85rem; line-height: 1.8; }
+        }
+        @media (max-width: 900px) {
+            .bp-grid-3, .bp-grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .bp-arrow { font-size: 3rem; }
         }
         @media (max-width: 600px) {
-            .header h1 { font-size: 1.8rem; }
-            .phase-card { padding: 1.5rem; }
-            .phase-title { font-size: 1.4rem; }
+            .header h1, .blueprint-title { font-size: 1.8rem; }
+            .bp-grid-3, .bp-grid-4, .bp-grid-5 { grid-template-columns: 1fr; }
             .blueprint-section { padding: 2rem 1rem; }
-            .bp-heading { font-size: 1.3rem; }
+            .bp-layer { padding: 1.5rem; }
+            .bp-heading { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -273,102 +198,13 @@
         </ul>
     </nav>
 
-    <!-- HEADER -->
-    <header class="header">
-        <h1>Master Architectural Outline</h1>
-        <p>The Unified Conceptual Framework of Intelligent Architecture</p>
-    </header>
-
     <!-- CONTENT -->
     <div class="container">
-        
-        <!-- PHASE I -->
-        <div class="phase-card phase-1">
-            <div class="phase-header">
-                <span class="phase-tag">[THE GOVERNANCE BASELINE]</span>
-                <h2 class="phase-title">I. AI Systems Engineering</h2>
-                <div class="phase-subtitle">The federal and academic rules of engagement that make AI safe for the enterprise.</div>
-            </div>
-            
-            <ul class="outline-list">
-                <li class="outline-item">
-                    <span class="item-title">Agentic Design Patterns</span>
-                    <div class="item-desc">Forces AI into a self-correcting Generate-Validate-Fix loop rather than relying on fragile, one-shot execution.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">Bounded Autonomy</span>
-                    <div class="item-desc">Mathematically restricts the AI’s blast radius to strictly prevent destructive state overwrites and unauthorized access.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">HITL Governance</span>
-                    <div class="item-desc">Enforces hard human-authorization gates, ensuring the AI can never alter the environment without explicit engineering command.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">Cognitive Circuit Breaking</span>
-                    <div class="item-desc">Deploys hard-coded kill-switches that automatically halt execution and page the architect if the AI enters a logic or hallucination spiral.</div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- PHASE II -->
-        <div class="phase-card phase-2">
-            <div class="phase-header">
-                <span class="phase-tag">[THE OPERATIONAL ENGINE]</span>
-                <h2 class="phase-title">II. The Execution Triad & Decoupled Logic</h2>
-                <div class="phase-subtitle">The structural separation of powers that securely extracts massive AI processing power.</div>
-            </div>
-            
-            <ul class="outline-list">
-                <li class="outline-item">
-                    <span class="item-title">The Architect (Strategic Command)</span>
-                    <div class="item-desc">The human commander who defines the target coordinates and holds final risk-management authority.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">The State Machine (Deterministic Harness)</span>
-                    <div class="item-desc">The immutable safety system that physically blocks unauthorized AI maneuvers and strictly enforces zero-trust rules.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">The AI Engine (Dynamic Synthesis)</span>
-                    <div class="item-desc">The decoupled processing core that generates complex code and troubleshoots friction entirely within isolated memory.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">Enterprise Guardrails (The Filters)</span>
-                    <div class="item-desc">The clinical filters (Data Loss Prevention, Destructive State, The Contributor Trap, Supply Chain Injection, Terminal Exposure) that sterilize all AI outputs before they touch the live cloud.</div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- PHASE III -->
-        <div class="phase-card phase-3">
-            <div class="phase-header">
-                <span class="phase-tag">[THE DEPLOYMENT PIPELINE]</span>
-                <h2 class="phase-title">III. The Four Architectural Gates</h2>
-                <div class="phase-subtitle">The sequential, un-bypassable firing chain that safely deploys the logic.</div>
-            </div>
-            
-            <ul class="outline-list">
-                <li class="outline-item">
-                    <span class="item-title">Gate 1: Boundary Definition</span>
-                    <div class="item-desc">Mathematically fencing the operational theater so automation cannot bleed into unintended or mission-critical environments.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">Gate 2: Identity Provisioning</span>
-                    <div class="item-desc">Establishing a secret-less, password-free machine identity to definitively remove human credential risk from the blast radius.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">Gate 3: Cryptographic Federation</span>
-                    <div class="item-desc">Enforcing strict OpenID Connect (OIDC) trust handshakes that grant only temporary, mathematically bound access tokens.</div>
-                </li>
-                <li class="outline-item">
-                    <span class="item-title">Gate 4: Granular Access Control</span>
-                    <div class="item-desc">Scoping the deployed machine identity strictly to the data-plane of a single asset, neutralizing the risk of the "Contributor Trap."</div>
-                </li>
-            </ul>
-        </div>
 
         <!-- THE EXPANDED MASTER BLUEPRINT GRAPHIC -->
         <div class="blueprint-section">
-            <h2 class="blueprint-title">The Conceptual Blueprint</h2>
+            <h2 class="blueprint-title">The Operational Systems Blueprint</h2>
+            <div class="blueprint-subtitle">The fully deployed, mathematically verified execution framework of Intelligent Architecture.</div>
             
             <div class="blueprint-funnel">
                 
@@ -376,9 +212,11 @@
                 <div class="bp-layer top">
                     <span class="bp-tag">[THE GOVERNANCE UMBRELLA]</span>
                     <div class="bp-heading">Systemic Mandates</div>
+                    <p class="bp-intro">
+                        Generative AI introduces unacceptable probabilistic risk if left unconstrained in enterprise environments. By anchoring our framework strictly in globally recognized academic research and federal cyber standards, we ensure every automated action is governed by defensible engineering mandates. These are the immutable laws of physics for safe AI integration.
+                    </p>
                     <div class="bp-grid-split">
                         
-                        <!-- Pattern 1 -->
                         <div class="bp-node-split">
                             <span class="bp-node-split-title">1. Agentic Patterns</span>
                             <div class="def-block def-standard">
@@ -391,7 +229,6 @@
                             </div>
                         </div>
 
-                        <!-- Pattern 2 -->
                         <div class="bp-node-split">
                             <span class="bp-node-split-title">2. Bounded Autonomy</span>
                             <div class="def-block def-standard">
@@ -404,7 +241,6 @@
                             </div>
                         </div>
 
-                        <!-- Pattern 3 -->
                         <div class="bp-node-split">
                             <span class="bp-node-split-title">3. HITL Governance</span>
                             <div class="def-block def-standard">
@@ -417,7 +253,6 @@
                             </div>
                         </div>
 
-                        <!-- Pattern 4 -->
                         <div class="bp-node-split">
                             <span class="bp-node-split-title">4. Cognitive Circuit Breaking</span>
                             <div class="def-block def-standard">
@@ -433,87 +268,114 @@
                     </div>
                 </div>
 
-                <div class="bp-arrow">&darr;</div>
+                <div class="bp-arrow-container"><div class="bp-arrow">&darr;</div></div>
 
                 <!-- LAYER 2: ENTERPRISE GUARDRAILS -->
                 <div class="bp-layer guard">
                     <span class="bp-tag">[THE SHIELD]</span>
                     <div class="bp-heading" style="color: var(--color-red);">Enterprise Guardrails</div>
-                    <div class="bp-guardrails-list">
-                        Data Loss Prevention <span>|</span> Destructive State <span>|</span> The Contributor Trap <span>|</span> Supply Chain Injection <span>|</span> Terminal Exposure
+                    <p class="bp-intro" style="color: var(--text-main);">
+                        The theoretical mandates above are meaningless without physical enforcement. The Enterprise Guardrails are the hard-coded, decoupled logic filters that actively intercept and sterilize the AI's intent. They act as an impenetrable membrane, mathematically paralyzing any unauthorized or destructive action before it ever approaches the live cloud environment.
+                    </p>
+                    <div class="bp-grid-5">
+                        <div class="bp-node bp-node-red">
+                            <span class="bp-node-title">Data Loss Prevention</span>
+                            <span class="bp-node-desc">Strictly prevents the exfiltration of tenant IDs, object IDs, or proprietary architecture details to external language models.</span>
+                        </div>
+                        <div class="bp-node bp-node-red">
+                            <span class="bp-node-title">Destructive State</span>
+                            <span class="bp-node-desc">Enforces absolute idempotency. The AI is physically blocked from generating 'destroy', 'delete', or 'drop' commands targeting existing infrastructure.</span>
+                        </div>
+                        <div class="bp-node bp-node-red">
+                            <span class="bp-node-title">The Contributor Trap</span>
+                            <span class="bp-node-desc">Neutralizes the risk of over-privileged identities by forbidding the assignment of broad control-plane roles (e.g., Owner, Contributor).</span>
+                        </div>
+                        <div class="bp-node bp-node-red">
+                            <span class="bp-node-title">Supply Chain Injection</span>
+                            <span class="bp-node-desc">Mandates the use of verified, pinned, and cryptographically hashed provider versions to prevent the introduction of malicious upstream modules.</span>
+                        </div>
+                        <div class="bp-node bp-node-red">
+                            <span class="bp-node-title">Terminal Exposure</span>
+                            <span class="bp-node-desc">Sanitizes raw execution logs before feeding them back into the AI context window, ensuring temporary tokens and secrets are never leaked.</span>
+                        </div>
                     </div>
-                    <div class="guard-subtitle">The clinical, decoupled logic filters that sterilize the AI's intent before cloud contact.</div>
                 </div>
 
-                <div class="bp-arrow">&darr;</div>
+                <div class="bp-arrow-container"><div class="bp-arrow" style="color: var(--color-red); text-shadow: 0 0 20px var(--color-red);">&darr;</div></div>
 
                 <!-- LAYER 3: THE EXECUTION TRIAD -->
                 <div class="bp-layer mid">
                     <span class="bp-tag">[THE ENGINE ROOM]</span>
                     <div class="bp-heading">The Execution Triad</div>
+                    <p class="bp-intro">
+                        With the guardrails firmly established, the operational core can function securely. The Execution Triad represents the structural separation of powers within the framework. By isolating probabilistic intelligence from definitive execution authority, the system safely extracts massive processing horsepower without relinquishing control.
+                    </p>
                     <div class="bp-grid-3">
                         <div class="bp-node bp-node-purple">
                             <span class="bp-node-title">The Architect</span>
-                            <span class="bp-node-desc">The human commander. Initiates execution and retains absolute strategic risk authority.</span>
+                            <span class="bp-node-desc"><strong>The Human Commander.</strong> Initiates the execution pipeline, defines the strategic coordinates, and retains absolute risk-management authority over every authorization gate.</span>
                         </div>
                         <div class="bp-node bp-node-purple">
                             <span class="bp-node-title">The State Machine</span>
-                            <span class="bp-node-desc">The deterministic infrastructure controller. Enforces the zero-trust baseline and constrains the AI.</span>
+                            <span class="bp-node-desc"><strong>The Deterministic Harness.</strong> The immutable software controller that physically blocks unauthorized maneuvers, enforces the zero-trust ruleset, and completely encapsulates the AI.</span>
                         </div>
                         <div class="bp-node bp-node-purple">
                             <span class="bp-node-title">The AI Engine</span>
-                            <span class="bp-node-desc">The tethered intelligence. Dynamically generates syntax and resolves friction within strict boundaries.</span>
+                            <span class="bp-node-desc"><strong>The Tethered Intelligence.</strong> The decoupled processing core that dynamically synthesizes complex infrastructure syntax and resolves tangent friction entirely within isolated memory.</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bp-arrow">&darr;</div>
+                <div class="bp-arrow-container"><div class="bp-arrow" style="color: var(--color-purple); text-shadow: 0 0 20px var(--color-purple);">&darr;</div></div>
 
                 <!-- LAYER 4: THE OBJECTIVE GATES -->
                 <div class="bp-layer bot">
                     <span class="bp-tag">[THE CORE TARGET]</span>
                     <div class="bp-heading">The Objective Gates</div>
-                    <div class="bp-flow-horizontal">
+                    <p class="bp-intro">
+                        Once the code is verified, it must be safely applied to the cloud. The Objective Gates define the sequential, un-bypassable firing chain. This sequence guarantees that zero-trust principles are mechanically enforced during the actual deployment phase.
+                    </p>
+                    <div class="bp-grid-4">
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">1. Boundary</span>
-                            <span class="bp-node-desc">Geofencing the operational theater.</span>
+                            <span class="bp-node-desc"><strong>Geofencing the Operational Theater.</strong> Mathematically isolating the target environment using strict subscription and resource group boundaries, ensuring configurations cannot bleed into adjacent mission-critical infrastructure.</span>
                         </div>
-                        <div class="bp-flow-arrow">&rarr;</div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">2. Identity</span>
-                            <span class="bp-node-desc">Passwordless OIDC provisioning.</span>
+                            <span class="bp-node-desc"><strong>Passwordless Machine Provisioning.</strong> Eradicating human credential risk by establishing a secret-less, workload-based identity (e.g., App Registrations or Managed Identities) tailored specifically for the pipeline.</span>
                         </div>
-                        <div class="bp-flow-arrow">&rarr;</div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">3. Federation</span>
-                            <span class="bp-node-desc">Strict OIDC trust handshakes.</span>
+                            <span class="bp-node-desc"><strong>Strict OIDC Trust Handshakes.</strong> Enforcing OpenID Connect (OIDC) federation between the deployment runner and the cloud tenant, guaranteeing that access is granted exclusively via ephemeral, cryptographically bound tokens.</span>
                         </div>
-                        <div class="bp-flow-arrow">&rarr;</div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">4. Access</span>
-                            <span class="bp-node-desc">Granular data-plane scoping.</span>
+                            <span class="bp-node-desc"><strong>Granular Data-Plane Scoping.</strong> Applying the principle of least privilege by scoping the identity exclusively to the exact data-plane actions required for the target asset, completely neutralizing broad administrative risk.</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bp-arrow">&darr;</div>
+                <div class="bp-arrow-container"><div class="bp-arrow" style="color: var(--color-green); text-shadow: 0 0 20px var(--color-green);">&darr;</div></div>
 
                 <!-- LAYER 5: CRYPTOGRAPHIC OUTPUTS -->
                 <div class="bp-layer outputs">
                     <span class="bp-tag">[CRYPTOGRAPHIC PROOFS]</span>
                     <div class="bp-heading">Deployment & Telemetry</div>
+                    <p class="bp-intro">
+                        The ultimate objective of the deterministic state machine is not just to execute code, but to produce mathematical proof of its security and compliance. This layer represents the tangible, immutable artifacts generated by a successful execution.
+                    </p>
                     <div class="bp-grid-3">
                         <div class="bp-node bp-node-orange">
                             <span class="bp-node-title">[Dynamic IaC Payload]</span>
-                            <span class="bp-node-desc">The environment-agnostic infrastructure automation script deployed to the target.</span>
+                            <span class="bp-node-desc">The final, sterilized infrastructure-as-code script (Terraform, Azure Bicep, or MS Graph API). This payload is strictly environment-agnostic, idempotent, and ready for deployment into the target architecture.</span>
                         </div>
                         <div class="bp-node bp-node-orange">
                             <span class="bp-node-title">[IAL_RECORD.md]</span>
-                            <span class="bp-node-desc">The Identity Architecture Ledger. Records and validates the immutable target state configuration.</span>
+                            <span class="bp-node-desc">The Identity Architecture Ledger. Serves as the immutable, human-readable documentation of the target state, recording the exact configurations, boundary conditions, and trust relationships established during the run.</span>
                         </div>
                         <div class="bp-node bp-node-orange">
                             <span class="bp-node-title">[ARL & KQL Telemetry]</span>
-                            <span class="bp-node-desc">Mathematically confirms compliance via live Azure telemetry and asynchronous diagnostic proofs.</span>
+                            <span class="bp-node-desc">The Audit Results Ledger. Captures live, asynchronous diagnostic proofs using Kusto Query Language (KQL) to mathematically confirm that the deployed resources align perfectly with the zero-trust baseline.</span>
                         </div>
                     </div>
                 </div>
@@ -522,7 +384,9 @@
                 <div class="bp-feedback-loop">
                     <div class="feedback-icon">&#10554;</div>
                     <div class="feedback-title">Continuous Protocol Refinement</div>
-                    <div class="feedback-desc">The State Machine systematically captures execution friction in the Defect & Patch Ledger (DPL). The architect approves these updates, integrating lessons learned directly back into the core baseline to permanently scale capability.</div>
+                    <div class="feedback-desc">
+                        The Operational Systems Blueprint is not static; it is a learning, self-optimizing engine. Every point of execution friction, syntax error, and diagnostic failure is systematically captured in the <strong>Defect & Patch Ledger (DPL)</strong>. The State Machine presents this telemetry to the Architect. Upon human approval, these lessons are integrated directly back into the core baseline ruleset, guaranteeing that the machine permanently scales its capability and never repeats the same architectural mistake twice.
+                    </div>
                 </div>
 
             </div>
