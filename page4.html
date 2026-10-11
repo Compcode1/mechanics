@@ -135,33 +135,32 @@
         .def-translation .def-label { color: var(--color-cyan); margin-top: 1rem; }
         .def-translation .def-text { color: var(--text-muted); font-style: italic; }
 
-        /* Guardrail Nodes */
+        /* Colored Nodes */
         .bp-node-red { border-top: 4px solid var(--color-red); background: rgba(244, 63, 94, 0.05); padding: 1.5rem; }
-        .bp-node-red .bp-node-title { color: var(--color-red); font-size: 1.1rem; }
-
-        /* Standard Blueprint Nodes */
         .bp-node-purple { border-top: 4px solid var(--color-purple); }
         .bp-node-green { border-top: 4px solid var(--color-green); }
         .bp-node-orange { border-top: 4px solid var(--color-orange); background: rgba(249, 115, 22, 0.05); }
+        .bp-node-pink { border-top: 4px solid var(--color-pink); background: rgba(236, 72, 153, 0.05); }
 
         .bp-node-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.8rem; text-transform: uppercase; }
+        .bp-node-red .bp-node-title { color: var(--color-red); font-size: 1.1rem; }
         .bp-node-purple .bp-node-title { color: var(--color-purple); }
         .bp-node-green .bp-node-title { color: var(--color-green); }
         .bp-node-orange .bp-node-title { color: var(--color-orange); font-family: monospace; font-size: 1.2rem; }
+        .bp-node-pink .bp-node-title { color: var(--color-pink); }
 
         .bp-node-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
 
         /* Feedback Loop */
         .bp-feedback-loop {
             margin-top: 3rem; padding: 3rem; max-width: 1050px; width: 100%;
-            border: 2px dashed var(--color-pink); border-radius: 8px; background: rgba(236, 72, 153, 0.05);
+            border: 2px dashed var(--color-pink); border-radius: 8px; background: rgba(2, 6, 23, 0.9);
             display: flex; flex-direction: column; align-items: center; text-align: left;
-            box-shadow: 0 0 30px rgba(236, 72, 153, 0.1);
+            box-shadow: 0 0 40px rgba(236, 72, 153, 0.15);
         }
         .feedback-icon { color: var(--color-pink); font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 1rem; transform: rotate(-90deg); text-shadow: 0 0 15px var(--color-pink); align-self: center; }
         .feedback-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--color-pink); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; align-self: center; text-align: center; }
-        .feedback-desc { font-size: 1.1rem; color: var(--text-muted); max-width: 900px; line-height: 1.7; }
-
+        
         /* Prominent Glowing Arrows */
         .bp-arrow-container { display: flex; justify-content: center; width: 100%; margin: 1rem 0; }
         .bp-arrow {
@@ -381,12 +380,36 @@
                     </div>
                 </div>
 
-                <!-- LAYER 6: FEEDBACK LOOP -->
+                <div class="bp-arrow-container"><div class="bp-arrow" style="color: var(--color-orange); text-shadow: 0 0 20px var(--color-orange);">&darr;</div></div>
+
+                <!-- LAYER 6: FEEDBACK LOOP (EXPANDED CYBERNETIC WORKFLOW) -->
                 <div class="bp-feedback-loop">
                     <div class="feedback-icon">&#10554;</div>
                     <div class="feedback-title">Continuous Protocol Refinement</div>
-                    <div class="feedback-desc">
-                        The framework operates a recursive metacognitive loop driven by agentic reflection. As the AI interacts with the State Machine and the Architect, it engages in dynamic context refinement—analyzing its own execution friction, communication efficiency, and logic bottlenecks, and systematically capturing them in the <strong>Defect & Patch Ledger (DPL)</strong>. Upon the Architect's explicit authorization, these structural updates are permanently integrated into the core ruleset. This recursive self-improvement perpetually optimizes the master system prompt, ensuring the cybernetic harness structurally evolves its operational parameters and scales its own intelligence with every execution cycle.
+                    <p class="bp-intro" style="text-align: center; max-width: 1000px; margin: 0 auto 3rem;">
+                        This framework is not static; it is a closed-loop cybernetic system governed by strict agentic reflection. When real-world execution friction occurs, the machine autonomously shifts from deterministic execution into collaborative troubleshooting. The Architect utilizes this structured friction to permanently scale the machine's capabilities via a rigorous four-stage evolution matrix.
+                    </p>
+                    
+                    <div class="bp-grid-split">
+                        <div class="bp-node bp-node-pink">
+                            <span class="bp-node-title">1. Diagnostic Iteration Tracking</span>
+                            <span class="bp-node-desc">Upon encountering an error, the AI engine is forced into a clinical diagnostic state, dropping conversational analogies. It establishes a strict tracking anchor (e.g., <code>[ACTIVE DIAGNOSTIC] | Iteration: 1</code>), initiating a focused Generate-Validate-Fix loop under the Architect's direct observation to isolate the defect.</span>
+                        </div>
+                        
+                        <div class="bp-node bp-node-pink">
+                            <span class="bp-node-title">2. The 4-Iteration Circuit Breaker</span>
+                            <span class="bp-node-desc">To mathematically prevent hallucination and cascading logic drift, the machine is structurally forbidden from generating new code on the 4th iteration. It triggers a mandatory <code>[STRICT HALT]</code>, outputs a risk and probability assessment based on error deltas, and forces the Architect to dictate a strategic pivot or abandonment.</span>
+                        </div>
+
+                        <div class="bp-node bp-node-pink">
+                            <span class="bp-node-title">3. The Defect & Patch Ledger (DPL)</span>
+                            <span class="bp-node-desc">Proposed patches must be executed locally. The AI is strictly forbidden from codifying a fix until the Architect establishes mathematical proof of success via data-plane metrics. Once verified, the AI formalizes the root cause and engineered fix as an immutable entry in the DPL, establishing a proven architectural pathway.</span>
+                        </div>
+
+                        <div class="bp-node bp-node-pink">
+                            <span class="bp-node-title">4. Machine Compilation (Master Prompt Evolution)</span>
+                            <span class="bp-node-desc">At session termination, the AI retrieves all logged DPL entries and formulates actionable "Lessons Learned." Upon the Architect's explicit authorization, these upgrades are permanently compiled back into the machine's global System Directives—structurally evolving the master prompt and guaranteeing the machine never repeats the same error.</span>
+                        </div>
                     </div>
                 </div>
 
