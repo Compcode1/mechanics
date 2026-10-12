@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Architecture - Boundary-Constrained State Diagram</title>
+    <link rel="icon" type="image/png" href="cropped-LOGO-IMPROVED.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-page: #020617; 
+            --bg-node: rgba(10, 15, 29, 0.95);
+            --border-base: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --color-blue: #3b82f6;
+            --color-cyan: #0ea5e9;
+            --color-purple: #a855f7;
+            --color-grey: #64748b;
+            --color-green: #10b981;
+            --color-teal: #14b8a6;
+            --color-red: #f43f5e;
+            --color-orange: #f97316;
+            --color-pink: #ec4899;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-page); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text-main); line-height: 1.6; padding-bottom: 6rem; }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(2, 6, 23, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-base); z-index: 100;
+            padding: 1.2rem 2rem; display: flex; justify-content: center;
+        }
+        .nav-links { 
+            display: flex; gap: 1.2rem; list-style: none; flex-wrap: wrap; 
+            justify-content: center; align-items: center; 
+        }
+        .nav-links a { 
+            display: inline-block;
+            color: var(--color-cyan); 
+            border: 1px solid var(--color-cyan);
+            background: rgba(14, 165, 233, 0.1); 
+            padding: 0.5rem 1.2rem; 
+            border-radius: 6px;
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+            transition: all 0.3s ease; 
+        }
+        .nav-links a:hover, 
+        .nav-links a.active-link { 
+            background: var(--color-cyan); 
+            color: #ffffff; 
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4); 
+        }
+
+        /* ================= HERO HEADER ================= */
+        .hero { padding: 180px 20px 60px; text-align: center; border-bottom: 1px solid var(--border-base); margin-bottom: 4rem; }
+        .hero-title-container { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 25px; }
+        .hero-title { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 900; letter-spacing: 2px; color: var(--color-cyan); text-transform: uppercase; margin-bottom: 1rem; }
+        .hero-subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 900px; line-height: 1.7; }
+
+        /* ================= SWIMLANE DIAGRAM ================= */
+        .swimlane-wrapper {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+            position: relative;
+        }
+
+        /* Center Divider Line */
+        .swimlane-wrapper::before {
+            content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
+            background: repeating-linear-gradient(to bottom, var(--color-grey) 0, var(--color-grey) 10px, transparent 10px, transparent 20px);
+            transform: translateX(-50%); z-index: 0; opacity: 0.4;
+        }
+
+        /* Lane Headers */
+        .lane-header {
+            text-align: center; padding: 1.5rem; border-radius: 8px 8px 0 0;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase;
+            position: relative; z-index: 1;
+        }
+        .lane-left-header { background: rgba(14, 165, 233, 0.1); border: 2px solid var(--color-cyan); color: var(--color-cyan); }
+        .lane-right-header { background: rgba(168, 85, 247, 0.1); border: 2px dashed var(--color-purple); color: var(--color-purple); }
+
+        /* Columns */
+        .lane-col { display: flex; flex-direction: column; gap: 4rem; padding-top: 2rem; position: relative; z-index: 1; }
+
+        /* Nodes */
+        .flow-node {
+            background: rgba(15, 23, 42, 0.95); padding: 2rem; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        
+        .node-left { border: 2px solid var(--color-cyan); border-left: 6px solid var(--color-cyan); }
+        .node-right { border: 2px solid var(--color-purple); border-right: 6px solid var(--color-purple); }
+        .node-guard { border-color: var(--color-red); border-left-color: var(--color-red); }
+        .node-gate { border-color: var(--color-green); border-left-color: var(--color-green); }
+        .node-output { border-color: var(--color-orange); border-left-color: var(--color-orange); }
+
+        .node-title { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 800; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); }
+        .node-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+        .tag-cyan { color: var(--color-cyan); }
+        .tag-purple { color: var(--color-purple); }
+        .tag-red { color: var(--color-red); }
+        .tag-green { color: var(--color-green); }
+        .tag-orange { color: var(--color-orange); }
+
+        /* Connector Arrows */
+        .arrow-cross { position: absolute; font-size: 3rem; font-weight: 900; top: 50%; transform: translateY(-50%); z-index: 5; }
+        .arrow-to-right { right: -3.5rem; color: var(--color-purple); text-shadow: 0 0 15px var(--color-purple); }
+        .arrow-to-left { left: -3.5rem; color: var(--color-cyan); text-shadow: 0 0 15px var(--color-cyan); }
+
+        /* Visual offset to create the "zig-zag" flow */
+        .spacer { height: 120px; }
+
+        @media (max-width: 992px) {
+            .swimlane-wrapper { grid-template-columns: 1fr; }
+            .swimlane-wrapper::before { display: none; }
+            .spacer { display: none; }
+            .lane-col { gap: 2rem; padding-top: 1rem; }
+            .arrow-cross { position: static; text-align: center; transform: none; display: block; margin: 1rem 0; transform: rotate(90deg); }
+            .arrow-to-right, .arrow-to-left { right: auto; left: auto; }
+            .hero-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MASTER NAVIGATION WITH TEST PAGE APPENDED -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ai-systems-engineering.html">AI Systems Engineering</a></li>
+            <li><a href="architectural.html">Pipeline Architecture</a></li>
+            <li><a href="workflow-portfolio.html">Machine Identity Execution Showcase</a></li>
+            <li><a href="add-capabilities.html">Additional Capability Integration Showcase</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" class="active-link">Page 5 - State Diagram</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="hero">
+        <div class="hero-title-container">
+            <h1 class="hero-title">Boundary-Constrained State Diagram</h1>
+            <p class="hero-subtitle">Visualizing the cognitive tethering of the AI Engine. The machine dynamically synthesizes complex logic in the probabilistic space, but is forcefully snapped back to the deterministic framework for mandatory verification, ledger generation, and Human-in-the-Loop authorization.</p>
+        </div>
+    </header>
+
+    <!-- CROSS-FUNCTIONAL SWIMLANE -->
+    <div class="swimlane-wrapper">
+        
+        <!-- LANE 1: DETERMINISTIC -->
+        <div class="lane-col">
+            <div class="lane-header lane-left-header">The Deterministic Framework<br><span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">(Governed / Immutable / Safe)</span></div>
+            
+            <div class="flow-node node-left">
+                <div class="node-title tag-cyan">1. Systemic Mandates & Boot</div>
+                <div class="node-desc">The Architect initiates the State Machine. The AI engine is loaded with the rigid global directives, establishing the cognitive baseline and defining the strict boundary parameters for the session.</div>
+                <div class="arrow-cross arrow-to-right">&rarr;</div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="flow-node node-left node-guard">
+                <div class="node-title tag-red">3. Enterprise Guardrails</div>
+                <div class="node-desc"><strong>[THE SNAP-BACK]</strong> The raw generated syntax is pulled back across the boundary and hits the physical filters. Data-loss prevention, idempotency limits, and explicit RBAC scopes are mechanically verified.</div>
+                <div class="arrow-cross arrow-to-right">&rarr;</div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="flow-node node-left node-gate">
+                <div class="node-title tag-green">5. Objective Gates (HITL)</div>
+                <div class="node-desc"><strong>[STRICT HALT]</strong> The AI is structurally locked. The Architect evaluates the sanitized payload and manually authorizes the transition of state, physically applying the configurations to the live Azure tenant.</div>
+                <div class="arrow-cross arrow-to-right">&rarr;</div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="flow-node node-left node-output">
+                <div class="node-title tag-orange">7. Deployment & Telemetry</div>
+                <div class="node-desc">The AI compiles the raw, live telemetry into immutable cryptographic proofs (Identity Architecture Ledger & Audit Results Ledger). The execution loop is closed, mathematically verifying the data-plane operations.</div>
+            </div>
+
+            <div class="flow-node node-left" style="border-style: dashed; border-color: var(--color-pink);">
+                <div class="node-title tag-cyan" style="color: var(--color-pink)">8. Continuous Protocol Refinement</div>
+                <div class="node-desc">Any friction encountered during Step 4 is compiled into the Defect & Patch Ledger and routed back to Step 1 to permanently evolve the master System Directives.</div>
+            </div>
+
+        </div>
+
+        <!-- LANE 2: PROBABILISTIC -->
+        <div class="lane-col">
+            <div class="lane-header lane-right-header">The Probabilistic Space<br><span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">(Fluid / Generative / Untethered)</span></div>
+            
+            <div class="spacer"></div>
+
+            <div class="flow-node node-right">
+                <div class="node-title tag-purple">2. Payload Synthesis</div>
+                <div class="node-desc">Deployed into the generative space, the AI leverages massive probabilistic intelligence to dynamically synthesize complex HCL/Bicep logic, formatting the required zero-trust identity architecture.</div>
+                <div class="arrow-cross arrow-to-left">&larr;</div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="flow-node node-right">
+                <div class="node-title tag-purple">4. Execution Triad / Diagnostics</div>
+                <div class="node-desc">If execution friction occurs, the AI enters an isolated clinical troubleshooting loop. It parses raw terminal telemetry, iterating rapidly until a viable solution is found or the hardcoded Circuit Breaker trips.</div>
+                <div class="arrow-cross arrow-to-left">&larr;</div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="flow-node node-right">
+                <div class="node-title tag-purple">6. Live Telemetry Analysis</div>
+                <div class="node-desc">The AI reads the raw Azure API responses and Log Analytics metrics generated by the Architect's manual execution, actively monitoring data-plane traffic for HTTP 403 drops or success codes.</div>
+                <div class="arrow-cross arrow-to-left">&larr;</div>
+            </div>
+
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
