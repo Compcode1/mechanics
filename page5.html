@@ -16,12 +16,12 @@
             --text-muted: #94a3b8;
             
             /* Blueprint Palette */
-            --color-cyan: #0ea5e9;   /* Architect / Mandates */
-            --color-red: #f43f5e;    /* Framework / Blocks */
-            --color-purple: #a855f7; /* AI Engine / Probabilistic */
-            --color-green: #10b981;  /* Gates / Authorization */
+            --color-cyan: #0ea5e9;   /* Architect */
+            --color-red: #f43f5e;    /* Framework */
+            --color-purple: #a855f7; /* AI Engine */
+            --color-green: #10b981;  /* Gates */
             --color-orange: #f97316; /* Telemetry */
-            --color-pink: #ec4899;   /* Friction / Cybernetic Loop */
+            --color-pink: #ec4899;   /* Friction */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,20 +46,11 @@
             z-index: 100;
             backdrop-filter: blur(10px);
         }
-        .nav-links {
-            display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; justify-content: center;
-        }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; justify-content: center; }
         .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            color: var(--text-muted); text-decoration: none; font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+            padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.3s ease;
         }
         .nav-links a:hover { color: var(--text-main); background: rgba(255,255,255,0.05); }
         .nav-links a.active { color: var(--color-cyan); border-bottom: 2px solid var(--color-cyan); border-radius: 0; background: transparent; }
@@ -68,92 +59,65 @@
         .page-header { max-width: 1200px; margin: 4rem auto 2rem; padding: 0 20px; text-align: center; }
         .page-title {
             font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900;
-            color: var(--text-main); text-transform: uppercase; letter-spacing: 2px;
-            margin-bottom: 1rem;
+            color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;
         }
         .page-subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 900px; margin: 0 auto; }
         .code-text { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; color: var(--color-cyan); }
 
         /* ================= KINETIC CANVAS ================= */
-        .canvas-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            padding: 2rem 0;
-            cursor: grab;
-        }
-        .canvas-wrapper:active { cursor: grabbing; }
-
+        .canvas-wrapper { width: 100%; overflow-x: auto; padding: 2rem 0; }
+        
         .dashboard {
-            position: relative;
-            width: 1200px; /* Fixed width for perfect SVG alignment */
-            height: 1950px;
-            margin: 0 auto;
+            position: relative; width: 1200px; height: 1950px; margin: 0 auto;
             background-image: 
                 radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
                 linear-gradient(to right, rgba(30, 41, 59, 0.3) 1px, transparent 1px), 
                 linear-gradient(to bottom, rgba(30, 41, 59, 0.3) 1px, transparent 1px);
             background-size: 100% 100%, 40px 40px, 40px 40px;
-            border: 1px solid var(--border-base);
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
+            border: 1px solid var(--border-base); border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); overflow: hidden;
+            transition: background 0.3s ease;
         }
 
-        /* Top Labels */
+        /* Top Labels with SVG Icons */
         .col-label {
-            position: absolute;
-            top: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            width: 300px;
-            text-align: center;
+            position: absolute; top: 20px; width: 300px; text-align: center;
+            font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.1rem;
+            letter-spacing: 2px; text-transform: uppercase;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
         }
+        .col-label svg { width: 32px; height: 32px; stroke-width: 1.5; fill: none; }
+        
         .lbl-architect { left: 50px; color: var(--color-cyan); }
+        .lbl-architect svg { stroke: var(--color-cyan); filter: drop-shadow(0 0 5px var(--color-cyan)); }
+        
         .lbl-framework { left: 450px; color: var(--color-red); }
+        .lbl-framework svg { stroke: var(--color-red); filter: drop-shadow(0 0 5px var(--color-red)); }
+        
         .lbl-ai { left: 850px; color: var(--color-purple); }
+        .lbl-ai svg { stroke: var(--color-purple); filter: drop-shadow(0 0 5px var(--color-purple)); }
 
         /* Central Spine */
         .center-spine {
-            position: absolute;
-            top: 60px;
-            bottom: 0;
-            left: 600px;
-            width: 2px;
+            position: absolute; top: 100px; bottom: 0; left: 600px; width: 2px;
             background: linear-gradient(to bottom, transparent, var(--color-red) 5%, var(--color-red) 95%, transparent);
-            box-shadow: 0 0 15px var(--color-red);
-            z-index: 1;
+            box-shadow: 0 0 15px var(--color-red); z-index: 1;
         }
 
         /* SVG Vector Layer */
-        .vector-layer {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
+        .vector-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
 
-        /* Animated Kinetic Lines */
         .kinetic-path {
-            fill: none;
-            stroke-width: 3;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-dasharray: 10, 15;
-            animation: flow 1.5s linear infinite;
+            fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+            stroke-dasharray: 10, 15; animation: flow 1.5s linear infinite;
+            transition: opacity 0.3s ease;
         }
-        
         .path-cyan { stroke: var(--color-cyan); filter: drop-shadow(0 0 5px var(--color-cyan)); }
         .path-purple { stroke: var(--color-purple); filter: drop-shadow(0 0 5px var(--color-purple)); }
         .path-green { stroke: var(--color-green); filter: drop-shadow(0 0 5px var(--color-green)); }
         .path-pink { 
-            stroke: var(--color-pink); 
-            stroke-width: 4;
-            stroke-dasharray: 15, 20;
-            animation: flow-reverse 2s linear infinite;
-            filter: drop-shadow(0 0 8px var(--color-pink)); 
+            stroke: var(--color-pink); stroke-width: 4; stroke-dasharray: 15, 20;
+            animation: flow-reverse 2s linear infinite; filter: drop-shadow(0 0 8px var(--color-pink)); 
         }
 
         @keyframes flow { to { stroke-dashoffset: -25; } }
@@ -161,64 +125,41 @@
 
         /* Nodes */
         .node {
-            position: absolute;
-            background: var(--bg-panel);
-            border: 1px solid var(--border-base);
-            border-radius: 8px;
-            padding: 1.5rem;
-            width: 320px;
-            z-index: 10;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease;
+            position: absolute; background: var(--bg-panel); border: 1px solid var(--border-base);
+            border-radius: 8px; padding: 1.5rem; width: 320px; z-index: 10;
+            backdrop-filter: blur(12px); box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
         }
-        .node:hover { transform: translateY(-3px); }
+        .node:hover { transform: translateY(-3px); box-shadow: 0 20px 30px rgba(0,0,0,0.6); }
 
         .node-cyan { border-left: 4px solid var(--color-cyan); }
         .node-red { border-left: 4px solid var(--color-red); background: rgba(244, 63, 94, 0.05); }
         .node-green { border-left: 4px solid var(--color-green); background: rgba(16, 185, 129, 0.05); }
         .node-purple { border-right: 4px solid var(--color-purple); }
         .node-orange { border-left: 4px solid var(--color-orange); }
+        .node-pink { border-left: 4px solid var(--color-pink); }
 
-        .node-header {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-        .node-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 0.8rem;
-            line-height: 1.3;
-        }
-        .node-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+        .node-header { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .node-title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.8rem; line-height: 1.3; }
+        .node-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
         .node-desc strong { color: var(--text-main); }
 
-        /* Node Coordinates (X) */
-        .pos-left { left: 40px; }
-        .pos-center { left: 440px; }
-        .pos-right { left: 840px; }
-
-        /* Node Coordinates (Y) */
-        .y-boot { top: 90px; }
-        .y-gate1 { top: 350px; }
-        .y-gate2 { top: 610px; }
-        .y-gate3 { top: 870px; }
-        .y-gate4 { top: 1130px; }
-        .y-telemetry { top: 1420px; }
-        .y-loop { top: 1720px; }
-
-        /* Special Nodes */
+        /* Coordinates */
+        .pos-left { left: 40px; } .pos-center { left: 440px; } .pos-right { left: 840px; }
+        .y-boot { top: 120px; } .y-gate1 { top: 380px; } .y-gate2 { top: 640px; }
+        .y-gate3 { top: 900px; } .y-gate4 { top: 1160px; } .y-telemetry { top: 1450px; } .y-loop { top: 1750px; }
         .node-wide { width: 720px; left: 240px; text-align: center; }
-        
+
+        /* Focus Mode Classes via JS */
+        .dashboard.focus-active .node:not(.focused),
+        .dashboard.focus-active .kinetic-path:not(.focused) {
+            opacity: 0.25;
+            filter: grayscale(80%);
+        }
+        .dashboard.focus-active .node.focused {
+            box-shadow: 0 0 25px rgba(255,255,255,0.1);
+        }
     </style>
 </head>
 <body>
@@ -235,152 +176,145 @@
 
     <header class="page-header">
         <h1 class="page-title">Kinetic Execution Telemetry</h1>
-        <p class="page-subtitle">A formal Feedback Control Block representation of the v8.3 Zero Trust Interactive State Machine. The AI engine is physically bounded, utilizing rapid Generative-Validate loops before snapping back to the deterministic framework for mandatory authorization.</p>
+        <p class="page-subtitle">Hover over any execution node to isolate its strict horizontal state transition across the triad.</p>
     </header>
 
     <div class="canvas-wrapper">
-        <div class="dashboard">
+        <div class="dashboard" id="dashboard">
             
-            <!-- Column Labels -->
-            <div class="col-label lbl-architect">The Architect</div>
-            <div class="col-label lbl-framework">State Machine</div>
-            <div class="col-label lbl-ai">AI Engine</div>
+            <!-- Anchors -->
+            <div class="col-label lbl-architect">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                The Architect
+            </div>
+            <div class="col-label lbl-framework">
+                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                State Machine
+            </div>
+            <div class="col-label lbl-ai">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                AI Engine
+            </div>
 
             <div class="center-spine"></div>
 
-            <!-- SVG Animated Vectors -->
             <svg class="vector-layer" xmlns="http://www.w3.org/2000/svg">
-                <!-- INTAKE FLOW -->
-                <path class="kinetic-path path-cyan" d="M 360 160 C 400 160, 400 160, 440 160" />
-                <path class="kinetic-path path-purple" d="M 840 160 C 800 160, 800 160, 760 160" />
+                <!-- ROW: INTAKE (row-boot) -->
+                <path class="kinetic-path path-cyan" data-row="row-boot" d="M 360 190 C 400 190, 400 190, 440 190" />
+                <path class="kinetic-path path-purple" data-row="row-boot" d="M 840 190 C 800 190, 800 190, 760 190" />
 
-                <!-- GATE 1 FLOW -->
-                <path class="kinetic-path path-cyan" d="M 360 420 C 400 420, 400 420, 440 420" />
-                <path class="kinetic-path path-purple" d="M 840 400 C 780 400, 780 430, 760 430" /> <!-- AI swinging into framework -->
-                <path class="kinetic-path path-purple" d="M 840 460 C 780 460, 780 430, 760 430" />
+                <!-- ROW: GATE 1 (row-gate1) -->
+                <path class="kinetic-path path-cyan" data-row="row-gate1" d="M 360 450 C 400 450, 400 450, 440 450" />
+                <path class="kinetic-path path-purple" data-row="row-gate1" d="M 840 430 C 780 430, 780 460, 760 460" />
+                <path class="kinetic-path path-purple" data-row="row-gate1" d="M 840 490 C 780 490, 780 460, 760 460" />
 
-                <!-- GATE 2 FLOW -->
-                <path class="kinetic-path path-cyan" d="M 360 680 C 400 680, 400 680, 440 680" />
-                <path class="kinetic-path path-purple" d="M 840 660 C 780 660, 780 690, 760 690" />
-                <path class="kinetic-path path-purple" d="M 840 720 C 780 720, 780 690, 760 690" />
+                <!-- ROW: GATE 2 (row-gate2) -->
+                <path class="kinetic-path path-cyan" data-row="row-gate2" d="M 360 710 C 400 710, 400 710, 440 710" />
+                <path class="kinetic-path path-purple" data-row="row-gate2" d="M 840 690 C 780 690, 780 720, 760 720" />
+                <path class="kinetic-path path-purple" data-row="row-gate2" d="M 840 750 C 780 750, 780 720, 760 720" />
 
-                <!-- GATE 3 FLOW -->
-                <path class="kinetic-path path-cyan" d="M 360 940 C 400 940, 400 940, 440 940" />
-                <path class="kinetic-path path-purple" d="M 840 920 C 780 920, 780 950, 760 950" />
-                <path class="kinetic-path path-purple" d="M 840 980 C 780 980, 780 950, 760 950" />
+                <!-- ROW: GATE 3 (row-gate3) -->
+                <path class="kinetic-path path-cyan" data-row="row-gate3" d="M 360 970 C 400 970, 400 970, 440 970" />
+                <path class="kinetic-path path-purple" data-row="row-gate3" d="M 840 950 C 780 950, 780 980, 760 980" />
+                <path class="kinetic-path path-purple" data-row="row-gate3" d="M 840 1010 C 780 1010, 780 980, 760 980" />
 
-                <!-- GATE 4 FLOW -->
-                <path class="kinetic-path path-cyan" d="M 360 1200 C 400 1200, 400 1200, 440 1200" />
-                <path class="kinetic-path path-purple" d="M 840 1180 C 780 1180, 780 1210, 760 1210" />
-                <path class="kinetic-path path-purple" d="M 840 1240 C 780 1240, 780 1210, 760 1210" />
+                <!-- ROW: GATE 4 (row-gate4) -->
+                <path class="kinetic-path path-cyan" data-row="row-gate4" d="M 360 1230 C 400 1230, 400 1230, 440 1230" />
+                <path class="kinetic-path path-purple" data-row="row-gate4" d="M 840 1210 C 780 1210, 780 1240, 760 1240" />
+                <path class="kinetic-path path-purple" data-row="row-gate4" d="M 840 1270 C 780 1270, 780 1240, 760 1240" />
 
-                <!-- TELEMETRY DOWNWARD FLOW -->
-                <path class="kinetic-path path-green" d="M 600 1280 L 600 1420" />
-                
-                <!-- MASSIVE CYBERNETIC FEEDBACK LOOP (PINK) -->
-                <!-- Routes from Iteration 4 up the right side, across the top, down to Architect -->
-                <path class="kinetic-path path-pink" d="M 960 1760 C 1150 1760, 1150 1500, 1150 1000 C 1150 50, 900 30, 600 30 C 300 30, 200 50, 200 90" />
+                <!-- TELEMETRY / LOOP -->
+                <path class="kinetic-path path-green" data-row="row-tel" d="M 600 1310 L 600 1450" />
+                <path class="kinetic-path path-pink" data-row="row-loop" d="M 960 1790 C 1150 1790, 1150 1530, 1150 1030 C 1150 80, 900 60, 600 60 C 300 60, 200 80, 200 120" />
             </svg>
 
-            <!-- ================= HTML NODES ================= -->
-
             <!-- BOOT PHASE -->
-            <div class="node node-cyan pos-left y-boot">
+            <div class="node node-cyan pos-left y-boot" data-row="row-boot">
                 <div class="node-header" style="color: var(--color-cyan);">[PHASE 1: INTAKE]</div>
                 <div class="node-title">Systemic Mandates</div>
                 <div class="node-desc">Architect injects the 5 global coordinates: Boundary, Asset, Agent, State, and Tooling.</div>
             </div>
-            
-            <div class="node node-red pos-center y-boot">
+            <div class="node node-red pos-center y-boot" data-row="row-boot">
                 <div class="node-header" style="color: var(--color-red);">[GUARDRAIL SHIELD]</div>
                 <div class="node-title">Data Loss Prevention</div>
                 <div class="node-desc">Framework physically blocks exposure of Tenant IDs in external LLM parameters.</div>
             </div>
-
-            <div class="node node-purple pos-right y-boot">
+            <div class="node node-purple pos-right y-boot" data-row="row-boot">
                 <div class="node-header" style="color: var(--color-purple);">[DETERMINISTIC MODE]</div>
                 <div class="node-title">Baseline Initialization</div>
                 <div class="node-desc">AI locks coordinates, drops conversational models, and dynamically resolves pipeline placeholders.</div>
             </div>
 
-            <!-- GATE 1: BOUNDARY -->
-            <div class="node node-cyan pos-left y-gate1">
+            <!-- GATE 1 -->
+            <div class="node node-cyan pos-left y-gate1" data-row="row-gate1">
                 <div class="node-header" style="color: var(--color-cyan);">[GATE 1]</div>
                 <div class="node-title">Geofence Authorization</div>
                 <div class="node-desc">Architect locks the cloud theater, confirming specific Subscription and Resource Group boundaries.</div>
             </div>
-            
-            <div class="node node-green pos-center y-gate1">
+            <div class="node node-green pos-center y-gate1" data-row="row-gate1">
                 <div class="node-header" style="color: var(--color-green);">[THE SNAP-BACK]</div>
                 <div class="node-title">Destructive State Prevention</div>
                 <div class="node-desc">Framework enforces idempotency. AI is physically blocked from generating <span class="code-text">destroy</span> syntax.</div>
             </div>
-
-            <div class="node node-purple pos-right y-gate1">
+            <div class="node node-purple pos-right y-gate1" data-row="row-gate1">
                 <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
                 <div class="node-title">Topography Evaluation</div>
                 <div class="node-desc">AI evaluates state. Synthesizes <span class="code-text">data</span> blocks for Brownfield, or <span class="code-text">prevent_destroy</span> for Greenfield.</div>
             </div>
 
-            <!-- GATE 2: IDENTITY -->
-            <div class="node node-cyan pos-left y-gate2">
+            <!-- GATE 2 -->
+            <div class="node node-cyan pos-left y-gate2" data-row="row-gate2">
                 <div class="node-header" style="color: var(--color-cyan);">[GATE 2]</div>
                 <div class="node-title">Object Instantiation</div>
                 <div class="node-desc">Architect explicitly authorizes the creation of the zero-trust Machine Identity.</div>
             </div>
-            
-            <div class="node node-green pos-center y-gate2">
+            <div class="node node-green pos-center y-gate2" data-row="row-gate2">
                 <div class="node-header" style="color: var(--color-green);">[THE SNAP-BACK]</div>
                 <div class="node-title">Attack Surface Minimization</div>
                 <div class="node-desc">Framework strictly denies interactive browser callbacks and enforces Single-Tenant constraints.</div>
             </div>
-
-            <div class="node node-purple pos-right y-gate2">
+            <div class="node node-purple pos-right y-gate2" data-row="row-gate2">
                 <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
                 <div class="node-title">Schema Translation</div>
                 <div class="node-desc">AI forks App Registration schema based on the specific CI/CD pipeline (e.g., GitHub vs. GitLab).</div>
             </div>
 
-            <!-- GATE 3: FEDERATION -->
-            <div class="node node-cyan pos-left y-gate3">
+            <!-- GATE 3 -->
+            <div class="node node-cyan pos-left y-gate3" data-row="row-gate3">
                 <div class="node-header" style="color: var(--color-cyan);">[GATE 3]</div>
                 <div class="node-title">Programmatic Extraction</div>
                 <div class="node-desc">Architect executes local scripts to extract immutable OIDC node-IDs to prevent guessing.</div>
             </div>
-            
-            <div class="node node-green pos-center y-gate3">
+            <div class="node node-green pos-center y-gate3" data-row="row-gate3">
                 <div class="node-header" style="color: var(--color-green);">[THE SNAP-BACK]</div>
                 <div class="node-title">Subject Claim Validation</div>
                 <div class="node-desc">Framework enforces strict character casing (<span class="code-text">Compcode1</span>) and restricts token volatility to 60-minutes.</div>
             </div>
-
-            <div class="node node-purple pos-right y-gate3">
+            <div class="node node-purple pos-right y-gate3" data-row="row-gate3">
                 <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
                 <div class="node-title">Race Condition Mitigation</div>
                 <div class="node-desc">AI synthesizes JSON payloads, injecting declarative <span class="code-text">time_sleep</span> bounds to absorb API delays.</div>
             </div>
 
-            <!-- GATE 4: ACCESS -->
-            <div class="node node-cyan pos-left y-gate4">
+            <!-- GATE 4 -->
+            <div class="node node-cyan pos-left y-gate4" data-row="row-gate4">
                 <div class="node-header" style="color: var(--color-cyan);">[GATE 4]</div>
                 <div class="node-title">Final Deployment (HITL)</div>
                 <div class="node-desc">Architect physically executes the sterilized payload and manual MFA decoupled portal bindings.</div>
             </div>
-            
-            <div class="node node-green pos-center y-gate4">
+            <div class="node node-green pos-center y-gate4" data-row="row-gate4">
                 <div class="node-header" style="color: var(--color-green);">[THE SNAP-BACK]</div>
                 <div class="node-title">The Contributor Trap</div>
                 <div class="node-desc">Framework mathematically restricts logic solely to data-plane roles on specific target asset IDs.</div>
             </div>
-
-            <div class="node node-purple pos-right y-gate4">
+            <div class="node node-purple pos-right y-gate4" data-row="row-gate4">
                 <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
                 <div class="node-title">Execution Decoupling</div>
                 <div class="node-desc">AI detects local brokers drop MFA claims. Decouples deployment, halting for manual UI role assignment.</div>
             </div>
 
             <!-- TELEMETRY OUPUTS -->
-            <div class="node node-orange node-wide y-telemetry" style="border-top: 4px solid var(--color-orange); border-left: 1px solid var(--border-base);">
+            <div class="node node-orange node-wide y-telemetry" data-row="row-tel" style="border-top: 4px solid var(--color-orange); border-left: 1px solid var(--border-base);">
                 <div class="node-header" style="color: var(--color-orange);">[PHASE 5: CRYPTOGRAPHIC PROOFS]</div>
                 <div class="node-title">Deployment & Auditing Telemetry</div>
                 <div class="node-desc" style="display: flex; gap: 2rem; text-align: left; margin-top: 1rem;">
@@ -391,7 +325,7 @@
             </div>
 
             <!-- CYBERNETIC LOOP -->
-            <div class="node node-pink node-wide y-loop" style="display: flex; align-items: center; gap: 2rem;">
+            <div class="node node-pink node-wide y-loop" data-row="row-loop" style="display: flex; align-items: center; gap: 2rem;">
                 <div style="font-size: 3rem; color: var(--color-pink); font-weight: 900; line-height: 1;">&#10554;</div>
                 <div style="text-align: left;">
                     <div class="node-header" style="color: var(--color-pink);">[PHASE 6: CONTINUOUS PROTOCOL REFINEMENT]</div>
@@ -403,5 +337,33 @@
         </div>
     </div>
 
+    <!-- JS for Focus Mode -->
+    <script>
+        const dashboard = document.getElementById('dashboard');
+        const nodes = document.querySelectorAll('.node');
+        const paths = document.querySelectorAll('.kinetic-path');
+
+        nodes.forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                const targetRow = node.getAttribute('data-row');
+                if (!targetRow) return;
+                
+                dashboard.classList.add('focus-active');
+                
+                nodes.forEach(n => {
+                    if (n.getAttribute('data-row') === targetRow) n.classList.add('focused');
+                });
+                paths.forEach(p => {
+                    if (p.getAttribute('data-row') === targetRow) p.classList.add('focused');
+                });
+            });
+
+            node.addEventListener('mouseleave', () => {
+                dashboard.classList.remove('focus-active');
+                nodes.forEach(n => n.classList.remove('focused'));
+                paths.forEach(p => p.classList.remove('focused'));
+            });
+        });
+    </script>
 </body>
 </html>
