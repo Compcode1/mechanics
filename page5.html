@@ -68,7 +68,7 @@
         .canvas-wrapper { width: 100%; overflow-x: auto; padding: 2rem 0; }
         
         .dashboard {
-            position: relative; width: 1200px; height: 1950px; margin: 0 auto;
+            position: relative; width: 1200px; height: 2500px; margin: 0 auto;
             background-image: 
                 radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
                 linear-gradient(to right, rgba(30, 41, 59, 0.3) 1px, transparent 1px), 
@@ -76,7 +76,6 @@
             background-size: 100% 100%, 40px 40px, 40px 40px;
             border: 1px solid var(--border-base); border-radius: 12px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); overflow: hidden;
-            transition: background 0.3s ease;
         }
 
         /* Top Labels with SVG Icons */
@@ -110,7 +109,6 @@
         .kinetic-path {
             fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
             stroke-dasharray: 10, 15; animation: flow 1.5s linear infinite;
-            transition: opacity 0.3s ease;
         }
         .path-cyan { stroke: var(--color-cyan); filter: drop-shadow(0 0 5px var(--color-cyan)); }
         .path-purple { stroke: var(--color-purple); filter: drop-shadow(0 0 5px var(--color-purple)); }
@@ -126,12 +124,9 @@
         /* Nodes */
         .node {
             position: absolute; background: var(--bg-panel); border: 1px solid var(--border-base);
-            border-radius: 8px; padding: 1.5rem; width: 320px; z-index: 10;
+            border-radius: 8px; padding: 1.5rem; width: 320px; min-height: 200px; z-index: 10;
             backdrop-filter: blur(12px); box-shadow: 0 15px 25px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
-            cursor: default;
         }
-        .node:hover { transform: translateY(-3px); box-shadow: 0 20px 30px rgba(0,0,0,0.6); }
 
         .node-cyan { border-left: 4px solid var(--color-cyan); }
         .node-red { border-left: 4px solid var(--color-red); background: rgba(244, 63, 94, 0.05); }
@@ -140,26 +135,26 @@
         .node-orange { border-left: 4px solid var(--color-orange); }
         .node-pink { border-left: 4px solid var(--color-pink); }
 
-        .node-header { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
-        .node-title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.8rem; line-height: 1.3; }
-        .node-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+        .node-header { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.75rem; }
+        .node-title { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.3; }
+        .node-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
         .node-desc strong { color: var(--text-main); }
+        .node-desc ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+        .node-desc li { margin-bottom: 0.3rem; }
 
-        /* Coordinates */
+        /* Coordinates (Expanded Height) */
         .pos-left { left: 40px; } .pos-center { left: 440px; } .pos-right { left: 840px; }
-        .y-boot { top: 120px; } .y-gate1 { top: 380px; } .y-gate2 { top: 640px; }
-        .y-gate3 { top: 900px; } .y-gate4 { top: 1160px; } .y-telemetry { top: 1450px; } .y-loop { top: 1750px; }
+        
+        .y-boot { top: 120px; } 
+        .y-gate1 { top: 480px; } 
+        .y-gate2 { top: 880px; }
+        .y-gate3 { top: 1300px; } 
+        .y-gate4 { top: 1720px; } 
+        .y-telemetry { top: 2150px; } 
+        .y-loop { top: 2350px; }
+        
         .node-wide { width: 720px; left: 240px; text-align: center; }
 
-        /* Focus Mode Classes via JS */
-        .dashboard.focus-active .node:not(.focused),
-        .dashboard.focus-active .kinetic-path:not(.focused) {
-            opacity: 0.25;
-            filter: grayscale(80%);
-        }
-        .dashboard.focus-active .node.focused {
-            box-shadow: 0 0 25px rgba(255,255,255,0.1);
-        }
     </style>
 </head>
 <body>
@@ -176,7 +171,7 @@
 
     <header class="page-header">
         <h1 class="page-title">Kinetic Execution Telemetry</h1>
-        <p class="page-subtitle">Hover over any execution node to isolate its strict horizontal state transition across the triad.</p>
+        <p class="page-subtitle">A mathematically precise Feedback Control Block mapping the execution flow of the Zero Trust Interactive State Machine directly to the Operational Systems Blueprint and Microsoft Entra ID architectural mandates.</p>
     </header>
 
     <div class="canvas-wrapper">
@@ -199,171 +194,212 @@
             <div class="center-spine"></div>
 
             <svg class="vector-layer" xmlns="http://www.w3.org/2000/svg">
-                <!-- ROW: INTAKE (row-boot) -->
-                <path class="kinetic-path path-cyan" data-row="row-boot" d="M 360 190 C 400 190, 400 190, 440 190" />
-                <path class="kinetic-path path-purple" data-row="row-boot" d="M 840 190 C 800 190, 800 190, 760 190" />
+                <!-- ROW: INTAKE (Offset center of node ~130px) -->
+                <path class="kinetic-path path-cyan" d="M 360 250 C 400 250, 400 250, 440 250" />
+                <path class="kinetic-path path-purple" d="M 840 250 C 800 250, 800 250, 760 250" />
 
-                <!-- ROW: GATE 1 (row-gate1) -->
-                <path class="kinetic-path path-cyan" data-row="row-gate1" d="M 360 450 C 400 450, 400 450, 440 450" />
-                <path class="kinetic-path path-purple" data-row="row-gate1" d="M 840 430 C 780 430, 780 460, 760 460" />
-                <path class="kinetic-path path-purple" data-row="row-gate1" d="M 840 490 C 780 490, 780 460, 760 460" />
+                <!-- ROW: GATE 1 -->
+                <path class="kinetic-path path-cyan" d="M 360 610 C 400 610, 400 610, 440 610" />
+                <path class="kinetic-path path-purple" d="M 840 590 C 780 590, 780 620, 760 620" />
+                <path class="kinetic-path path-purple" d="M 840 650 C 780 650, 780 620, 760 620" />
 
-                <!-- ROW: GATE 2 (row-gate2) -->
-                <path class="kinetic-path path-cyan" data-row="row-gate2" d="M 360 710 C 400 710, 400 710, 440 710" />
-                <path class="kinetic-path path-purple" data-row="row-gate2" d="M 840 690 C 780 690, 780 720, 760 720" />
-                <path class="kinetic-path path-purple" data-row="row-gate2" d="M 840 750 C 780 750, 780 720, 760 720" />
+                <!-- ROW: GATE 2 -->
+                <path class="kinetic-path path-cyan" d="M 360 1010 C 400 1010, 400 1010, 440 1010" />
+                <path class="kinetic-path path-purple" d="M 840 990 C 780 990, 780 1020, 760 1020" />
+                <path class="kinetic-path path-purple" d="M 840 1050 C 780 1050, 780 1020, 760 1020" />
 
-                <!-- ROW: GATE 3 (row-gate3) -->
-                <path class="kinetic-path path-cyan" data-row="row-gate3" d="M 360 970 C 400 970, 400 970, 440 970" />
-                <path class="kinetic-path path-purple" data-row="row-gate3" d="M 840 950 C 780 950, 780 980, 760 980" />
-                <path class="kinetic-path path-purple" data-row="row-gate3" d="M 840 1010 C 780 1010, 780 980, 760 980" />
+                <!-- ROW: GATE 3 -->
+                <path class="kinetic-path path-cyan" d="M 360 1430 C 400 1430, 400 1430, 440 1430" />
+                <path class="kinetic-path path-purple" d="M 840 1410 C 780 1410, 780 1440, 760 1440" />
+                <path class="kinetic-path path-purple" d="M 840 1470 C 780 1470, 780 1440, 760 1440" />
 
-                <!-- ROW: GATE 4 (row-gate4) -->
-                <path class="kinetic-path path-cyan" data-row="row-gate4" d="M 360 1230 C 400 1230, 400 1230, 440 1230" />
-                <path class="kinetic-path path-purple" data-row="row-gate4" d="M 840 1210 C 780 1210, 780 1240, 760 1240" />
-                <path class="kinetic-path path-purple" data-row="row-gate4" d="M 840 1270 C 780 1270, 780 1240, 760 1240" />
+                <!-- ROW: GATE 4 -->
+                <path class="kinetic-path path-cyan" d="M 360 1850 C 400 1850, 400 1850, 440 1850" />
+                <path class="kinetic-path path-purple" d="M 840 1830 C 780 1830, 780 1860, 760 1860" />
+                <path class="kinetic-path path-purple" d="M 840 1890 C 780 1890, 780 1860, 760 1860" />
 
                 <!-- TELEMETRY / LOOP -->
-                <path class="kinetic-path path-green" data-row="row-tel" d="M 600 1310 L 600 1450" />
-                <path class="kinetic-path path-pink" data-row="row-loop" d="M 960 1790 C 1150 1790, 1150 1530, 1150 1030 C 1150 80, 900 60, 600 60 C 300 60, 200 80, 200 120" />
+                <path class="kinetic-path path-green" d="M 600 1970 L 600 2150" />
+                <path class="kinetic-path path-pink" d="M 960 2380 C 1200 2380, 1200 1530, 1200 1030 C 1200 80, 900 60, 600 60 C 300 60, 200 80, 200 120" />
             </svg>
 
             <!-- BOOT PHASE -->
-            <div class="node node-cyan pos-left y-boot" data-row="row-boot">
+            <div class="node node-cyan pos-left y-boot">
                 <div class="node-header" style="color: var(--color-cyan);">[PHASE 1: INTAKE]</div>
                 <div class="node-title">Systemic Mandates</div>
-                <div class="node-desc">Architect injects the 5 global coordinates: Boundary, Asset, Agent, State, and Tooling.</div>
+                <div class="node-desc">
+                    Architect injects the 5 global coordinates required to initiate pipeline generation:
+                    <ul>
+                        <li><strong>Boundary:</strong> Azure Tenant / Sub ID</li>
+                        <li><strong>Target Asset:</strong> App / Workload ID</li>
+                        <li><strong>Execution Agent:</strong> e.g., GitHub Actions</li>
+                        <li><strong>State:</strong> Greenfield or Brownfield</li>
+                        <li><strong>Tooling:</strong> Terraform, Bicep, Native</li>
+                    </ul>
+                </div>
             </div>
-            <div class="node node-red pos-center y-boot" data-row="row-boot">
+            <div class="node node-red pos-center y-boot">
                 <div class="node-header" style="color: var(--color-red);">[GUARDRAIL SHIELD]</div>
-                <div class="node-title">Data Loss Prevention</div>
-                <div class="node-desc">Framework physically blocks exposure of Tenant IDs in external LLM parameters.</div>
+                <div class="node-title">Data Loss Prevention (DLP)</div>
+                <div class="node-desc">
+                    Framework mandates strict isolation of proprietary network topography from generative models. 
+                    <br><br>
+                    Physically blocks the exposure of Tenant IDs, exact repository names, or plaintext secrets in any external LLM parameters, enforcing the Operational Blueprint's core security mandate prior to synthesis.
+                </div>
             </div>
-            <div class="node node-purple pos-right y-boot" data-row="row-boot">
+            <div class="node node-purple pos-right y-boot">
                 <div class="node-header" style="color: var(--color-purple);">[DETERMINISTIC MODE]</div>
                 <div class="node-title">Baseline Initialization</div>
-                <div class="node-desc">AI locks coordinates, drops conversational models, and dynamically resolves pipeline placeholders.</div>
+                <div class="node-desc">
+                    AI drops open-ended conversational context and locks onto the provided coordinates.
+                    <br><br>
+                    It parses the workspace directory structure, maps the required execution modules, and dynamically resolves pipeline placeholders to prepare for environment-agnostic infrastructure generation.
+                </div>
             </div>
 
             <!-- GATE 1 -->
-            <div class="node node-cyan pos-left y-gate1" data-row="row-gate1">
+            <div class="node node-cyan pos-left y-gate1">
                 <div class="node-header" style="color: var(--color-cyan);">[GATE 1]</div>
                 <div class="node-title">Geofence Authorization</div>
-                <div class="node-desc">Architect locks the cloud theater, confirming specific Subscription and Resource Group boundaries.</div>
+                <div class="node-desc">
+                    <strong>HITL Authorization Point:</strong> Architect visually verifies the cloud theater targets.
+                    <br><br>
+                    Confirms that the Subscription ID and Resource Group boundaries are precisely aligned with the target deployment environment before authorizing the AI to evaluate existing state infrastructure.
+                </div>
             </div>
-            <div class="node node-green pos-center y-gate1" data-row="row-gate1">
+            <div class="node node-green pos-center y-gate1">
                 <div class="node-header" style="color: var(--color-green);">[THE SNAP-BACK]</div>
                 <div class="node-title">Destructive State Prevention</div>
-                <div class="node-desc">Framework enforces idempotency. AI is physically blocked from generating <span class="code-text">destroy</span> syntax.</div>
+                <div class="node-desc">
+                    Enforces absolute system idempotency—a core Operational Blueprint mandate. 
+                    <br><br>
+                    AI is physically barred from hallucinating <span class="code-text">destroy</span> syntax. The framework mandates <span class="code-text">prevent_destroy</span> lifecycle blocks for Greenfield, and read-only <span class="code-text">data</span> block lookups for existing Brownfield enterprise architecture.
+                </div>
             </div>
-            <div class="node node-purple pos-right y-gate1" data-row="row-gate1">
+            <div class="node node-purple pos-right y-gate1">
                 <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
                 <div class="node-title">Topography Evaluation</div>
-                <div class="node-desc">AI evaluates state. Synthesizes <span class="code-text">data</span> blocks for Brownfield, or <span class="code-text">prevent_destroy</span> for Greenfield.</div>
+                <div class="node-desc">
+                    AI evaluates the locked state coordinates and synthesizes the exact environment-agnostic Terraform or Bicep payloads required.
+                    <br><br>
+                    It applies the mandated lifecycle constraints to guarantee that the generated code will map to existing resources without triggering destructive overwrites.
+                </div>
             </div>
 
             <!-- GATE 2 -->
-            <div class="node node-cyan pos-left y-gate2" data-row="row-gate2">
+            <div class="node node-cyan pos-left y-gate2">
                 <div class="node-header" style="color: var(--color-cyan);">[GATE 2]</div>
                 <div class="node-title">Object Instantiation</div>
-                <div class="node-desc">Architect explicitly authorizes the creation of the zero-trust Machine Identity.</div>
+                <div class="node-desc">
+                    <strong>HITL Authorization Point:</strong> Architect explicitly authorizes the creation of the zero-trust Machine Identity.
+                    <br><br>
+                    Validates adherence to enterprise naming conventions and confirms that the payload targets a dedicated, non-human service principal account rather than a standard user identity.
+                </div>
             </div>
-            <div class="node node-green pos-center y-gate2" data-row="row-gate2">
+            <div class="node node-green pos-center y-gate2">
                 <div class="node-header" style="color: var(--color-green);">[THE SNAP-BACK]</div>
                 <div class="node-title">Attack Surface Minimization</div>
-                <div class="node-desc">Framework strictly denies interactive browser callbacks and enforces Single-Tenant constraints.</div>
+                <div class="node-desc">
+                    Enforces Entra ID best practices for non-human identities. 
+                    <br><br>
+                    Strictly denies the creation of interactive browser callbacks (redirect URIs), enforces Single-Tenant authentication boundaries, and mandates headless application creation to permanently sever interactive compromise vectors.
+                </div>
             </div>
-            <div class="node node-purple pos-right y-gate2" data-row="row-gate2">
+            <div class="node node-purple pos-right y-gate2">
                 <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
                 <div class="node-title">Schema Translation</div>
-                <div class="node-desc">AI forks App Registration schema based on the specific CI/CD pipeline (e.g., GitHub vs. GitLab).</div>
+                <div class="node-desc">
+                    AI forks the underlying App Registration schema based on the specific CI/CD target agent provided in the Intake phase. 
+                    <br><br>
+                    It actively translates the required JSON structures to match the specific pipeline syntax required by GitHub Actions, GitLab CI/CD, or Azure DevOps.
+                </div>
             </div>
 
             <!-- GATE 3 -->
-            <div class="node node-cyan pos-left y-gate3" data-row="row-gate3">
+            <div class="node node-cyan pos-left y-gate3">
                 <div class="node-header" style="color: var(--color-cyan);">[GATE 3]</div>
                 <div class="node-title">Programmatic Extraction</div>
-                <div class="node-desc">Architect executes local scripts to extract immutable OIDC node-IDs to prevent guessing.</div>
+                <div class="node-desc">
+                    <strong>HITL Authorization Point:</strong> Architect executes local, native CLI scripts (e.g., Azure CLI, Microsoft Graph) to extract immutable OIDC node-IDs directly from the provider.
+                    <br><br>
+                    This mathematically prevents the AI from guessing or hallucinating critical cryptographic federation identifiers.
+                </div>
             </div>
-            <div class="node node-green pos-center y-gate3" data-row="row-gate3">
+            <div class="node node-green pos-center y-gate3">
                 <div class="node-header" style="color: var(--color-green);">[THE SNAP-BACK]</div>
                 <div class="node-title">Subject Claim Validation</div>
-                <div class="node-desc">Framework enforces strict character casing (<span class="code-text">Compcode1</span>) and restricts token volatility to 60-minutes.</div>
+                <div class="node-desc">
+                    Secures the zero-trust federation boundary. 
+                    <br><br>
+                    Framework enforces precise string character casing (e.g., strictly validating <span class="code-text">Compcode1</span>) to prevent AADSTS700215 token mismatch errors. Imposes a rigid 60-minute token volatility ceiling to severely limit the credential blast radius.
+                </div>
             </div>
-            <div class="node node-purple pos-right y-gate3" data-row="row-gate3">
+            <div class="node node-purple pos-right y-gate3">
                 <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
                 <div class="node-title">Race Condition Mitigation</div>
-                <div class="node-desc">AI synthesizes JSON payloads, injecting declarative <span class="code-text">time_sleep</span> bounds to absorb API delays.</div>
+                <div class="node-desc">
+                    AI synthesizes the final federation payload. 
+                    <br><br>
+                    Recognizing inherent API replication delays in Entra ID, the engine automatically injects declarative <span class="code-text">time_sleep</span> commands (e.g., 30-second delays) to gracefully absorb Microsoft Graph API eventual consistency barriers.
+                </div>
             </div>
 
             <!-- GATE 4 -->
-            <div class="node node-cyan pos-left y-gate4" data-row="row-gate4">
+            <div class="node node-cyan pos-left y-gate4">
                 <div class="node-header" style="color: var(--color-cyan);">[GATE 4]</div>
                 <div class="node-title">Final Deployment (HITL)</div>
-                <div class="node-desc">Architect physically executes the sterilized payload and manual MFA decoupled portal bindings.</div>
+                <div class="node-desc">
+                    <strong>HITL Authorization Point:</strong> The Architect physically executes the finalized, sterilized infrastructure payload.
+                    <br><br>
+                    If local terminal execution drops required MFA claims due to security broker constraints, the Architect transitions to the portal to manually satisfy UI/MFA decoupled role bindings.
+                </div>
             </div>
-            <div class="node node-green pos-center y-gate4" data-row="row-gate4">
+            <div class="node node-green pos-center y-gate4">
                 <div class="node-header" style="color: var(--color-green);">[THE SNAP-BACK]</div>
                 <div class="node-title">The Contributor Trap</div>
-                <div class="node-desc">Framework mathematically restricts logic solely to data-plane roles on specific target asset IDs.</div>
+                <div class="node-desc">
+                    Enforces the Principle of Least Privilege (PoLP). 
+                    <br><br>
+                    Mathematically restricts the AI from applying broad, control-plane Owner/Contributor roles. All role assignments are scoped strictly to specific target asset ID data-planes (e.g., Key Vault Secrets User or Storage Blob Data Reader).
+                </div>
             </div>
-            <div class="node node-purple pos-right y-gate4" data-row="row-gate4">
+            <div class="node node-purple pos-right y-gate4">
                 <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
                 <div class="node-title">Execution Decoupling</div>
-                <div class="node-desc">AI detects local brokers drop MFA claims. Decouples deployment, halting for manual UI role assignment.</div>
+                <div class="node-desc">
+                    AI monitors execution context and detects when local security brokers drop necessary MFA tokens. 
+                    <br><br>
+                    It autonomously decouples the deployment schema, generating the identity configuration while intentionally halting runbook execution to stage manual UI role assignments.
+                </div>
             </div>
 
             <!-- TELEMETRY OUPUTS -->
-            <div class="node node-orange node-wide y-telemetry" data-row="row-tel" style="border-top: 4px solid var(--color-orange); border-left: 1px solid var(--border-base);">
+            <div class="node node-orange node-wide y-telemetry" style="border-top: 4px solid var(--color-orange); border-left: 1px solid var(--border-base);">
                 <div class="node-header" style="color: var(--color-orange);">[PHASE 5: CRYPTOGRAPHIC PROOFS]</div>
                 <div class="node-title">Deployment & Auditing Telemetry</div>
-                <div class="node-desc" style="display: flex; gap: 2rem; text-align: left; margin-top: 1rem;">
-                    <div><strong>> Dynamic IaC Payload</strong><br>The final, environment-agnostic automated deployment schema.</div>
-                    <div><strong>> Identity Architecture Ledger (IAL)</strong><br>Immutable recording of boundary coordinates and trust lines.</div>
-                    <div><strong>> Audit Results Ledger & KQL</strong><br>Live API telemetry verifying zero Silent 403 drops.</div>
+                <div class="node-desc" style="display: flex; gap: 2rem; text-align: left; margin-top: 1.5rem;">
+                    <div><strong>> Dynamic IaC Payload</strong><br>The final, synthesized infrastructure script, explicitly mapped and proven to enforce enterprise constraints without triggering destructive overwrites.</div>
+                    <div><strong>> Identity Architecture Ledger</strong><br>The immutable receipt (IAL) recording the exact OIDC trust coordinates, boundary mappings, and programmatic extractions applied during execution.</div>
+                    <div><strong>> Audit Results Ledger & KQL</strong><br>Live Azure API telemetry (ARL) proving mathematical compliance by verifying zero silent HTTP 403 Forbidden drops across the data-plane.</div>
                 </div>
             </div>
 
             <!-- CYBERNETIC LOOP -->
-            <div class="node node-pink node-wide y-loop" data-row="row-loop" style="display: flex; align-items: center; gap: 2rem;">
+            <div class="node node-pink node-wide y-loop" style="display: flex; align-items: center; gap: 2rem;">
                 <div style="font-size: 3rem; color: var(--color-pink); font-weight: 900; line-height: 1;">&#10554;</div>
                 <div style="text-align: left;">
                     <div class="node-header" style="color: var(--color-pink);">[PHASE 6: CONTINUOUS PROTOCOL REFINEMENT]</div>
                     <div class="node-title">The Circuit Breaker & Metacognitive Feedback</div>
-                    <div class="node-desc">If the AI hits execution friction, it iterates rapidly in the generative space. At <strong>Iteration 4</strong>, the Framework pulls the Circuit Breaker. The friction is resolved by the Architect, compiled into the <strong>Defect & Patch Ledger (DPL)</strong>, and routed back to permanently evolve the Master Directives.</div>
+                    <div class="node-desc">
+                        If the AI encounters execution friction, it rapidly iterates in the generative space. At <strong>Iteration 4</strong>, the Framework enforces a hard halt via the Circuit Breaker. 
+                        <br><br>
+                        The unresolved friction is isolated, reviewed by the Architect, and compiled into the <strong>Defect & Patch Ledger (DPL)</strong>. This empirical data is then routed directly back into the Systemic Mandates (Phase 1), permanently evolving the master directives to prevent future state conflicts.
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- JS for Focus Mode -->
-    <script>
-        const dashboard = document.getElementById('dashboard');
-        const nodes = document.querySelectorAll('.node');
-        const paths = document.querySelectorAll('.kinetic-path');
-
-        nodes.forEach(node => {
-            node.addEventListener('mouseenter', () => {
-                const targetRow = node.getAttribute('data-row');
-                if (!targetRow) return;
-                
-                dashboard.classList.add('focus-active');
-                
-                nodes.forEach(n => {
-                    if (n.getAttribute('data-row') === targetRow) n.classList.add('focused');
-                });
-                paths.forEach(p => {
-                    if (p.getAttribute('data-row') === targetRow) p.classList.add('focused');
-                });
-            });
-
-            node.addEventListener('mouseleave', () => {
-                dashboard.classList.remove('focus-active');
-                nodes.forEach(n => n.classList.remove('focused'));
-                paths.forEach(p => p.classList.remove('focused'));
-            });
-        });
-    </script>
 </body>
 </html>
