@@ -10,18 +10,18 @@
     <style>
         :root {
             --bg-page: #020617; 
-            --bg-panel: rgba(10, 15, 29, 0.9); /* Darkened slightly for text contrast */
+            --bg-panel: rgba(10, 15, 29, 0.9); 
             --border-base: #1e293b;
-            --text-main: #ffffff; /* Pure Bright White */
-            --text-muted: #e2e8f0; /* Lightened significantly for readability */
+            --text-main: #ffffff; 
+            --text-muted: #e2e8f0; 
             
             /* Blueprint Palette */
-            --color-cyan: #0ea5e9;   /* Architect */
-            --color-red: #f43f5e;    /* Framework */
-            --color-purple: #a855f7; /* AI Engine */
-            --color-green: #10b981;  /* Gates */
-            --color-orange: #f97316; /* Telemetry */
-            --color-pink: #ec4899;   /* Friction */
+            --color-cyan: #0ea5e9;   
+            --color-red: #f43f5e;    
+            --color-purple: #a855f7; 
+            --color-green: #10b981;  
+            --color-orange: #f97316; 
+            --color-pink: #ec4899;   
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -132,24 +132,48 @@
         .node-orange { border-left: 4px solid var(--color-orange); }
         .node-pink { border-left: 4px solid var(--color-pink); }
 
-        /* AI Engine Action Background Animation (Slanted Lines) */
+        /* ================= AI ENGINE EFFECTS ================= */
         @keyframes ai-scanlines {
             from { background-position: 0 0; }
-            to { background-position: 40px 40px; }
+            to { background-position: 56px 56px; }
         }
+        @keyframes ai-pulse {
+            0% { box-shadow: 0 0 10px rgba(168, 85, 247, 0.1), inset 0 0 0 rgba(168, 85, 247, 0); }
+            50% { box-shadow: 0 0 30px rgba(168, 85, 247, 0.4), inset 0 0 15px rgba(168, 85, 247, 0.1); }
+            100% { box-shadow: 0 0 10px rgba(168, 85, 247, 0.1), inset 0 0 0 rgba(168, 85, 247, 0); }
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         .node-purple { 
+            border: 1px solid rgba(168, 85, 247, 0.4);
             border-right: 4px solid var(--color-purple); 
-            background-color: rgba(10, 15, 29, 0.95);
+            background-color: rgba(10, 15, 29, 0.9);
             background-image: repeating-linear-gradient(
                 -45deg, 
-                rgba(168, 85, 247, 0.05), 
-                rgba(168, 85, 247, 0.05) 5px, 
-                transparent 5px, 
-                transparent 15px
+                rgba(168, 85, 247, 0.15), 
+                rgba(168, 85, 247, 0.15) 4px, 
+                transparent 4px, 
+                transparent 12px
             );
-            background-size: 40px 40px;
-            animation: ai-scanlines 2s linear infinite;
+            animation: ai-scanlines 1.5s linear infinite, ai-pulse 3s ease-in-out infinite;
         }
+
+        /* Armor the text against the scanline background */
+        .node-purple .node-title, .node-purple .node-desc {
+            text-shadow: 0 2px 6px rgba(0,0,0,1), 0 0 3px rgba(0,0,0,1);
+        }
+
+        /* Blinking Cursor Class */
+        .cursor-blink::after {
+            content: ' \2588'; /* Solid block character */
+            animation: blink 1s step-end infinite;
+            color: var(--color-purple);
+            text-shadow: 0 0 5px var(--color-purple);
+        }
+        /* =================================================== */
 
         .node-header { 
             font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; 
@@ -281,7 +305,9 @@
                 </div>
             </div>
             <div class="node node-purple pos-right y-boot">
-                <div class="node-header" style="color: var(--color-purple);">[DETERMINISTIC MODE]</div>
+                <div class="node-header" style="color: var(--color-purple);">
+                    <span class="cursor-blink">[DETERMINISTIC MODE]</span>
+                </div>
                 <div class="node-title">Baseline Initialization</div>
                 <div class="node-desc">
                     AI drops open-ended conversational context and locks onto the provided coordinates.
@@ -313,7 +339,9 @@
                 </div>
             </div>
             <div class="node node-purple pos-right y-gate1">
-                <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
+                <div class="node-header" style="color: var(--color-purple);">
+                    <span class="cursor-blink">[SYNTHESIS]</span>
+                </div>
                 <div class="node-title">Topography Evaluation</div>
                 <div class="node-desc">
                     AI evaluates the locked state coordinates and synthesizes the exact environment-agnostic Terraform or Bicep payloads required.
@@ -345,7 +373,9 @@
                 </div>
             </div>
             <div class="node node-purple pos-right y-gate2">
-                <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
+                <div class="node-header" style="color: var(--color-purple);">
+                    <span class="cursor-blink">[SYNTHESIS]</span>
+                </div>
                 <div class="node-title">Schema Translation</div>
                 <div class="node-desc">
                     AI forks the underlying App Registration schema based on the specific CI/CD target agent provided in the Intake phase. 
@@ -377,7 +407,9 @@
                 </div>
             </div>
             <div class="node node-purple pos-right y-gate3">
-                <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
+                <div class="node-header" style="color: var(--color-purple);">
+                    <span class="cursor-blink">[SYNTHESIS]</span>
+                </div>
                 <div class="node-title">Race Condition Mitigation</div>
                 <div class="node-desc">
                     AI synthesizes the final federation payload. 
@@ -409,7 +441,9 @@
                 </div>
             </div>
             <div class="node node-purple pos-right y-gate4">
-                <div class="node-header" style="color: var(--color-purple);">[SYNTHESIS]</div>
+                <div class="node-header" style="color: var(--color-purple);">
+                    <span class="cursor-blink">[SYNTHESIS]</span>
+                </div>
                 <div class="node-title">Execution Decoupling</div>
                 <div class="node-desc">
                     AI monitors execution context and detects when local security brokers drop necessary MFA tokens. 
