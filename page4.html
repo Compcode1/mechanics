@@ -129,6 +129,7 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-bottom: 4rem;
         }
 
         .blueprint-title {
@@ -227,22 +228,161 @@
             text-shadow: 0 0 20px var(--color-cyan); opacity: 0.9;
         }
 
+        /* ================= NEW STUDY SECTION: 5-COORDINATE INTAKE MATRIX ================= */
+        .matrix-study-section {
+            padding: 4rem 3rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-base);
+            border-top: 4px solid var(--color-blue);
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .matrix-visual-bar {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .matrix-col {
+            background: rgba(2, 6, 23, 0.9);
+            border: 1px solid #1e3a8a;
+            border-top: 2px solid var(--color-cyan);
+            border-radius: 8px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.08);
+        }
+
+        .matrix-col-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-base);
+        }
+
+        .matrix-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.7rem;
+            line-height: 1.4;
+        }
+
+        .matrix-item.selected {
+            color: var(--color-cyan);
+            font-weight: 700;
+        }
+
+        .matrix-checkbox {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #475569;
+            border-radius: 3px;
+            margin-top: 3px;
+            flex-shrink: 0;
+            text-align: center;
+            line-height: 12px;
+            font-size: 10px;
+        }
+
+        .matrix-item.selected .matrix-checkbox {
+            border-color: var(--color-cyan);
+            color: var(--color-cyan);
+            background: rgba(14, 165, 233, 0.15);
+        }
+
+        .category-block {
+            background: rgba(2, 6, 23, 0.85);
+            border: 1px solid var(--border-base);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .category-block-header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-base);
+        }
+
+        .category-block-sub {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .option-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-base);
+            border-left: 4px solid var(--color-cyan);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .option-card:last-child { margin-bottom: 0; }
+
+        .option-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .option-badge {
+            font-family: monospace;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(14, 165, 233, 0.12);
+            color: var(--color-cyan);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .option-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .option-text strong { color: var(--text-main); }
+
         @media (max-width: 1100px) {
-            .bp-grid-5 { grid-template-columns: repeat(3, 1fr); }
+            .bp-grid-5, .matrix-visual-bar { grid-template-columns: repeat(3, 1fr); }
             .bp-grid-split { grid-template-columns: 1fr; }
             .class-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 900px) {
-            .bp-grid-3, .bp-grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .bp-grid-3, .bp-grid-4, .matrix-visual-bar { grid-template-columns: repeat(2, 1fr); }
             .bp-arrow { font-size: 3rem; }
             .bp-intro { text-align: center; }
             .class-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
             .header h1, .blueprint-title { font-size: 1.8rem; }
-            .bp-grid-3, .bp-grid-4, .bp-grid-5 { grid-template-columns: 1fr; }
-            .blueprint-section { padding: 2rem 1rem; }
-            .bp-layer { padding: 1.5rem; }
+            .bp-grid-3, .bp-grid-4, .bp-grid-5, .matrix-visual-bar { grid-template-columns: 1fr; }
+            .blueprint-section, .matrix-study-section { padding: 2rem 1rem; }
+            .bp-layer, .category-block { padding: 1.5rem; }
             .bp-heading { font-size: 1.4rem; }
             .classification-section { padding: 1.5rem; }
             .class-title { font-size: 1.5rem; }
@@ -256,7 +396,7 @@
         <ul class="nav-links">
             <li><a href="index.html">Page 1: Overview</a></li>
             <li><a href="page2.html">Page 2: Core Concepts</a></li>
-            <li><a href="page3.html">Page 3: Plain Talk Translation</a></li>
+            <li><a href="page3.html">Page 3: Plain Talk</a></li>
             <li><a href="page4.html" class="active">Page 4: Master Outline</a></li>
             <li><a href="page5.html">Page 5: State Diagram</a></li>
         </ul>
@@ -270,20 +410,20 @@
             <div class="class-header">System Classification</div>
             <div class="class-title">L4 Autonomous Agent Architecture with Strict HITL Governance</div>
             <p class="class-intro">
-                <strong>Plain Talk Translation:</strong> Think of this like self-driving car autonomy levels. L4 means the system is fully capable of driving itself (generating complex cloud code at massive speed), but unlike a consumer car that might crash when confused, our system has a mandatory, un-bypassable physical steering wheel locked in the human engineer's hands (Human-in-the-Loop Governance). We harness the AI's raw intelligence while making it mathematically impossible for it to crash the corporate network.
+                <strong>Plain Talk Translation:</strong> Think of this like self-driving vehicle autonomy levels. <strong>Level 4 (L4)</strong> means the engine can handle complex navigation and synthesis automatically at superhuman speed, <em>but only inside a strictly mapped operational boundary</em>—and with an un-bypassable physical safety interlock in the human engineer's hands (<strong>Human-in-the-Loop Governance</strong>). We extract the massive coding speed of an LLM while making it mathematically impossible for the AI to hallucinate permissions or crash your corporate cloud.
             </p>
             <div class="class-grid">
                 <div class="class-card">
                     <h3>Applied Cybernetics & Control Theory</h3>
-                    <p><strong>Plain Talk:</strong> Putting high-powered AI onto locked train tracks. Instead of hoping the AI behaves, we use hard iteration limits (the 4-iteration circuit breaker) and mandatory verification gates to steer its output safely.</p>
+                    <p><strong>Plain Talk:</strong> Putting a high-powered AI engine onto locked rail tracks. Instead of hoping the AI follows instructions, we use hard iteration limits (the 4-iteration circuit breaker), a continuous Watchdog Daemon, and mandatory human sign-off gates to steer its output safely.</p>
                 </div>
                 <div class="class-card">
                     <h3>High-Assurance Systems Engineering</h3>
-                    <p><strong>Plain Talk:</strong> Trust, but verify with math. The system never accepts its own code at face value; it forces immutable audit logs and live Azure metrics to prove it worked before moving forward.</p>
+                    <p><strong>Plain Talk:</strong> "Assume Breach" applied to AI code. The machine never trusts its own scripts just because the terminal returned green; it requires immutable cryptographic receipts (IAL) and live Azure Monitor API telemetry proofs (ARL) before declaring victory.</p>
                 </div>
                 <div class="class-card">
                     <h3>Recursive Metacognitive Architecture</h3>
-                    <p><strong>Plain Talk:</strong> An adaptive immune system. Every time the system hits an unexpected bug and solves it under your supervision, that fix is permanently compiled back into the master prompt so it never fails the same way twice.</p>
+                    <p><strong>Plain Talk:</strong> An adaptive immune system. Every time we hit a real-world cloud bug and prove a fix in the terminal, that lesson is logged in the Defect & Patch Ledger (DPL) and compiled directly back into the master prompt so the machine never repeats the error.</p>
                 </div>
             </div>
         </div>
@@ -300,55 +440,55 @@
                     <span class="bp-tag">[THE GOVERNANCE UMBRELLA]</span>
                     <div class="bp-heading">Systemic Mandates</div>
                     <p class="bp-intro">
-                        <strong>Plain Talk Translation:</strong> This is our foundational rulebook. It takes academic AI safety research and federal Zero Trust standards and bakes them directly into the machine's core software code. It ensures our automated co-pilot operates under strict rules of engagement—fenced into secure boundaries, requiring human sign-off at every gate, and leaving behind cryptographic receipts for every action.
+                        <strong>Plain Talk Translation:</strong> This is our foundational constitution. It takes industry standards (like ReAct agentic loops, OWASP LLM security rules, and the NIST AI Risk Management Framework) and turns them into mechanical software constraints. Instead of treating AI safety as a polite suggestion, Layer 1 wires those standards into the machine's core operating rules.
                     </p>
                     <div class="bp-grid-split">
                         
                         <div class="bp-node-split">
                             <span class="bp-node-split-title">1. Agentic Patterns</span>
                             <div class="def-block def-standard">
-                                <span class="def-label">The Formal Standard (ReAct)</span>
+                                <span class="def-label">The Global Standard (ReAct)</span>
                                 <span class="def-text">Interleaving reasoning and acting to interface with external environments and halt error propagation.</span>
                             </div>
                             <div class="def-block def-translation">
-                                <span class="def-label">Plain Talk Translation (The Trial-and-Correction Loop)</span>
-                                <span class="def-text">Instead of asking the AI to write a massive script in one blind guess, we force it into a structured loop: write code $\rightarrow$ test it against the terminal $\rightarrow$ read the error $\rightarrow$ patch it on the fly.</span>
+                                <span class="def-label">Plain Talk Translation (The Clinical Feedback Loop)</span>
+                                <span class="def-text">Instead of asking the AI to write a massive script in one blind guess, we force a disciplined cycle: synthesize payload &rarr; execute in local terminal &rarr; verify live directory/telemetry state &rarr; patch any friction with a full state re-sync.</span>
                             </div>
                         </div>
 
                         <div class="bp-node-split">
                             <span class="bp-node-split-title">2. Bounded Autonomy</span>
                             <div class="def-block def-standard">
-                                <span class="def-label">The Formal Standard (OWASP LLM08)</span>
+                                <span class="def-label">The Global Standard (OWASP LLM08)</span>
                                 <span class="def-text">Neutralizing excessive functionality, unconstrained permissions, and dangerous downstream autonomy.</span>
                             </div>
                             <div class="def-block def-translation">
                                 <span class="def-label">Plain Talk Translation (The Digital Straitjacket)</span>
-                                <span class="def-text">We physically wire the AI so it cannot delete resources or ask for dangerous admin rights. Even if the AI hallucinates, its operational blast radius is locked at absolute zero.</span>
+                                <span class="def-text">OWASP LLM08 warns against "Excessive Agency." We solve it by trapping the AI inside a deterministic state machine where its code cannot delete infrastructure and its identities are strictly locked to a single Data-Plane asset.</span>
                             </div>
                         </div>
 
                         <div class="bp-node-split">
                             <span class="bp-node-split-title">3. HITL Governance</span>
                             <div class="def-block def-standard">
-                                <span class="def-label">The Formal Standard (NIST AI RMF)</span>
+                                <span class="def-label">The Global Standard (NIST AI RMF)</span>
                                 <span class="def-text">Establishing the "Govern" function for transparent risk tolerance and explicit human accountability.</span>
                             </div>
                             <div class="def-block def-translation">
-                                <span class="def-label">Plain Talk Translation (The Two-Key Launch)</span>
-                                <span class="def-text">The AI generates all the heavy machinery, but the human Architect holds the launch keys. Nothing touches your live cloud tenant without explicit, observable human sign-off at every gate.</span>
+                                <span class="def-label">Plain Talk Translation (The Two-Key Launch System)</span>
+                                <span class="def-text">The AI is completely air-gapped from your live cloud. It writes the code and terminal runbooks, but a hard <code>[STRICT HALT]</code> drops at every phase so nothing touches Azure without the human Architect turning the key.</span>
                             </div>
                         </div>
 
                         <div class="bp-node-split">
                             <span class="bp-node-split-title">4. Cognitive Circuit Breaking</span>
                             <div class="def-block def-standard">
-                                <span class="def-label">The Formal Standard (Hallucination Research)</span>
+                                <span class="def-label">The Global Standard (Hallucination Research)</span>
                                 <span class="def-text">Combating probabilistic drift and the generation of plausible yet nonfactual outputs over sustained context windows.</span>
                             </div>
                             <div class="def-block def-translation">
-                                <span class="def-label">Plain Talk Translation (The Anti-Spiral Kill-Switch)</span>
-                                <span class="def-text">If the AI gets confused and starts guessing blindly on a bug, our 4-iteration limit trips instantly. The AI is cut off from writing code and forced to hand control back to you.</span>
+                                <span class="def-label">Plain Talk Translation (The 4-Iteration Kill-Switch)</span>
+                                <span class="def-text">When an LLM gets stuck on a bug for too many turns, its attention dilutes and it starts guessing wildly. At Iteration 4, our breaker physically forbids code generation, calculates a Success Probability (%), and hands the strategic decision back to you.</span>
                             </div>
                         </div>
 
@@ -362,28 +502,28 @@
                     <span class="bp-tag">[THE SHIELD]</span>
                     <div class="bp-heading" style="color: var(--color-red);">Enterprise Guardrails</div>
                     <p class="bp-intro" style="color: var(--text-main);">
-                        <strong>Plain Talk Translation:</strong> This is our immune system. While the mandates above set the rules, these guardrails act as physical spinal reflexes that intercept, filter, and sanitize every command before it reaches your cloud tenant.
+                        <strong>Plain Talk Translation:</strong> If Layer 1 is the constitution, Layer 2 is the body's involuntary <strong>spinal reflex arc</strong>. Even if the AI brain tries to take a dangerous shortcut, these five hard-coded reflexes intercept and sanitize the payload before a single command runs in your terminal.
                     </p>
                     <div class="bp-grid-5">
                         <div class="bp-node bp-node-red">
                             <span class="bp-node-title">Data Loss Prevention</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Strips out real tenant IDs and repo names so proprietary data never leaks out to external language models.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> De-identifies code logic from proprietary tenant data and enforces Linux silent terminal input (<code>read -s</code>) so secrets never flash on screen or leak into shell history.</span>
                         </div>
                         <div class="bp-node bp-node-red">
                             <span class="bp-node-title">Destructive State</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> The "Hippocratic Oath." The AI is physically blocked from ever generating a destroy, delete, or drop command on existing assets.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> The "Hippocratic Oath." Enforces read-only <code>data</code> blocks for existing Brownfield assets and <code>prevent_destroy = true</code> for Greenfield builds so nothing gets accidentally wiped.</span>
                         </div>
                         <div class="bp-node bp-node-red">
                             <span class="bp-node-title">The Contributor Trap</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Forbids the AI from requesting lazy "Contributor" or "Owner" admin rights, enforcing strict Data-Plane least privilege.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Blocks lazy Control-Plane admin roles (<code>Owner</code> / <code>Contributor</code>), scoping permissions strictly to the single Data-Plane asset (and decoupling role bindings when MFA gates require Portal sign-off).</span>
                         </div>
                         <div class="bp-node bp-node-red">
                             <span class="bp-node-title">Supply Chain Injection</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Slams the door on random internet downloads by strictly pinning all Terraform providers and tools to verified, hashed versions.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Sealed, lot-numbered surgical instruments. Forbids "latest" tags and pins every Terraform provider, Bicep module, and CI/CD action to a verified version.</span>
                         </div>
                         <div class="bp-node bp-node-red">
                             <span class="bp-node-title">Terminal Exposure</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Surgical draping for your screen. Automatically redacts ephemeral tokens and secrets with <code>::add-mask::</code> so they never bleed into logs.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Surgical draping for your pipeline console. Wraps runtime outputs in <code>::add-mask::</code> so ephemeral tokens are redacted in memory before logs print.</span>
                         </div>
                     </div>
                 </div>
@@ -395,20 +535,20 @@
                     <span class="bp-tag">[THE ENGINE ROOM]</span>
                     <div class="bp-heading">The Execution Triad</div>
                     <p class="bp-intro">
-                        <strong>Plain Talk Translation:</strong> The three-party power structure that runs our daily operations: you (the strategic commander), the State Machine (the immutable safety rules), and the AI Co-Pilot (the high-speed processing engine).
+                        <strong>Plain Talk Translation:</strong> This is our daily separation of powers—like a modern fighter jet separating the human Flight Captain (Architect), the Fly-by-Wire Envelope Computer (State Machine), and the High-Speed Synthesis Engine (AI Co-Pilot).
                     </p>
                     <div class="bp-grid-3">
                         <div class="bp-node bp-node-purple">
                             <span class="bp-node-title">The Architect</span>
-                            <span class="bp-node-desc"><strong>The Commander.</strong> You own the risk, set the coordinates, verify telemetry in your terminal, and hold absolute sign-off authority.</span>
+                            <span class="bp-node-desc"><strong>The Human Commander.</strong> Locks in coordinates, executes native CLI extractions in the local terminal, verifies Azure telemetry spikes, and holds absolute sign-off authority.</span>
                         </div>
                         <div class="bp-node bp-node-purple">
                             <span class="bp-node-title">The State Machine</span>
-                            <span class="bp-node-desc"><strong>The Safety Harness.</strong> The software controller that enforces zero-trust rules and prevents the AI from taking unauthorized shortcuts.</span>
+                            <span class="bp-node-desc"><strong>The Deterministic Harness.</strong> Enforces the 7-phase sequence, runs the continuous Watchdog Daemon, blocks zero-trust violations, and tracks protocol deviations.</span>
                         </div>
                         <div class="bp-node bp-node-purple">
                             <span class="bp-node-title">The AI Engine</span>
-                            <span class="bp-node-desc"><strong>The Synthesis Tool.</strong> Generates multi-hundred-line IaC payloads and parses terminal error logs in milliseconds.</span>
+                            <span class="bp-node-desc"><strong>The Tethered Co-Pilot.</strong> Synthesizes unified Terraform/Bicep/REST payloads, handles IPv4 CIDR chunking and Graph API sleep timers, and diagnoses error logs on command.</span>
                         </div>
                     </div>
                 </div>
@@ -420,24 +560,24 @@
                     <span class="bp-tag">[THE CORE TARGET]</span>
                     <div class="bp-heading">The Objective Gates</div>
                     <p class="bp-intro">
-                        <strong>Plain Talk Translation:</strong> Our four sequential checkpoints (Boundary $\rightarrow$ Identity $\rightarrow$ Federation $\rightarrow$ Access). You cannot skip a step; each gate must lock successfully before the next door opens.
+                        <strong>Plain Talk Translation:</strong> The four sequential interlock gates that every machine identity deployment must pass through. Gate 2 cannot open until Gate 1 is locked and verified.
                     </p>
                     <div class="bp-grid-4">
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">1. Boundary</span>
-                            <span class="bp-node-desc"><strong>Geofencing.</strong> Locking in the exact Subscription and Resource Group so the deployment cannot touch adjacent departments.</span>
+                            <span class="bp-node-desc"><strong>Geofencing the Site.</strong> Locking in the exact Tenant, Subscription, and Resource Group perimeters—plus idempotency locks—so automation cannot bleed into neighboring departments.</span>
                         </div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">2. Identity</span>
-                            <span class="bp-node-desc"><strong>Secret-Less Provisioning.</strong> Creating a dedicated machine identity with zero static passwords or interactive browser login vectors.</span>
+                            <span class="bp-node-desc"><strong>The Headless Courier.</strong> Creating the global App Registration blueprint and local Service Principal officer—configured as single-tenant with zero passwords and zero browser login vectors.</span>
                         </div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">3. Federation</span>
-                            <span class="bp-node-desc"><strong>OIDC Handshake.</strong> Establishing a diplomatic customs checkpoint where GitHub presents a tamper-proof visa verified by Entra ID.</span>
+                            <span class="bp-node-desc"><strong>Diplomatic Customs (OIDC).</strong> Binding the exact, case-sensitive Subject Claim and immutable backend Node IDs so Entra ID issues a self-destructing 60-minute access token.</span>
                         </div>
                         <div class="bp-node bp-node-green">
                             <span class="bp-node-title">4. Access</span>
-                            <span class="bp-node-desc"><strong>Data-Plane Least Privilege.</strong> Handing the runner a single key to one safety deposit box instead of master keys to the bank.</span>
+                            <span class="bp-node-desc"><strong>One Key to One Box.</strong> Assigning a surgical Data-Plane role (like <code>Key Vault Secrets User</code>) scoped solely to the target asset ID—zero Control-Plane blast radius.</span>
                         </div>
                     </div>
                 </div>
@@ -449,20 +589,20 @@
                     <span class="bp-tag">[CRYPTOGRAPHIC PROOFS]</span>
                     <div class="bp-heading">Deployment & Telemetry</div>
                     <p class="bp-intro">
-                        <strong>Plain Talk Translation:</strong> We don't just deploy code and hope for the best—we produce immutable receipts and mathematical proof for auditors.
+                        <strong>Plain Talk Translation:</strong> In enterprise security, deploying the code is only half the job; the other half is proving it to the auditors. Every session outputs three concrete, verifiable artifacts.
                     </p>
                     <div class="bp-grid-3">
                         <div class="bp-node bp-node-orange">
                             <span class="bp-node-title">Dynamic IaC Payload</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> The final, clean, sterilized infrastructure script ready for safe local execution.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> The unified, copy-paste ready Terraform, Bicep, or REST API file—complete with exact terminal execution runbooks and Git synchronization scripts.</span>
                         </div>
                         <div class="bp-node bp-node-orange">
                             <span class="bp-node-title">Identity Architecture Ledger</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> The immutable cryptographic receipt documenting the exact OIDC trust parameters and object IDs deployed.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> The immutable "as-built" cryptographic receipt (<code>identity_architecture_ledger.md</code>) recording the exact Tenant, Client ID, Subject Claim, and RBAC scope.</span>
                         </div>
                         <div class="bp-node bp-node-orange">
                             <span class="bp-node-title">Audit Results Ledger & KQL Telemetry</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Live Azure Monitor Metrics and KQL queries proving that data-plane reads succeeded with zero HTTP 403 blocks.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> The compliance proof (<code>audit_results_ledger.md</code> &amp; <code>kql_telemetry.md</code>) confirming synchronous Azure Monitor API hits and asynchronous Log Analytics correlation with zero <code>HTTP 403</code> drops.</span>
                         </div>
                     </div>
                 </div>
@@ -474,33 +614,285 @@
                     <div class="feedback-icon">&#10554;</div>
                     <div class="feedback-title">Continuous Protocol Refinement</div>
                     <p class="bp-intro" style="text-align: left; max-width: 1000px; margin: 0 auto 3rem;">
-                        <strong>Plain Talk Translation:</strong> This is where the magic happens. When you encounter a weird cloud bug, we don't just patch it and move on. We log it, test it, and compile it back into the master prompt—making the entire system permanently smarter.
+                        <strong>Plain Talk Translation:</strong> This is how the machine evolves from v1.0 to v9.0. Instead of treating cloud errors as frustrating roadblocks, our framework captures every real-world bug—like Graph API propagation delays or local CLI MFA drops—verifies the fix in your terminal, logs it in the Defect &amp; Patch Ledger, and rewrites its own master System Directive at the end of the session so it never stumbles on that obstacle again.
                     </p>
                     
                     <div class="bp-grid-split">
                         <div class="bp-node bp-node-pink">
                             <span class="bp-node-title">1. Diagnostic Iteration Tracking</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> When friction occurs, conversational fluff is dropped immediately. The AI enters a clinical troubleshooting loop to isolate the root cause.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> The moment an error appears, the AI drops all analogies and enters clinical mode—attaching an <code>[ACTIVE DIAGNOSTIC]</code> header and resetting the counter to Iteration 1 for that specific defect.</span>
                         </div>
                         
                         <div class="bp-node bp-node-pink">
                             <span class="bp-node-title">2. The Iteration Circuit Breaker</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> At Iteration 4, code generation stops dead. The AI calculates a Success Probability (%) and forces an executive review.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> If a bug reaches Iteration 4, the AI is locked out of writing code. It must show how the error shifted across tries 1–3, output a Probability of Success (%), and let you choose the pivot.</span>
                         </div>
 
                         <div class="bp-node bp-node-pink">
-                            <span class="bp-node-title">3. The Defect & Patch Ledger (DPL)</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Every verified fix is formally written into `patch_ledger.md` as an immutable engineering record.</span>
+                            <span class="bp-node-title">3. The Defect &amp; Patch Ledger (DPL)</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> Under our "Test Before Codify" rule (Rule 13), once you prove a patch works in the terminal, the engine records the Error, Root Cause, and Fix into <code>patch_ledger.md</code> and executes a full State Re-Sync.</span>
                         </div>
 
                         <div class="bp-node bp-node-pink">
                             <span class="bp-node-title">4. Machine Compilation (Master Prompt Evolution)</span>
-                            <span class="bp-node-desc"><strong>Plain Talk:</strong> At session end, those lessons are compiled back into the global System Directives—permanently hardening the master prompt.</span>
+                            <span class="bp-node-desc"><strong>Plain Talk:</strong> In Phase 7, the engine tallies its AI Performance Scorecard, translates every DPL entry into a permanent new rule, and outputs the complete updated System Directive in a single super-block.</span>
                         </div>
                     </div>
                 </div>
 
             </div>
+        </div>
+
+        <!-- ================= NEW STUDY SECTION: PHASE 1 INTAKE MATRIX & TOOLING BREAKDOWN ================= -->
+        <div class="matrix-study-section">
+            <span class="bp-tag" style="color: var(--color-cyan); display: block; text-align: center;">[PHASE 1 : THE 5-COORDINATE INTAKE MATRIX]</span>
+            <h2 class="blueprint-title" style="text-align: center;">Architectural Selection &amp; Tooling Guide</h2>
+            <p class="blueprint-subtitle" style="text-align: center; margin-bottom: 3rem;">
+                At the start of every project, the Architect locks in 5 core coordinates across these five columns. Below is the visual reference of your intake selector, followed by a Plain Talk breakdown of every tool, why you would choose it, and how your selections dynamically alter the code generated by the State Machine.
+            </p>
+
+            <!-- VISUAL REPLICA OF SCREENSHOT -->
+            <div class="matrix-visual-bar">
+                <div class="matrix-col">
+                    <div class="matrix-col-title">1. Identity Core</div>
+                    <div class="matrix-item selected"><span class="matrix-checkbox">&#10003;</span> Microsoft Entra ID</div>
+                </div>
+                <div class="matrix-col">
+                    <div class="matrix-col-title">2. Execution Agent</div>
+                    <div class="matrix-item selected"><span class="matrix-checkbox">&#10003;</span> Azure Kubernetes Service (AKS)</div>
+                    <div class="matrix-item"><span class="matrix-checkbox"></span> GitHub Actions</div>
+                    <div class="matrix-item"><span class="matrix-checkbox"></span> Azure DevOps</div>
+                    <div class="matrix-item"><span class="matrix-checkbox"></span> GitLab CI</div>
+                </div>
+                <div class="matrix-col">
+                    <div class="matrix-col-title">3. Infrastructure State</div>
+                    <div class="matrix-item"><span class="matrix-checkbox"></span> Brownfield (Existing)</div>
+                    <div class="matrix-item selected"><span class="matrix-checkbox">&#10003;</span> Greenfield (Net-New)</div>
+                </div>
+                <div class="matrix-col">
+                    <div class="matrix-col-title">4. Data-Plane Asset</div>
+                    <div class="matrix-item selected"><span class="matrix-checkbox">&#10003;</span> Azure Key Vault</div>
+                    <div class="matrix-item"><span class="matrix-checkbox"></span> Storage Account</div>
+                    <div class="matrix-item"><span class="matrix-checkbox"></span> SQL / Cosmos DB</div>
+                </div>
+                <div class="matrix-col">
+                    <div class="matrix-col-title">5. IaC Payload</div>
+                    <div class="matrix-item selected"><span class="matrix-checkbox">&#10003;</span> Terraform (HCL)</div>
+                    <div class="matrix-item"><span class="matrix-checkbox"></span> Azure Bicep</div>
+                    <div class="matrix-item"><span class="matrix-checkbox"></span> PowerShell REST API</div>
+                </div>
+            </div>
+
+            <!-- COLUMN 1: IDENTITY CORE -->
+            <div class="category-block">
+                <div class="category-block-header" style="color: var(--color-cyan);">Column 1: Identity Core (The Central Authority)</div>
+                <div class="category-block-sub">This coordinate never changes because it is the sovereign root of trust for the entire Microsoft cloud ecosystem.</div>
+                
+                <div class="option-card">
+                    <div class="option-name">
+                        Microsoft Entra ID (formerly Azure Active Directory)
+                        <span class="option-badge">ROOT IDENTITY PROVIDER (IdP)</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> Think of Entra ID as the <strong>Federal Passport Agency and Border Control</strong> for your entire company. Every human employee and every automated machine workload must be registered here. In our architecture, Entra ID holds the <strong>App Registration</strong> (global blueprint), the <strong>Service Principal</strong> (local security officer), and the <strong>Federated Identity Credential</strong> (the OIDC customs rulebook that inspects incoming tokens from your Execution Agent and issues temporary 60-minute Azure access badges).
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: EXECUTION AGENT -->
+            <div class="category-block">
+                <div class="category-block-header" style="color: var(--color-purple);">Column 2: Execution Agent (Who Is Knocking at the Door?)</div>
+                <div class="category-block-sub">The Execution Agent is the external automation platform or container cluster that needs passwordless access into Azure. Selecting a different agent completely changes the <strong>Issuer URL</strong>, the <strong>Subject Claim format</strong> in Phase 2, and the <strong>Validation YAML</strong> in Phase 4.</div>
+
+                <div class="option-card" style="border-left-color: var(--color-purple);">
+                    <div class="option-name">
+                        1. Azure Kubernetes Service (AKS)
+                        <span class="option-badge">CONTAINER WORKLOAD IDENTITY</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> Whereas GitHub, Azure DevOps, and GitLab are CI/CD build pipelines, <strong>AKS is a live fleet of containerized microservice applications</strong> running inside Azure. When a pod (container) inside AKS needs to read a secret from Key Vault, we don't want to bake passwords into the container image.<br>
+                        <strong>How It Works in Our Machine:</strong> AKS has its own built-in OIDC token issuer URL. Each Kubernetes pod runs under a specific <strong>Service Account</strong> inside a <strong>Namespace</strong>. Its Subject Claim looks like: <code>system:serviceaccount:&lt;namespace&gt;:&lt;service_account_name&gt;</code>. In Phase 4, instead of running a CI/CD pipeline, we deploy a Kubernetes Pod manifest (<code>kubectl apply -f validate-pod.yaml</code>) to prove the container can trade its Kubernetes token for an Azure Data-Plane token.
+                    </div>
+                </div>
+
+                <div class="option-card" style="border-left-color: var(--color-purple);">
+                    <div class="option-name">
+                        2. GitHub Actions
+                        <span class="option-badge">CI/CD AUTOMATION RUNNER</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> GitHub's built-in automation engine that builds, tests, and deploys code whenever you push to a repository.<br>
+                        <strong>How It Works in Our Machine:</strong> GitHub's OIDC Issuer URL is <code>https://token.actions.githubusercontent.com</code>. Because repository names can be renamed or spoofed, our State Machine (<strong>Rule 24</strong>) enforces strict <code>CompCode1</code> casing and extracts the hidden, immutable numeric <strong>Node IDs</strong> (`owner_id` and `repo_id`) in Phase 2 so the Subject Claim (`repo:CompCode1@&lt;id&gt;/&lt;repo&gt;@&lt;id&gt;:ref:refs/heads/main`) is mathematically bulletproof against <code>AADSTS700213</code> drops.
+                    </div>
+                </div>
+
+                <div class="option-card" style="border-left-color: var(--color-purple);">
+                    <div class="option-name">
+                        3. Azure DevOps (ADO)
+                        <span class="option-badge">ENTERPRISE MICROSOFT CI/CD</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> Microsoft's enterprise project management and CI/CD pipeline suite (`azure-pipelines.yml`), heavily used by large corporations.<br>
+                        <strong>How It Works in Our Machine:</strong> ADO connects to Azure via a construct called a <strong>Service Connection</strong>. Unlike GitHub (where you construct the Subject Claim from repo paths), ADO generates an opaque, backend GUID string for its OIDC Issuer and Subject Claim. In Phase 2, our State Machine generates a specialized REST API extraction script to pull those exact opaque ADO federation strings before synthesizing Phase 3.
+                    </div>
+                </div>
+
+                <div class="option-card" style="border-left-color: var(--color-purple);">
+                    <div class="option-name">
+                        4. GitLab CI
+                        <span class="option-badge">DEVSECOPS PIPELINE RUNNER</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> A major competitor to GitHub Actions (`.gitlab-ci.yml`), widely used in security-conscious enterprises.<br>
+                        <strong>How It Works in Our Machine:</strong> GitLab's OIDC Issuer is <code>https://gitlab.com</code>, and its Subject Claim is structured around the exact group/project namespace path and branch: <code>project_path:&lt;group&gt;/&lt;project&gt;:ref_type:branch:ref:&lt;branch_name&gt;</code>. In Phase 4, the runner mints a `GITLAB_OIDC_TOKEN` JWT and trades it directly with Entra ID via `az login --service-principal --federated-token`.
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 3: INFRASTRUCTURE STATE -->
+            <div class="category-block">
+                <div class="category-block-header" style="color: var(--color-green);">Column 3: Infrastructure State (What Is Already on the Ground?)</div>
+                <div class="category-block-sub">This toggle tells the State Machine whether we are walking onto an empty construction lot or renovating a live hospital wing—triggering <strong>Rule 3 (Destructive State Prevention)</strong>.</div>
+
+                <div class="option-card" style="border-left-color: var(--color-green);">
+                    <div class="option-name">
+                        1. Brownfield (Existing Infrastructure)
+                        <span class="option-badge">READ-ONLY LOOKUPS (DATA BLOCKS)</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> In real urban planning, a "brownfield" site already has existing buildings and utility lines on it. In cloud engineering, <strong>Brownfield means the Resource Group, Key Vault, or AKS cluster already exists in production</strong>.<br>
+                        <strong>How It Works in Our Machine:</strong> If you select Brownfield, the AI is strictly forbidden from creating a new vault or overwriting the existing one. Instead, it generates read-only <code>data</code> blocks (e.g., <code>data "azurerm_key_vault" "existing"</code>) to safely look up the existing asset's Resource ID and attach the new Zero Trust identity to it without disturbing live traffic.
+                    </div>
+                </div>
+
+                <div class="option-card" style="border-left-color: var(--color-green);">
+                    <div class="option-name">
+                        2. Greenfield (Net-New Infrastructure)
+                        <span class="option-badge">CREATE + PREVENT_DESTROY LOCKS</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> A "greenfield" site is an untouched field of grass—we are building the entire environment from scratch.<br>
+                        <strong>How It Works in Our Machine:</strong> When you select Greenfield, the AI writes <code>resource</code> blocks to provision the net-new Resource Group, Target Asset (Key Vault/Storage/Cosmos), and Entra ID objects all at once—and automatically stamps <code>lifecycle { prevent_destroy = true }</code> onto the critical resources so future runs can never accidentally delete them.
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 4: DATA-PLANE ASSET -->
+            <div class="category-block">
+                <div class="category-block-header" style="color: var(--color-orange);">Column 4: Data-Plane Asset (Which Safety Deposit Box Are We Opening?)</div>
+                <div class="category-block-sub">This selects the specific high-value cloud asset our workload needs to read from. Under <strong>Rule 4 (PoLP)</strong>, this choice dictates the exact surgical Data-Plane RBAC role assigned at Gate 4 and the exact API read test run in Phase 4.</div>
+
+                <div class="option-card" style="border-left-color: var(--color-orange);">
+                    <div class="option-name">
+                        1. Azure Key Vault
+                        <span class="option-badge">ROLE: KEY VAULT SECRETS USER</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> A hardware-backed digital safe used to store API keys, certificates, and connection strings.<br>
+                        <strong>How It Works in Our Machine:</strong> We enable <code>enable_rbac_authorization = true</code> on the vault, ban broad Control-Plane roles, and assign the surgical <strong>Key Vault Secrets User</strong> role—which allows the workload to read secret values inside that single vault, but forbids it from deleting secrets, changing access policies, or deleting the vault itself.
+                    </div>
+                </div>
+
+                <div class="option-card" style="border-left-color: var(--color-orange);">
+                    <div class="option-name">
+                        2. Azure Storage Account (Blob Storage)
+                        <span class="option-badge">ROLE: STORAGE BLOB DATA READER</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> Massive, enterprise file warehousing used to store unstructured data like AI training datasets, backups, logs, and artifacts.<br>
+                        <strong>How It Works in Our Machine:</strong> Control-plane permissions don't let you read files safely; we scope the workload identity strictly to the Data Plane using <strong>Storage Blob Data Reader</strong> (or Contributor if writing artifacts) on that specific storage container, and validate it in Phase 4 using <code>az storage blob list --auth-mode login</code>.
+                    </div>
+                </div>
+
+                <div class="option-card" style="border-left-color: var(--color-orange);">
+                    <div class="option-name">
+                        3. Azure SQL / Cosmos DB (NoSQL)
+                        <span class="option-badge">ROLE: COSMOS DB BUILT-IN DATA READER</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> High-speed, globally distributed enterprise databases that hold live customer records and application state.<br>
+                        <strong>How It Works in Our Machine:</strong> Instead of using connection strings with embedded master passwords (which get leaked constantly), we bind the federated workload identity to Cosmos DB's native Data-Plane RBAC role definition (<code>00000000-0000-0000-0000-000000000001</code> / Built-in Data Reader), proving passwordless database authentication.
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 5: IAC PAYLOAD -->
+            <div class="category-block">
+                <div class="category-block-header" style="color: var(--color-pink);">Column 5: IaC Payload (Which Language Builds the Blueprint?)</div>
+                <div class="category-block-sub">Infrastructure as Code (IaC) means we never click around in web portals to build security—we write code files that compile the architecture deterministically. Each of these three languages has a distinct strength in an interview.</div>
+
+                <div class="option-card" style="border-left-color: var(--color-pink);">
+                    <div class="option-name">
+                        1. Terraform (HCL - HashiCorp Configuration Language)
+                        <span class="option-badge">MULTI-CLOUD INDUSTRY STANDARD (main.tf)</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> The gold standard across enterprise cloud engineering because it speaks to everything (`azurerm` for Azure resources, `azuread` for Entra ID, and `time` for sleep buffers) inside a single unified file (<code>main.tf</code>) backed by a state file (<code>terraform.tfstate</code>).<br>
+                        <strong>Key Quirk You Mastered:</strong> Our directive (<strong>Rule 23 &amp; 27</strong>) automatically handles remote state backend protection, maps <code>azuread_named_location</code> via <code>.id</code>, and injects a 30-second <code>time_sleep</code> resource to absorb Microsoft Graph eventual consistency race conditions.
+                    </div>
+                </div>
+
+                <div class="option-card" style="border-left-color: var(--color-pink);">
+                    <div class="option-name">
+                        2. Azure Bicep
+                        <span class="option-badge">MICROSOFT NATIVE DECLARATIVE (main.bicep)</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> Microsoft's own domain-specific language created as a cleaner replacement for old JSON ARM templates. Its biggest advantage is that <strong>it is stateless</strong>—Azure itself stores the state in the cloud, so there is no local <code>terraform.tfstate</code> file to lose or corrupt.<br>
+                        <strong>Key Quirk You Mastered:</strong> By enabling the <strong>Microsoft Graph Bicep extension</strong> (`extension microsoftGraphV1`), our engine compiles both Entra ID federated identities and Azure Data-Plane resources inside a single native <code>main.bicep</code> deployment.
+                    </div>
+                </div>
+
+                <div class="option-card" style="border-left-color: var(--color-pink);">
+                    <div class="option-name">
+                        3. PowerShell REST API (Microsoft Graph &amp; ARM)
+                        <span class="option-badge">ZERO-DEPENDENCY IMPERATIVE (deploy.ps1)</span>
+                    </div>
+                    <div class="option-text">
+                        <strong>Plain Talk:</strong> Instead of using a third-party compiler like Terraform or Bicep, this sends raw HTTPS JSON requests (<code>Invoke-RestMethod</code>) directly to the Microsoft Graph API (`graph.microsoft.com`) and Azure Resource Manager endpoints.<br>
+                        <strong>Key Quirk You Mastered:</strong> Under <strong>Rule 29 &amp; Rule 30</strong>, our engine strictly uses native Graph JSON schemas (never bleeding Terraform attribute names into JSON) and automatically decouples ARM role assignments when local CLI tokens drop tenant MFA claims.
+                    </div>
+                </div>
+            </div>
+
+            <!-- HOW THEY INTERRELATE (THE INTERVIEW GOLD) -->
+            <div class="category-block" style="border-color: var(--color-cyan); background: rgba(14, 165, 233, 0.04); margin-bottom: 0;">
+                <div class="category-block-header" style="color: var(--color-cyan);">How the 5 Columns Interrelate (Why Your Engine Is Polymorphic)</div>
+                <div class="category-block-sub" style="color: var(--text-main);">
+                    In an interview, explain that these 5 columns are not independent checkboxes—they form a <strong>combinatorial dependency matrix</strong> where changing one box automatically rewires the downstream phases:
+                </div>
+
+                <div class="bp-grid-split">
+                    <div class="bp-node" style="border-top: 3px solid var(--color-cyan);">
+                        <span class="bp-node-title" style="color: var(--color-cyan); font-size: 1.05rem;">1. The Screenshot Combo: AKS + Greenfield + Key Vault + Terraform</span>
+                        <span class="bp-node-desc">
+                            Look at the exact boxes checked in your screenshot above. Because you selected <strong>AKS + Greenfield</strong>, the State Machine triggers the <strong>Phase 2 Greenfield Bypass</strong>! Why? Because the AKS cluster doesn't exist yet, so you can't run a manual CLI command in Phase 2 to extract its OIDC Issuer URL. Instead, the engine jumps straight to Phase 3 and chains <code> azurerm_kubernetes_cluster.aks.oidc_issuer_url </code> dynamically inside the Terraform DAG!
+                        </span>
+                    </div>
+
+                    <div class="bp-node" style="border-top: 3px solid var(--color-purple);">
+                        <span class="bp-node-title" style="color: var(--color-purple); font-size: 1.05rem;">2. Switching AKS Greenfield &rarr; AKS Brownfield</span>
+                        <span class="bp-node-desc">
+                            If you keep AKS checked but flip Column 3 from <strong>Greenfield to Brownfield</strong>, the State Machine immediately reactivates Phase 2! It halts and gives you the exact Azure CLI command (<code>az aks show --query oidcIssuerProfile.issuerUrl</code>) to pull the live cluster's OIDC URL from your terminal, and switches the Terraform code from <code>resource</code> creation blocks to read-only <code>data</code> blocks.
+                        </span>
+                    </div>
+
+                    <div class="bp-node" style="border-top: 3px solid var(--color-orange);">
+                        <span class="bp-node-title" style="color: var(--color-orange); font-size: 1.05rem;">3. Execution Agent &times; Data-Plane Asset (Phase 4 Bridge)</span>
+                        <span class="bp-node-desc">
+                            Column 2 and Column 4 combine to build the <strong>Phase 4 Validation Bridge</strong>. Selecting <em>GitHub Actions + Storage Account</em> generates a <code>.github/workflows/validate-bridge.yml</code> running <code>az storage blob list</code>. Selecting <em>GitLab CI + Key Vault</em> generates a <code>.gitlab-ci.yml</code> exchanging a <code>GITLAB_OIDC_TOKEN</code> to run <code>az keyvault secret show</code>.
+                        </span>
+                    </div>
+
+                    <div class="bp-node" style="border-top: 3px solid var(--color-red);">
+                        <span class="bp-node-title" style="color: var(--color-red); font-size: 1.05rem;">4. PowerShell REST API or CAWI &rarr; Rule 29 Decoupling</span>
+                        <span class="bp-node-desc">
+                            Whenever you select <strong>PowerShell REST API</strong> in Column 5 (or add a Day-2 <strong>CAWI</strong> expansion), the engine triggers <strong>Rule 29 (The Data-Plane Decoupling Mandate)</strong>: it uses code to build the Entra ID objects, omits the automated role assignment block (which would fail with a <code>401 RequestDisallowedByAzure</code> MFA drop), and prints a step-by-step Portal runbook for you to bind the role cleanly.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
