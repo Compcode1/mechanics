@@ -14,6 +14,7 @@
             --border-base: #1e293b;
             --text-main: #f8fafc;
             --text-muted: #cbd5e1;
+            --color-grey: #64748b;
             --color-blue: #3b82f6;
             --color-cyan: #0ea5e9;
             --color-purple: #a855f7;
@@ -159,6 +160,7 @@
             <li><a href="page2.html" class="active">Page 2: Core Concepts</a></li>
             <li><a href="page3.html">Page 3: Plain Talk</a></li>
             <li><a href="page4.html">Page 4: Master Outline</a></li>
+            <li><a href="page5.html">Page 5: State Diagram</a></li>
         </ul>
     </nav>
 
@@ -168,7 +170,7 @@
         <div class="overview-box">
             <h2 class="overview-title">The Execution Triad</h2>
             <p class="intro-text">
-                Unconstrained AI is a massive operational liability. To safely deploy automated intelligence in mission-critical cloud environments, the architecture demands a separation of powers. We utilize the exact same risk-management philosophy used in modern military aerospace: separating the commander, the safety harness, and the targeting computer.
+                Unconstrained AI is an operational liability in enterprise security. To safely harness generative intelligence in mission-critical cloud environments, our architecture enforces a strict separation of powers—dividing authority across the <strong>Human Commander (The Architect)</strong>, the <strong>Deterministic Flight Envelope (The State Machine)</strong>, and the <strong>High-Speed Synthesis Engine (The AI Co-Pilot)</strong>.
             </p>
         </div>
 
@@ -181,16 +183,16 @@
                 <div class="study-card card-formal">
                     <h2 class="card-title accent-blue">Formal Definition</h2>
                     <p class="card-text">
-                        The security engineer acts as the strategic commander. The architect initiates the execution, defines the precise target coordinates, establishes the zero-trust constraints, and retains absolute authorization authority at hard validation gates to prevent logic drift.
+                        The human security engineer acts as the ultimate authority and risk owner. The Architect locks in the initial target coordinates, executes out-of-band cryptographic extractions in the local terminal, verifies live Azure telemetry, and holds absolute Human-in-the-Loop (HITL) sign-off at every state transition gate.
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: The Mission Commander</h2>
+                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: The Lead Surgeon / Flight Captain</h2>
                     <p class="card-text">
-                        Think of a modern fighter pilot. They do not manually calculate wind resistance or physically actuate the wing flaps during a dogfight—the computers do that. 
+                        Think of a modern fighter pilot or a lead surgeon operating a robotic surgical console. They do not manually calculate millions of aerodynamic micro-adjustments or hand-code the robotic arm's motor voltage—the computer handles that raw synthesis.
                         <br><br>
-                        As the Architect, your job is not to manually write hundreds of lines of Terraform syntax or memorize Graph API JSON structures. Your job is to set the mission parameters, push the button, and own the final risk-management decision. When the system finds a target or hits an error, it pauses and waits for your explicit command to proceed. The machine does the work; the human governs the risk.
+                        As the Architect, your value isn't typing boilerplate Terraform brackets from memory; it is <strong>owning the clinical judgment and architectural risk</strong>. You define the exact boundary coordinates, verify the cryptographic identity assertions in your own terminal, and inspect the live telemetry spike before authorizing the next phase. The AI generates the computational force; the human governs every state change.
                     </p>
                 </div>
             </div>
@@ -205,16 +207,16 @@
                 <div class="study-card card-formal">
                     <h2 class="card-title accent-cyan">Formal Definition</h2>
                     <p class="card-text">
-                        The Zero Trust Interactive State Machine acts as the immutable mediator. It systematically enforces the Entra ID zero-trust baseline, automatically records architectural friction into the Defect & Patch Ledger, and provides the rigid boundaries that constrain the AI.
+                        The Zero Trust Interactive State Machine (v9.0) acts as the immutable governance harness. Through 7 sequential phases, 32 strict execution rules, and a continuous Watchdog Daemon, it enforces the Entra ID zero-trust baseline, prevents context drift, and logs all runtime friction into the Defect & Patch Ledger (DPL).
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: Flight Envelope Protection</h2>
+                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: Fly-by-Wire Envelope Protection</h2>
                     <p class="card-text">
-                        This is the "fly-by-wire" safety system. In an advanced aircraft, if a pilot (or an autopilot) yanks the controls in a way that would rip the wings off the plane, the onboard computers will physically lock the stick and refuse the input.
+                        In a modern fly-by-wire jet, if a pilot or an autopilot attempts a sharp maneuver that exceeds structural G-limits and would rip the wings off the airframe, the flight control computer physically refuses the input.
                         <br><br>
-                        The State Machine does exactly this for your cloud environment. It doesn't care how "smart" the AI thinks it is. If the AI suggests a maneuver that violates zero-trust (like granting broad "Contributor" access) or attempts a destructive state overwrite, the State Machine mathematically overrides it. It is the un-bypassable safety harness that ensures the automation cannot destroy the enterprise.
+                        The State Machine is that exact structural limit for cloud automation. It does not care how persuasive or creative the LLM is. If the AI attempts to skip a validation step, output partial code, or grant broad <code>Contributor</code> access, the State Machine's hard-coded constraints and Watchdog Daemon block the action. It is the un-bypassable mechanical harness that keeps probabilistic AI locked inside enterprise compliance rules.
                     </p>
                 </div>
             </div>
@@ -229,16 +231,16 @@
                 <div class="study-card card-formal">
                     <h2 class="card-title accent-purple">Formal Definition</h2>
                     <p class="card-text">
-                        Safely tethered strictly to the state machine's deterministic directives, the artificial intelligence provides the execution horsepower. It rapidly synthesizes environment-agnostic payloads, dynamically resolves tangential friction, and generates complex, audit-ready configurations on command.
+                        Tethered strictly to the State Machine's deterministic directives, the AI Engine serves as the high-velocity compiler and diagnostic analyzer. It translates architectural coordinates into unified Terraform, Bicep, or Graph REST API payloads, parses complex error deltas during troubleshooting, and compiles audit-ready compliance ledgers.
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: The Targeting Computer</h2>
+                    <h2 class="card-title" style="color: var(--color-green);">Plain Talk Analogy: The High-Velocity Synthesis Engine</h2>
                     <p class="card-text">
-                        This is the advanced radar and targeting system. Cloud environments are incredibly messy—APIs change, undocumented schema bugs pop up, and local environments throw strange errors. 
+                        Cloud identity is notoriously unforgiving—Microsoft Graph API schemas have subtle quirks, GitHub OIDC requires exact node formatting, and Conditional Access policies need IPv4 CIDR chunking.
                         <br><br>
-                        Instead of a human burning hours searching through documentation to fix a broken script, the AI Engine processes those millions of variables in milliseconds. It provides the brute-force processing power to rapidly generate code, parse error logs, and find the firing solution. It is highly capable, but highly probabilistic—which is exactly why we never let it pull the trigger without the State Machine and the Architect signing off first.
+                        Instead of an engineer spending two days combing through provider documentation or debugging schema mismatches by hand, the AI Engine synthesizes the exact multi-hundred-line payload and terminal runbook in seconds. Left alone, an LLM is a liability because it guesses when it hits friction; tethered inside our State Machine, it becomes a precision power tool that accelerates delivery by 10x without sacrificing security.
                     </p>
                 </div>
             </div>
@@ -251,22 +253,22 @@
 
             <div class="card-grid">
                 <div class="study-card" style="border-left-color: var(--color-orange);">
-                    <h2 class="card-title accent-orange">Plain Talk Analogy: The Factory Assembly Line</h2>
+                    <h2 class="card-title accent-orange">Plain Talk Analogy: The Cleanroom Pharmaceutical Line</h2>
                     <p class="card-text">
-                        From a strict engineering perspective, this software architecture is a <strong>Finite State Machine</strong> governed by <strong>Control Theory</strong>. In plain talk, rather than writing a single script that runs from top to bottom and hopes for the best, we have built a heavily guarded factory assembly line to manufacture cloud security. 
+                        From a formal systems engineering perspective, this framework is a <strong>7-Phase Finite State Machine</strong> governed by closed-loop <strong>Control Theory</strong>. Instead of running a brittle script from top to bottom and hoping nothing breaks, we operate like a sterile, automated pharmaceutical manufacturing line with mandatory quarantine airlocks between every stage:
                     </p>
                     <ul class="flow-list">
                         <li>
-                            <span class="flow-title">The Plant Manager (The Architect) & The Robotic Arm (The AI)</span>
-                            The manager provides the blueprint and the robotic arm turns the wrenches. The arm can build the infrastructure configuration incredibly fast, but it is blind to business risk.
+                            <span class="flow-title">1. Airlock Intake & Cryptographic Extraction (Phases 1 & 2)</span>
+                            Nothing enters the cleanroom unverified. The Architect locks in the 5 core coordinates and runs native local CLI queries to extract immutable backend Node IDs directly from the source—ensuring the AI never guesses or hallucinates a target string.
                         </li>
                         <li>
-                            <span class="flow-title">The Conveyor Belt & Safety Interlocks (The State Machine)</span>
-                            The conveyor belt forces the process through rigid, sequential stations (IaC Generation, Core Identity, Capability Integration). At every station, there is a hard safety gate. If the robotic arm makes an error, a "circuit breaker" trips instantly. The belt stops, the error is isolated inside that specific station so it cannot destroy the whole factory, and it waits for the Plant Manager to override or fix it.
+                            <span class="flow-title">2. Atomic Synthesis & Live Telemetry Gate (Phases 3 & 4)</span>
+                            The AI synthesizes a unified infrastructure payload and validation pipeline. At the end of every phase, a hard <code>[STRICT HALT]</code> airlock drops. We do not assume the deployment worked just because the terminal returned green; we trigger a live OIDC handshake and verify the actual API hit spike inside Azure Monitor Metrics before the next door opens.
                         </li>
                         <li>
-                            <span class="flow-title">The Quality Assurance Scanners (The Ledgers)</span>
-                            Before the product ever leaves the factory floor, the line generates cryptographic receipts (The Identity Architecture Ledger and Audit Results Ledger). It mathematically proves the robotic arm built the asset exactly to spec, passing strict SOC 2 compliance standards every single time.
+                            <span class="flow-title">3. Cryptographic Proofs & Self-Hardening Feedback (Phases 5 – 7)</span>
+                            Before the session closes, the machine generates immutable compliance receipts—the <strong>Identity Architecture Ledger (IAL)</strong>, <strong>Audit Results Ledger (ARL)</strong>, and <strong>KQL Telemetry</strong> queries. Any runtime friction encountered along the way is logged in the <strong>Defect & Patch Ledger (DPL)</strong> and compiled directly back into the master System Directive, making the machine permanently smarter for the next run.
                         </li>
                     </ul>
                 </div>
@@ -282,39 +284,39 @@
                 <div class="study-card card-plain-talk">
                     <h2 class="card-title" style="color: var(--color-blue);">1. Control Theory & The Finite State Machine (FSM)</h2>
                     <p class="card-text" style="margin-bottom: 0.8rem;">
-                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> Constraining probabilistic AI inside a deterministic state controller.
+                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> Governing a probabilistic Large Language Model inside a deterministic, multi-phase state controller with continuous watchdog enforcement.
                     </p>
                     <p class="card-text">
-                        <strong style="color: var(--color-green);">The Plain Talk Analogy (The Train Tracks):</strong><br>
-                        "Think of a standard AI script like an off-road vehicle—it can go anywhere and figure out its own path. In an enterprise cloud, that is incredibly dangerous. <strong>Control Theory</strong> means I put the AI on a strict set of train tracks (the <strong>Finite State Machine</strong>). The AI still provides the massive engine horsepower to pull the freight and write the code, but the tracks physically dictate exactly where it can and cannot go. It mathematically cannot hallucinate a new path."
+                        <strong style="color: var(--color-green);">The Plain Talk Analogy (High-Speed Rail on Interlocked Tracks):</strong><br>
+                        "A standard AI chat is like an off-road vehicle—it has a massive engine, but it can veer off into a ditch (hallucinate) at any moment. Applying <strong>Control Theory</strong> via a <strong>Finite State Machine</strong> means putting that engine onto locked high-speed rail tracks with automated signaling blocks. The AI provides the raw horsepower to synthesize code, but it can only occupy one defined phase at a time, and our <strong>Watchdog Daemon</strong> checks every single response before it renders to ensure the train never leaves the tracks."
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
                     <h2 class="card-title" style="color: var(--color-blue);">2. Directed Acyclic Graph (DAG)</h2>
                     <p class="card-text" style="margin-bottom: 0.8rem;">
-                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> A strict, sequential execution matrix with no infinite loops or reverse states.
+                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> Synthesizing all cloud identity resources and Day-2 policies into a single, unified dependency graph with zero circular references or race conditions.
                     </p>
                     <p class="card-text">
-                        <strong style="color: var(--color-green);">The Plain Talk Analogy (The One-Way Valve):</strong><br>
-                        "A DAG is just a fancy mathematical term for a strict, one-way street. When the AI is building infrastructure, we don't want it getting confused, looping back on itself, or deploying things out of order. The DAG forces the AI's logic through a one-way plumbing valve. Box 1 must successfully lock before Box 2 can even open. It physically prevents the AI from falling into chaotic logic loops."
+                        <strong style="color: var(--color-green);">The Plain Talk Analogy (Anatomical Reconstruction: Bone → Tendon → Muscle):</strong><br>
+                        "In anatomy, you cannot attach a muscle before the bone is set and the tendon is anchored. In cloud infrastructure, a <strong>Directed Acyclic Graph (DAG)</strong> enforces that exact dependency order in a single unified deployment. Our engine maps the entire dependency chain—creating the App Registration (bone), instantiating the Service Principal (tendon), and even injecting a declarative 30-second <code>time_sleep</code> buffer so Microsoft Graph's global cache finishes propagating before we attach a Conditional Access policy (muscle). Everything builds in one atomic, one-way flow without circular crashes."
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-blue);">3. The Circuit Breaker (State Interrupts)</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">3. The 4-Iteration Circuit Breaker (Cybernetic Loop)</h2>
                     <p class="card-text" style="margin-bottom: 0.8rem;">
-                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> Automated friction trapping and Human-in-the-Loop (HITL) validation.
+                        <strong style="color: var(--text-muted);">The Formal Concept:</strong> Bounded diagnostic troubleshooting that halts autonomous code generation at Iteration 4 to prevent infinite AI hallucination loops.
                     </p>
                     <p class="card-text">
-                        <strong style="color: var(--color-green);">The Plain Talk Analogy (The Safety Interlock):</strong><br>
-                        "When a normal automation script hits an error, it either crashes the pipeline or the AI tries to blindly guess a fix. My framework acts as a safety interlock. If the AI hits an API error or attempts a maneuver that violates zero-trust, it trips the circuit breaker. It freezes the exact state of the environment, traps the error inside that specific box so it can't cascade, and waits for my explicit command to proceed. It turns an unpredictable AI hallucination into a controlled, frozen state."
+                        <strong style="color: var(--color-green);">The Plain Talk Analogy (The ICU Defibrillator Limit & Clinical Consult):</strong><br>
+                        "When unguided AI hits a cloud error, it falls into a 'doom loop'—guessing random code changes until it corrupts your workspace. Our framework enforces a strict <strong>4-Iteration Diagnostic Circuit Breaker</strong>. For Iterations 1 through 3, the AI drops all analogies and outputs targeted clinical patches based on terminal telemetry. If the issue persists to <strong>Iteration 4</strong>, the breaker trips: the AI is structurally forbidden from writing another line of code. Instead, it must summarize the error deltas across the last three attempts, calculate a mathematical <strong>Probability of Success (%)</strong>, propose an alternative architectural pathway, and hand the final risk decision back to the human Architect."
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- NEW SECTION: ENTERPRISE GUARDRAILS (PLAIN TALK TRANSLATIONS) -->
+        <!-- SECTION: ENTERPRISE GUARDRAILS (PLAIN TALK TRANSLATIONS) -->
         <div class="triad-section">
             <span class="header-tag accent-red">[THE DECOUPLED LOGIC ENGINE]</span>
             <h1 class="page-title">Enterprise Guardrails</h1>
@@ -322,44 +324,44 @@
             <div class="card-grid">
                 
                 <div class="study-card" style="border-left-color: var(--color-red); background: rgba(2, 6, 23, 0.8);">
-                    <h2 class="card-title accent-red">The Core Concept: Decoupled Logic</h2>
+                    <h2 class="card-title accent-red">The Core Concept: Spinal Reflexes & Decoupled Execution</h2>
                     <p class="card-text">
-                        In physiological terms, the brain can imagine doing something reckless, but the nervous system's survival reflexes will physically block the body from executing it. <strong>Decoupled logic</strong> works exactly the same way. We let the AI (the brain) use its massive processing power to brainstorm and generate complex code, but it is physically disconnected from the execution environment. The State Machine (the nervous system) intercepts the instructions and filters them through strict, un-bypassable survival rules before a single line of code touches the cloud.
+                        In human physiology, your conscious brain can decide to touch a hot stove, but your <strong>spinal reflex arc</strong> will override the brain and yank your hand back before tissue damage occurs. Our <strong>Enterprise Guardrails</strong> work the exact same way. Even if the AI brain attempts a risky shortcut—or if a local terminal drops a required Multi-Factor Authentication (MFA) claim—the State Machine's hard-coded spinal reflexes intercept the command, decouple the risky operation, and protect the cloud environment before a single resource is harmed.
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-blue);">1. Data Loss Prevention (Blind Charts)</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">1. Data Loss Prevention (De-Identified Charts & Silent IVs)</h2>
                     <p class="card-text">
-                        <strong>The Plain Talk:</strong> We treat the AI like a consulting specialist reviewing a blind medical chart. It gets all the technical symptoms it needs to write the prescription (the code), but we mathematically strip out the patient's real identity. The AI never sees your proprietary Tenant IDs, secret keys, or corporate repository names, so it physically cannot leak them.
+                        <strong>The Plain Talk:</strong> We protect sensitive corporate data at two levels. First, the framework is built to run inside a company's private, tenant-isolated AI boundary (like Azure OpenAI) while isolating code logic from proprietary deployment data. Second, whenever a sensitive token or credential must enter the local terminal, our runbooks ban plaintext commands and mandate Linux silent input (<code>read -s</code>)—like injecting medicine directly into a closed IV line so raw secrets never flash on the monitor or get saved in shell history.
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-blue);">2. Destructive State (The Hippocratic Oath)</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">2. Destructive State Prevention (The Hippocratic Oath)</h2>
                     <p class="card-text">
-                        <strong>The Plain Talk:</strong> "First, do no harm." AI is notoriously lazy—if a configuration isn't working, an unconstrained AI will often try to delete the entire resource and start over. We inject a hardcoded reflex (idempotency) that physically paralyzes the AI if it attempts to overwrite, drop, or destroy existing enterprise tissue. It can only heal or add.
+                        <strong>The Plain Talk:</strong> "First, do no harm." When a deployment fails, an unguided AI will casually suggest deleting and recreating the resource—which in production means wiping out a live database or breaking active workloads. Our State Machine enforces strict <strong>idempotency</strong>: for existing Brownfield environments, it forces read-only <code>data</code> lookups; for new Greenfield builds, it locks critical objects with <code>prevent_destroy = true</code> so the automation physically cannot amputate healthy enterprise infrastructure.
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-blue);">3. The Contributor Trap (Hospital Keys)</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">3. The Contributor Trap & MFA Decoupling (Surgical Scoping)</h2>
                     <p class="card-text">
-                        <strong>The Plain Talk:</strong> When an AI gets stuck on a permissions error, its favorite trick is to ask for "Global Administrator" or "Contributor" access so it can bypass the locks. That is like giving a visiting surgeon the master keys to the hospital's pharmacy, server room, and billing department. We lock the AI out of the control plane entirely and only give it the exact key to the single operating room it needs (Data-Plane scoping).
+                        <strong>The Plain Talk:</strong> When automation hits a permission error, lazy scripts ask for broad Control-Plane roles like <code>Contributor</code> or <code>Owner</code>—which is like handing a visiting specialist the master keys to demolish the hospital. We strictly ban Control-Plane roles and lock permissions to the exact Data-Plane asset (like <code>Key Vault Secrets User</code>). Furthermore, when local CLI credential brokers drop the strict MFA claims required by Azure to bind those roles, our engine automatically <strong>decouples the deployment</strong>—using code to build the Entra ID identity while staging a guided Azure Portal runbook so the human Architect can satisfy the MFA gate cleanly.
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-blue);">4. Supply Chain Injection (Sterile Instruments)</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">4. Supply Chain Injection (Lot-Numbered Sterile Instruments)</h2>
                     <p class="card-text">
-                        <strong>The Plain Talk:</strong> We don't let the AI reach into the internet and grab whatever random, untested software packages it wants. The machine is hardcoded to only accept specific, version-pinned "sterile instruments" straight from the verified manufacturer. If the AI hallucinates a fake tool, the state machine rejects it at the door.
+                        <strong>The Plain Talk:</strong> In an operating room, every scalpel and suture is sealed and tracked by an exact manufacturer lot number. Similarly, we never let our automation pull "latest" or unverified packages from the internet. Every Terraform provider, Bicep module, and GitHub Action is strictly pinned to a verified version number, slamming the door on upstream supply-chain poisoning.
                     </p>
                 </div>
 
                 <div class="study-card card-plain-talk">
-                    <h2 class="card-title" style="color: var(--color-blue);">5. Terminal Exposure (Surgical Draping)</h2>
+                    <h2 class="card-title" style="color: var(--color-blue);">5. Terminal Exposure (Surgical Draping & Memory Masking)</h2>
                     <p class="card-text">
-                        <strong>The Plain Talk:</strong> Just like a patient is draped during surgery so only the exact incision site is exposed, we drape the terminal output. The state machine actively intercepts the memory and places black boxes (`::add-mask::`) over any sensitive telemetry before it hits the monitor, ensuring no secrets bleed onto the screen where they could be logged or stolen.
+                        <strong>The Plain Talk:</strong> Just as a surgical team drapes a patient so only the exact incision site is visible, our pipelines enforce strict runtime masking (<code>::add-mask::</code>). The State Machine intercepts sensitive runtime outputs in memory and redacts them before they ever reach the CI/CD console log, ensuring an ephemeral token can never be scraped from build history.
                     </p>
                 </div>
 
